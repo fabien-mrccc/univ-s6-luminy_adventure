@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://bta6pksf4hgv0"]
+
+[ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://materials/luminy_map.jpg" id="1_pw63i"]
+[ext_resource type="Script" uid="uid://chn1nm5jjsidi" path="res://unit_testing/player.gd" id="2_7ykc4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
+size = Vector2(1625.45, 2643.3)
+
+[sub_resource type="Skin" id="Skin_gyfs4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5x1h"]
+albedo_texture = ExtResource("1_pw63i")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mm7a"]
+size = Vector3(1625.45, 2643.3, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0f027"]
+height = 1.75
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6l7je"]
+points = PackedVector3Array(-0.246339, -0.44075, -0.427895, 0.0654327, 0.471577, 0.484813, -0.0654408, 0.471578, 0.484815, 0.0396503, 0.76778, -0.304509, 0.458688, -0.550393, 0.0917177, -0.429692, -0.494625, 0.2213, -0.458691, 0.550387, -0.0917167, 0.427916, 0.440764, -0.246318, 0.0918807, -0.683076, 0.38099, 0.143859, -0.627982, -0.405693, 0.401026, 0.491408, 0.271593, -0.0654405, 0.471576, -0.484812, -0.119992, -0.853826, -0.0666921, 0.066633, 0.853822, 0.120045, -0.405391, 0.522961, 0.248491, -0.458595, -0.471639, -0.170295, 0.117078, -0.416413, 0.48176, -0.246343, -0.440757, 0.427902, 0.322512, -0.438579, -0.374189, -0.374166, 0.438641, -0.322541, 0.251672, -0.795019, -0.0927486, 0.458688, 0.550393, -0.0917177, 0.194563, 0.440932, -0.45401, 0.322517, -0.438586, 0.374194, -0.251767, 0.794985, 0.0927446, 0.0654327, -0.471577, -0.484813, 0.481734, -0.416551, -0.117132, -0.276609, -0.764282, 0.144926, -0.225088, 0.741417, -0.251627, -0.249056, -0.707753, -0.275239, -0.481737, 0.416465, 0.117154, 0.481747, 0.416399, 0.117135)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2c62f"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_gyfs4"]
+sky_material = SubResource("ProceduralSkyMaterial_2c62f")
+
+[sub_resource type="Environment" id="Environment_d5x1h"]
+background_mode = 2
+sky = SubResource("Sky_gyfs4")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_2c62f")
+skin = SubResource("Skin_gyfs4")
+surface_material_override/0 = SubResource("StandardMaterial3D_d5x1h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_8mm7a")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -330.871, 1.04904e-05, 222.981)
+script = ExtResource("2_7ykc4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88, 0)
+mesh = SubResource("CapsuleMesh_0f027")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88, 0)
+shape = SubResource("ConvexPolygonShape3D_6l7je")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+
+[node name="WorldSettings" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldSettings"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldSettings"]
+environment = SubResource("Environment_d5x1h")

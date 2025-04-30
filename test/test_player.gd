@@ -1,0 +1,122 @@
+extends GutTest
+
+var player_scene = preload("res://scenes/player_scene.tscn") 
+var player_node
+
+
+func before_each():
+	var instance = player_scene.instantiate()
+	add_child(instance)
+	await get_tree().process_frame
+
+	player_node = instance.get_node("Player")
+
+
+func after_each():
+	player_node.queue_free()
+
+
+func test_move_forward():
+	Input.action_press("move_forward")
+	await get_tree().process_frame
+
+	var initial_position = player_node.global_position
+
+	for i in range(20): 
+		player_node.simulate_physics(0.1)
+		await get_tree().process_frame
+
+	var new_position = player_node.global_position
+
+	assert_lt(new_position.z, initial_position.z, "The player should go forward")
+
+	Input.action_release("move_forward")
+
+
+func test_move_back():
+	Input.action_press("move_back")
+	await get_tree().process_frame
+
+	var initial_position = player_node.global_position
+
+	for i in range(20): 
+		player_node.simulate_physics(0.1)
+		await get_tree().process_frame
+
+	var new_position = player_node.global_position
+
+	assert_gt(new_position.z, initial_position.z, "The player should go backward")
+
+	Input.action_release("move_back")
+
+
+func test_move_left():
+	Input.action_press("move_left")
+	await get_tree().process_frame
+
+	var initial_position = player_node.global_position
+
+	for i in range(20): 
+		player_node.simulate_physics(0.1)
+		await get_tree().process_frame
+
+	var new_position = player_node.global_position
+
+	assert_lt(new_position.x, initial_position.x, "The player should go left")
+
+	Input.action_release("move_left")
+
+
+func test_move_right():
+	Input.action_press("move_right")
+	await get_tree().process_frame
+
+	var initial_position = player_node.global_position
+
+	for i in range(20): 
+		player_node.simulate_physics(0.1)
+		await get_tree().process_frame
+
+	var new_position = player_node.global_position
+
+	assert_gt(new_position.x, initial_position.x, "The player should go right")
+
+	Input.action_release("move_right")
+
+
+func test_sprint():
+	Input.action_press("move_forward")
+	Input.action_press("sprint")
+	await get_tree().process_frame
+
+	var initial_speed = player_node.velocity.length()
+	var new_speed = player_node.velocity.length()
+
+	for i in range(30): 
+		player_node.simulate_physics(0.1)
+		await get_tree().process_frame
+		var current_speed = player_node.velocity.length()
+		new_speed = current_speed if new_speed < current_speed else new_speed
+
+	assert_gt(new_speed, initial_speed, "The player should sprint")
+
+	Input.action_release("sprint")
+	Input.action_release("move_forward")
+	
+
+func test_jump():
+	var min_position_y = player_node.global_position.y
+	var max_position_y = min_position_y
+
+	Input.action_press("jump")
+	await get_tree().process_frame
+
+	for i in range(100):
+		player_node.simulate_physics(1 / 60.0)
+		await get_tree().process_frame
+		var current_position_y = player_node.global_position.y
+		max_position_y = max(max_position_y, current_position_y)
+
+	assert_gt(max_position_y, min_position_y, "The player should jump")
+
+	Input.action_release("jump")
