@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bta6pksf4hgv0"]
 
-[ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://materials/luminy_map.jpg" id="1_pw63i"]
+[ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
 [ext_resource type="Script" uid="uid://chn1nm5jjsidi" path="res://unit_testing/player.gd" id="2_7ykc4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]

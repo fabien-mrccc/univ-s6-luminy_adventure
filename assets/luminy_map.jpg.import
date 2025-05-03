@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgdhwb2pjd51g"
-path.s3tc="res://.godot/imported/luminy_map.jpg-cf35be1d88aecd272c87ec21495b4580.s3tc.ctex"
+path.s3tc="res://.godot/imported/luminy_map.jpg-7ba428ea59e8c2cb89ac16d53fcca8a0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/luminy_map.jpg"
-dest_files=["res://.godot/imported/luminy_map.jpg-cf35be1d88aecd272c87ec21495b4580.s3tc.ctex"]
+source_file="res://assets/luminy_map.jpg"
+dest_files=["res://.godot/imported/luminy_map.jpg-7ba428ea59e8c2cb89ac16d53fcca8a0.s3tc.ctex"]
 
 [params]
 
