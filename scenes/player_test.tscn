@@ -1,18 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bta6pksf4hgv0"]
+[gd_scene load_steps=8 format=3 uid="uid://8ajg5wkon1xh"]
 
-[ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
-[ext_resource type="PackedScene" uid="uid://ckke57a6wns6f" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://ckke57a6wns6f" path="res://scenes/player.tscn" id="1_a8v3n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
-size = Vector2(1625.45, 2643.3)
+size = Vector2(100, 100)
 
 [sub_resource type="Skin" id="Skin_gyfs4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5x1h"]
-albedo_texture = ExtResource("1_pw63i")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mm7a"]
-size = Vector3(1625.45, 2643.3, 1)
+size = Vector3(100, 100, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2c62f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -27,13 +23,12 @@ sky = SubResource("Sky_gyfs4")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Game" type="Node3D"]
+[node name="PlayerTest" type="Node3D"]
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_2c62f")
 skin = SubResource("Skin_gyfs4")
-surface_material_override/0 = SubResource("StandardMaterial3D_d5x1h")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
@@ -49,4 +44,4 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="WorldSettings"]
 environment = SubResource("Environment_d5x1h")
 
-[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="." instance=ExtResource("1_a8v3n")]
