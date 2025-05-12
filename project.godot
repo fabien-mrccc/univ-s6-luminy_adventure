@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Luminy Adventure"
-run/main_scene="uid://8ajg5wkon1xh"
+run/main_scene="uid://681jlews7h3x"
 config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+Rainsound="*res://scenes/reverse/rainsound.tscn"
+
+[display]
+
+window/size/viewport_width=2360
+window/size/viewport_height=1640
 
 [editor_plugins]
 
