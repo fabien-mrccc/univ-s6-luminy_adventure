@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckke57a6wns6f"]
+[gd_scene load_steps=11 format=3 uid="uid://ckke57a6wns6f"]
 
 [ext_resource type="Shader" uid="uid://7mgo8br5yida" path="res://shaders/outline.gdshader" id="2_g2els"]
 [ext_resource type="Script" uid="uid://chn1nm5jjsidi" path="res://scripts/player.gd" id="2_rbmgg"]
 [ext_resource type="Shader" uid="uid://beoyblfu783it" path="res://shaders/crosshair.gdshader" id="3_qhqgy"]
+[ext_resource type="Shader" uid="uid://cgwkv4jqkb8dm" path="res://shaders/motion_lines.gdshader" id="4_dqkch"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0f027"]
 height = 1.75
@@ -17,7 +18,7 @@ size = Vector2(2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkch"]
 render_priority = 0
 shader = ExtResource("2_g2els")
-shader_parameter/outlineColor = Color(0, 0, 0, 0.78)
+shader_parameter/outline_color = Color(0, 0, 0, 0.78)
 shader_parameter/depth_threshold = 0.025
 shader_parameter/normal_threshold = 0.5
 shader_parameter/normal_smoothing = 0.25
@@ -36,6 +37,12 @@ shader_parameter/border_color = Color(0, 0, 0, 1)
 shader_parameter/radius = 0.1
 shader_parameter/border_thickness = 0.1
 shader_parameter/opacity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
+shader = ExtResource("4_dqkch")
+shader_parameter/sprint_active = 0
+shader_parameter/speed_scale = 16.0
+shader_parameter/clip_position = 0.2
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("2_rbmgg")
@@ -77,3 +84,12 @@ offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MotionLinesCanvas" type="CanvasLayer" parent="."]
+
+[node name="MotionLines" type="ColorRect" parent="MotionLinesCanvas"]
+material = SubResource("ShaderMaterial_tuyoq")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+color = Color(1, 1, 1, 0)

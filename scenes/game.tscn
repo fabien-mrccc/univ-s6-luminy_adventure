@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bta6pksf4hgv0"]
+[gd_scene load_steps=11 format=3 uid="uid://bta6pksf4hgv0"]
 
 [ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://ckke57a6wns6f" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://byifla4six5oc" path="res://assets/models/Car.glb" id="3_lnu2h"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
 size = Vector2(1625.45, 2643.3)
@@ -50,3 +51,6 @@ shadow_enabled = true
 environment = SubResource("Environment_d5x1h")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+
+[node name="Car2" parent="." instance=ExtResource("3_lnu2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432629, 1.21099, 9.04332)

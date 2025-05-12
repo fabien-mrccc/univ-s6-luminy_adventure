@@ -34,8 +34,13 @@ var _speed: float
 ## Time accumulator used for headbob effect.
 var _t_bob: float = 0.0
 
+## Flag to activate motion lines shader
+var is_sprinting = false
+
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var shader_material : ShaderMaterial = $MotionLinesCanvas/MotionLines.material
+
 
 ## Called when the node enters the scene tree.
 ## Captures the mouse and initializes the camera FOV.
@@ -68,12 +73,21 @@ func _apply_gravity(delta: float) -> void:
 	elif Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 
-## Updates horizontal movement input.
+## Updates horizontal movement input and effects.
 ## @param delta: float - Frame time.
 func _handle_movement_input(delta: float) -> void:
-	_speed = SPRINT_SPEED if Input.is_action_pressed("sprint") else WALK_SPEED
+	is_sprinting = Input.is_action_pressed("sprint")
 
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var is_moving = input_dir.length() > 0  # Check if there is any movement input
+
+	if is_sprinting and is_moving:
+		_speed = SPRINT_SPEED
+		shader_material.set_shader_parameter("sprint_active", 1)
+	else:
+		_speed = WALK_SPEED
+		shader_material.set_shader_parameter("sprint_active", 0)
+
 	var direction: Vector3 = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if is_on_floor():
