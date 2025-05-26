@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1luc4urxfujp"]
+
+[ext_resource type="PackedScene" uid="uid://bwb75mcmfbvxy" path="res://assets/models/characters/Character_020.glb" id="1_n6h20"]
+
+[sub_resource type="GDScript" id="GDScript_jym21"]
+script/source = "extends Node
+
+@onready var head_mesh: MeshInstance3D = $Armature/Skeleton3D/Head
+
+func set_head_visible(is_visible: bool) -> void:
+	head_mesh.visible = is_visible
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rq28"]
+
+[node name="Character_020" instance=ExtResource("1_n6h20")]
+script = SubResource("GDScript_jym21")
+
+[node name="Head" parent="Armature/Skeleton3D" index="1"]
+material_override = SubResource("ShaderMaterial_0rq28")
+cast_shadow = 3
