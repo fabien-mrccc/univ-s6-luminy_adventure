@@ -1,7 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://bta6pksf4hgv0"]
+[gd_scene load_steps=26 format=3 uid="uid://bta6pksf4hgv0"]
 
 [ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://ckke57a6wns6f" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://x6lyd7byk5tm" path="res://scenes/cars/car_010.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cdt0uf3qefsu3" path="res://scenes/cars/car_020.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://d03qv5cwal4dy" path="res://scenes/cars/car_021.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cawrm0dndrih1" path="res://scenes/cars/car_022.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://l7nxontiium5" path="res://scenes/cars/car_023.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bmvvbg3c0ubic" path="res://scenes/cars/car_024.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dpwenxxaagqw3" path="res://scenes/cars/car_011.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bwqofjn7a50xw" path="res://scenes/cars/car_012.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dk8q4sgpbqipv" path="res://scenes/cars/car_013.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://g5nguyth8in6" path="res://scenes/cars/car_014.tscn" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://ddk3ewcr0upru" path="res://scenes/cars/car_015.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://7d3orcpxhqjw" path="res://scenes/cars/car_016.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://by1vb7ksb1o0t" path="res://scenes/cars/car_017.tscn" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://7ipuce5lvj34" path="res://scenes/cars/car_018.tscn" id="16_ca42v"]
+[ext_resource type="PackedScene" uid="uid://bape41kas2bpg" path="res://scenes/cars/car_019.tscn" id="17_rysoc"]
+[ext_resource type="PackedScene" uid="uid://brrckps10onv4" path="res://scenes/characters/character_001.tscn" id="18_ssvqc"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
 size = Vector2(1625.45, 2643.3)
@@ -50,4 +66,55 @@ shadow_enabled = true
 environment = SubResource("Environment_d5x1h")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.13935, 0, 3.57181)
+
+[node name="Cars" type="Node3D" parent="."]
+
+[node name="Car_010" parent="Cars" instance=ExtResource("3_lnu2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="Car_020" parent="Cars" instance=ExtResource("4_lbhrr")]
+transform = Transform3D(0.886753, 0, -0.462244, 0, 1, 0, 0.462244, 0, 0.886753, -5.28444, 0, 4.09128)
+
+[node name="Car_021" parent="Cars" instance=ExtResource("5_iywne")]
+transform = Transform3D(1, 0, 0, 0, 0.999121, 0.041928, 0, -0.041928, 0.999121, -8.73813, 0, 3.26205)
+
+[node name="Car_022" parent="Cars" instance=ExtResource("6_p57ef")]
+transform = Transform3D(0.729864, 0, 0.683592, 0, 1, 0, -0.683592, 0, 0.729864, -7.46781, 0, 8.30276)
+
+[node name="Car_023" parent="Cars" instance=ExtResource("7_u5sy4")]
+transform = Transform3D(-0.959427, 0, -0.281956, 0, 1, 0, 0.281956, 0, -0.959427, -11.6229, 0, 6.77046)
+
+[node name="Car_024" parent="Cars" instance=ExtResource("8_gee14")]
+transform = Transform3D(0.0574421, 0, -0.998349, 0, 1, 0, 0.998349, 0, 0.0574421, -14.5366, 0, 2.68809)
+
+[node name="Car_011" parent="Cars" instance=ExtResource("9_0tnpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 5)
+
+[node name="Car_012" parent="Cars" instance=ExtResource("10_vtaks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 5)
+
+[node name="Car_013" parent="Cars" instance=ExtResource("11_kvpfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 5)
+
+[node name="Car_014" parent="Cars" instance=ExtResource("12_dinhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 5)
+
+[node name="Car_015" parent="Cars" instance=ExtResource("13_kvuet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 10)
+
+[node name="Car_016" parent="Cars" instance=ExtResource("14_trtic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 10)
+
+[node name="Car_017" parent="Cars" instance=ExtResource("15_ir15t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 10)
+
+[node name="Car_018" parent="Cars" instance=ExtResource("16_ca42v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 10)
+
+[node name="Car_019" parent="Cars" instance=ExtResource("17_rysoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 10)
+
+[node name="Characters" type="Node3D" parent="."]
+
+[node name="Character_001" parent="Characters" instance=ExtResource("18_ssvqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.9478)
