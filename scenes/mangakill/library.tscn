@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bglkn0r11px78"]
+
+[ext_resource type="Script" uid="uid://cqymhbdiijd0v" path="res://scripts/mangakill/library.gd" id="1_uxpb3"]
+[ext_resource type="Texture2D" uid="uid://bqejf43qhtyle" path="res://assets/mangakill/firstBG.png" id="2_mnr65"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://ui/dialogue.tscn" id="2_uxpb3"]
+[ext_resource type="PackedScene" uid="uid://ctwd73o0h4sv4" path="res://scenes/mangakill/rain.tscn" id="3_s8weo"]
+
+[node name="Library" type="Node2D"]
+script = ExtResource("1_uxpb3")
+
+[node name="ImageLibraryIci" type="Sprite2D" parent="."]
+texture = ExtResource("2_mnr65")
+
+[node name="rain" parent="." instance=ExtResource("3_s8weo")]
+
+[node name="Dialogue" parent="." instance=ExtResource("2_uxpb3")]
+offset_left = -294.0
+offset_top = 522.0
+offset_right = -294.0
+offset_bottom = 522.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

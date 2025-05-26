@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://34irou564b4i"]
+
+[ext_resource type="Script" uid="uid://b1w2vycyrt4qk" path="res://scripts/mangakill/livingroom.gd" id="1_cyfin"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://ui/dialogue.tscn" id="2_cyfin"]
+[ext_resource type="Texture2D" uid="uid://bqejf43qhtyle" path="res://assets/mangakill/firstBG.png" id="2_qtufy"]
+[ext_resource type="PackedScene" uid="uid://ctwd73o0h4sv4" path="res://scenes/mangakill/rain.tscn" id="3_aixds"]
+
+[node name="LivingRoom" type="Node2D"]
+script = ExtResource("1_cyfin")
+
+[node name="ImageLivingRoomIci" type="Sprite2D" parent="."]
+texture = ExtResource("2_qtufy")
+
+[node name="rain" parent="." instance=ExtResource("3_aixds")]
+
+[node name="Dialogue" parent="." instance=ExtResource("2_cyfin")]
+offset_left = -294.0
+offset_top = 520.0
+offset_right = -294.0
+offset_bottom = 520.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

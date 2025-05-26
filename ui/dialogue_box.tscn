@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcgmmmt53tmko"]
+[gd_scene load_steps=3 format=3 uid="uid://77ovwqphkgok"]
 
-[ext_resource type="Script" uid="uid://c0itdpjfhbx65" path="res://scripts/reverse/dialogue_box.gd" id="1_bode0"]
+[ext_resource type="Script" uid="uid://c0itdpjfhbx65" path="res://scripts/mangakill/dialogue_box.gd" id="1_bode0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bode0"]
 bg_color = Color(0, 0, 0, 0.796078)

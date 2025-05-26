@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1slg86ay645d"]
+
+[ext_resource type="Script" uid="uid://ww4olwa57rk2" path="res://scripts/mangakill/bedroom.gd" id="1_arvjm"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://ui/dialogue.tscn" id="2_elacj"]
+[ext_resource type="Texture2D" uid="uid://dfsgv86ljv0id" path="res://assets/mangakill/bedroom.png" id="2_hu6xd"]
+
+[node name="Bedroom" type="Node2D"]
+script = ExtResource("1_arvjm")
+
+[node name="Imagechambreici" type="Sprite2D" parent="."]
+texture = ExtResource("2_hu6xd")
+
+[node name="Dialogue" parent="." instance=ExtResource("2_elacj")]
+offset_left = -296.0
+offset_top = 526.0
+offset_right = -296.0
+offset_bottom = 526.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

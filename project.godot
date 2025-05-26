@@ -16,7 +16,8 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
-Rainsound="*res://scenes/reverse/rainsound.tscn"
+Rainsound="*res://scenes/mangakill/rainsound.tscn"
+Clues="*res://ui/canvas_layer.tscn"
 
 [display]
 
