@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckke57a6wns6f"]
+
+[ext_resource type="Shader" uid="uid://7mgo8br5yida" path="res://shaders/outline.gdshader" id="2_g2els"]
+[ext_resource type="Script" uid="uid://chn1nm5jjsidi" path="res://scripts/player.gd" id="2_rbmgg"]
+[ext_resource type="PackedScene" uid="uid://eb7dl2bgexmo" path="res://scenes/characters/character_020.tscn" id="3_dqkch"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qhqgy"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkch"]
+render_priority = 0
+shader = ExtResource("2_g2els")
+shader_parameter/outline_color = Color(0, 0, 0, 0.78)
+shader_parameter/depth_threshold = 0.025
+shader_parameter/normal_threshold = 0.5
+shader_parameter/normal_smoothing = 0.25
+shader_parameter/max_thickness = 1.3
+shader_parameter/min_thickness = 0.5
+shader_parameter/max_distance = 75.0
+shader_parameter/min_distance = 2.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0
+
+[node name="Player" type="Node3D"]
+script = ExtResource("2_rbmgg")
+
+[node name="OutlineShader" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00583, -1.30034)
+extra_cull_margin = 1000.0
+mesh = SubResource("QuadMesh_qhqgy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_dqkch")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52963, -0.256405)
+keep_aspect = 0
+current = true
+fov = 62.6903
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="Character_020" parent="Head" instance=ExtResource("3_dqkch")]

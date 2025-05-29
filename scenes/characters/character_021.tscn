@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxxuggtytping"]
+[gd_scene load_steps=8 format=3 uid="uid://ctm6p266doxml"]
 
-[ext_resource type="PackedScene" uid="uid://ct7ljun6t6fdm" path="res://assets/models/characters/Character_020.glb" id="1_n6h20"]
+[ext_resource type="PackedScene" uid="uid://ct7ljun6t6fdm" path="res://assets/models/characters/Character_020.glb" id="1_u1x7q"]
 
-[node name="Character_020" instance=ExtResource("1_n6h20")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u877n"]
+albedo_color = Color(0.745098, 0.635294, 0.470588, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nofa2"]
+albedo_color = Color(0.307968, 0.154341, 0.269708, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4eom"]
+albedo_color = Color(0.411765, 0.352941, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqcq5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1x7q"]
+albedo_color = Color(0.745172, 0.634719, 0.471839, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d72gj"]
+albedo_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[node name="Character_021" instance=ExtResource("1_u1x7q")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-1.23006e-10, 0.65349, 0.0228143)
@@ -25,8 +42,15 @@ bones/17/rotation = Quaternion(0.755603, 0.00205011, 0.00245997, 0.655022)
 bones/19/rotation = Quaternion(0.0616284, 0.704416, 0.704416, -0.0616284)
 bones/21/rotation = Quaternion(-0.0308436, 0.706434, 0.706434, 0.0308436)
 
+[node name="Body" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_u877n")
+surface_material_override/1 = SubResource("StandardMaterial3D_nofa2")
+surface_material_override/2 = SubResource("StandardMaterial3D_n4eom")
+surface_material_override/3 = SubResource("StandardMaterial3D_rqcq5")
+
 [node name="Head" parent="Armature/Skeleton3D" index="1"]
-cast_shadow = 3
+surface_material_override/0 = SubResource("StandardMaterial3D_u1x7q")
+surface_material_override/1 = SubResource("StandardMaterial3D_d72gj")
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Idle"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://7mgo8br5yida" path="res://shaders/outline.gdshader" id="2_g2els"]
 [ext_resource type="Script" uid="uid://cf0465y103226" path="res://scripts/player.gd" id="2_rbmgg"]
-[ext_resource type="PackedScene" uid="uid://cxxuggtytping" path="res://scenes/characters/character_020.tscn" id="3_dqkch"]
+[ext_resource type="PackedScene" uid="uid://dgyiy5rf5vgsi" path="res://scenes/characters/character_020.tscn" id="3_dqkch"]
 [ext_resource type="Shader" uid="uid://beoyblfu783it" path="res://shaders/crosshair.gdshader" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlg0r"]
@@ -52,13 +52,13 @@ surface_material_override/0 = SubResource("ShaderMaterial_dqkch")
 
 [node name="Head" type="Node3D" parent="."]
 
+[node name="Character_020" parent="Head" instance=ExtResource("3_dqkch")]
+
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49958, -0.208789)
 keep_aspect = 0
 current = true
 fov = 62.6903
-
-[node name="Character_020" parent="Head" instance=ExtResource("3_dqkch")]
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="."]
 
