@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bta6pksf4hgv0"]
+[gd_scene load_steps=52 format=3 uid="uid://bta6pksf4hgv0"]
 
 [ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_yqjtg"]
@@ -31,10 +31,16 @@
 [ext_resource type="PackedScene" uid="uid://dg6hd3adp6vop" path="res://scenes/furniture/closet_000.tscn" id="29_dg67p"]
 [ext_resource type="PackedScene" uid="uid://btl4jhghet5g2" path="res://scenes/furniture/desk_001.tscn" id="30_04bex"]
 [ext_resource type="PackedScene" uid="uid://dh2mrbw51cg6c" path="res://scenes/furniture/door_001.tscn" id="31_18vu0"]
+[ext_resource type="PackedScene" uid="uid://bfqk2214mem0n" path="res://scenes/furniture/monitor_000.tscn" id="31_nbj7l"]
+[ext_resource type="PackedScene" uid="uid://ydfhby78slqf" path="res://scenes/furniture/closet_001.tscn" id="31_rtn4a"]
 [ext_resource type="PackedScene" uid="uid://beb8twk83ch6m" path="res://scenes/furniture/light_000.tscn" id="32_18vu0"]
+[ext_resource type="PackedScene" uid="uid://c01qwvkkrop2r" path="res://assets/models/furniture/Keyboard_000.glb" id="32_tmadj"]
 [ext_resource type="PackedScene" uid="uid://eq0xaxu5fcks" path="res://scenes/characters/character_031.tscn" id="33_hj0bg"]
 [ext_resource type="PackedScene" uid="uid://bt31wcyhjoo6s" path="res://scenes/furniture/door_002.tscn" id="33_ijaeb"]
 [ext_resource type="PackedScene" uid="uid://qmlc3ilo672n" path="res://scenes/furniture/door_003.tscn" id="35_ssbcb"]
+[ext_resource type="PackedScene" uid="uid://bv4qjiuc86iic" path="res://scenes/furniture/mouse_000.tscn" id="37_keb61"]
+[ext_resource type="PackedScene" uid="uid://b1kfpa480gk2m" path="res://scenes/furniture/folder_000.tscn" id="38_n3amx"]
+[ext_resource type="PackedScene" uid="uid://ch4x1hoxjh8qb" path="res://scenes/furniture/folder_001.tscn" id="39_dgtg0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
 size = Vector2(1625.45, 2643.3)
@@ -93,7 +99,7 @@ shadow_enabled = true
 environment = SubResource("Environment_d5x1h")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.49709, 0, -2.41067)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11169, 0, -2.41067)
 
 [node name="Cars" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.43978)
@@ -392,10 +398,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32699, 0.857872, -0.787579
 [node name="Closets" type="Node" parent="CampusControl/Furniture"]
 
 [node name="Closet_000" parent="CampusControl/Furniture/Closets" instance=ExtResource("29_dg67p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10737, 0.000854058, -0.885141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10737, 0.000854058, -1.09565)
 
-[node name="Closet_001" parent="CampusControl/Furniture/Closets" instance=ExtResource("29_dg67p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95182, 0.000854058, -0.885141)
+[node name="Closet_002" parent="CampusControl/Furniture/Closets" instance=ExtResource("31_rtn4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95182, 0.000854058, -1.10895)
 
 [node name="Tables" type="Node" parent="CampusControl/Furniture"]
 
@@ -553,6 +559,24 @@ transform = Transform3D(3.16851, 0, 0, 0, -7.62025e-10, 3.28595, 0, -0.0174331, 
 mesh = SubResource("BoxMesh_hj0bg")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture")
 surface_material_override/0 = SubResource("StandardMaterial3D_ijaeb")
+
+[node name="Monitor_000" parent="CampusControl/Furniture" instance=ExtResource("31_nbj7l")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 9.65813, 0.70399, 4.8328)
+
+[node name="Keyboard_000" parent="CampusControl/Furniture" instance=ExtResource("32_tmadj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.22918, 0.690105, 5.0171)
+
+[node name="Mouse_000" parent="CampusControl/Furniture" instance=ExtResource("37_keb61")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.53804, 0.690105, 5.0171)
+
+[node name="Folder_000" parent="CampusControl/Furniture" instance=ExtResource("38_n3amx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64678, 0.691113, 4.89377)
+
+[node name="Folder_002" parent="CampusControl/Furniture" instance=ExtResource("38_n3amx")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 4.46345, 0.625654, 8.00264)
+
+[node name="Folder_001" parent="CampusControl/Furniture" instance=ExtResource("39_dgtg0")]
+transform = Transform3D(-0.855596, -0.154728, -0.493979, -0.133998, 0.987957, -0.0773638, 0.5, 2.66169e-09, -0.866025, 8.41508, 0.722761, 4.90108)
 
 [node name="Characters" type="Node3D" parent="CampusControl"]
 
