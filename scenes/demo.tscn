@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bta6pksf4hgv0"]
+[gd_scene load_steps=59 format=3 uid="uid://bta6pksf4hgv0"]
 
 [ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_yqjtg"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://cnvclhknul11p" path="res://scenes/furniture/phone_000.tscn" id="43_1mbge"]
 [ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="44_itma0"]
 [ext_resource type="PackedScene" uid="uid://s1iqbgoseq0o" path="res://scenes/furniture/can_dispenser_000.tscn" id="45_0wqbi"]
+[ext_resource type="PackedScene" uid="uid://d08o20o2la8q8" path="res://scenes/furniture/bin_000.tscn" id="46_3obfh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
 size = Vector2(1625.45, 2643.3)
@@ -541,6 +542,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.6049
 
 [node name="PenBox_000" parent="CampusControl/Furniture" instance=ExtResource("44_itma0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.50959, 0.690697, 4.91287)
+
+[node name="Bin_000" parent="CampusControl/Furniture" instance=ExtResource("46_3obfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48252, 0.0107188, 4.85306)
+
+[node name="Bin_001" parent="CampusControl/Furniture" instance=ExtResource("46_3obfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149261, 0.0107188, 3.75313)
 
 [node name="CanDispenser_000" parent="CampusControl/Furniture" instance=ExtResource("45_0wqbi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.154, -2.84752e-07, -1.35024)
