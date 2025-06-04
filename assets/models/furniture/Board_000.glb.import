@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bfktm7tfkhojf"
-path="res://.godot/imported/Board_000.glb-b1cd1565ebe2b8dab540e42c60ec4a3f.scn"
+path="res://.godot/imported/Board_000.glb-b1160d1368832201a58783bee5eba840.scn"
 
 [deps]
 
-source_file="res://assets/models/qui_veut_reussir_son_annee/Board_000.glb"
-dest_files=["res://.godot/imported/Board_000.glb-b1cd1565ebe2b8dab540e42c60ec4a3f.scn"]
+source_file="res://assets/models/furniture/Board_000.glb"
+dest_files=["res://.godot/imported/Board_000.glb-b1160d1368832201a58783bee5eba840.scn"]
 
 [params]
 

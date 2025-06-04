@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://gdr0xxrx3e7a"
-path="res://.godot/imported/Buzzer_000.glb-478cc386585f1ecbdbe7d514ab6ace91.scn"
+path="res://.godot/imported/Buzzer_000.glb-d5a52dcbeeeb00c336413f4c61d5cad8.scn"
 
 [deps]
 
-source_file="res://assets/models/qui_veut_reussir_son_annee/Buzzer_000.glb"
-dest_files=["res://.godot/imported/Buzzer_000.glb-478cc386585f1ecbdbe7d514ab6ace91.scn"]
+source_file="res://assets/models/furniture/Buzzer_000.glb"
+dest_files=["res://.godot/imported/Buzzer_000.glb-d5a52dcbeeeb00c336413f4c61d5cad8.scn"]
 
 [params]
 

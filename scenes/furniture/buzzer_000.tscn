@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://u57vs7ed57nq"]
 
-[ext_resource type="PackedScene" uid="uid://gdr0xxrx3e7a" path="res://assets/models/qui_veut_reussir_son_annee/Buzzer_000.glb" id="1_vhot2"]
+[ext_resource type="PackedScene" uid="uid://gdr0xxrx3e7a" path="res://assets/models/furniture/Buzzer_000.glb" id="1_vhot2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhot2"]
 albedo_color = Color(0.0705562, 0.229514, 0.631516, 1)

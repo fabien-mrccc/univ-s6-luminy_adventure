@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://7qey2fdsptl0"]
-
-[ext_resource type="PackedScene" uid="uid://bfktm7tfkhojf" path="res://assets/models/qui_veut_reussir_son_annee/Board_000.glb" id="1_s515u"]
-
-[node name="Board_000" instance=ExtResource("1_s515u")]
