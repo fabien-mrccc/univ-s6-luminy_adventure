@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnvclhknul11p"]
+
+[ext_resource type="PackedScene" uid="uid://d1owj3s23q8i6" path="res://assets/models/furniture/Phone_000.glb" id="1_4vymv"]
+
+[node name="Phone_000" instance=ExtResource("1_4vymv")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c57id1135vfip"]
+
+[ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="1_6fnkx"]
+
+[node name="PenBox_000" instance=ExtResource("1_6fnkx")]

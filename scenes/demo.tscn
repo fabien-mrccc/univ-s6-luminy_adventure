@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bta6pksf4hgv0"]
+[gd_scene load_steps=58 format=3 uid="uid://bta6pksf4hgv0"]
 
 [ext_resource type="Texture2D" uid="uid://bgdhwb2pjd51g" path="res://assets/luminy_map.jpg" id="1_pw63i"]
 [ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_yqjtg"]
@@ -38,9 +38,15 @@
 [ext_resource type="PackedScene" uid="uid://eq0xaxu5fcks" path="res://scenes/characters/character_031.tscn" id="33_hj0bg"]
 [ext_resource type="PackedScene" uid="uid://bt31wcyhjoo6s" path="res://scenes/furniture/door_002.tscn" id="33_ijaeb"]
 [ext_resource type="PackedScene" uid="uid://qmlc3ilo672n" path="res://scenes/furniture/door_003.tscn" id="35_ssbcb"]
+[ext_resource type="PackedScene" uid="uid://ddnmlbn2a0o25" path="res://scenes/furniture/glass_door.tscn" id="36_fbdsg"]
 [ext_resource type="PackedScene" uid="uid://bv4qjiuc86iic" path="res://scenes/furniture/mouse_000.tscn" id="37_keb61"]
 [ext_resource type="PackedScene" uid="uid://b1kfpa480gk2m" path="res://scenes/furniture/folder_000.tscn" id="38_n3amx"]
 [ext_resource type="PackedScene" uid="uid://ch4x1hoxjh8qb" path="res://scenes/furniture/folder_001.tscn" id="39_dgtg0"]
+[ext_resource type="PackedScene" uid="uid://c5aou6ecstskv" path="res://scenes/furniture/paper_000.tscn" id="42_kxiys"]
+[ext_resource type="PackedScene" uid="uid://ccw6kik7klmlk" path="res://scenes/furniture/water_dispenser_000.tscn" id="42_y24d5"]
+[ext_resource type="PackedScene" uid="uid://cnvclhknul11p" path="res://scenes/furniture/phone_000.tscn" id="43_1mbge"]
+[ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="44_itma0"]
+[ext_resource type="PackedScene" uid="uid://s1iqbgoseq0o" path="res://scenes/furniture/can_dispenser_000.tscn" id="45_0wqbi"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
 size = Vector2(1625.45, 2643.3)
@@ -453,112 +459,58 @@ transform = Transform3D(12.7374, 0, 0, 0, -7.62025e-10, 1.35266, 0, -0.0174331, 
 mesh = SubResource("BoxMesh_hj0bg")
 surface_material_override/0 = SubResource("StandardMaterial3D_ijaeb")
 
-[node name="GlassDoor" type="Node3D" parent="CampusControl/Furniture"]
+[node name="Entry" type="Node3D" parent="CampusControl/Furniture"]
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="CampusControl/Furniture/Entry"]
 transform = Transform3D(-1.38655, 0, 1.17531e-07, 0, 3.15379, 0, -1.21216e-07, 0, -1.3444, 8.58136, 1.49923, -1.42325)
 mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="CampusControl/Furniture/Entry"]
 transform = Transform3D(3.45355e-08, 3.15379, -5.13745e-15, 0.79008, -1.37857e-07, -1.17531e-07, -6.9071e-08, 0, -1.3444, 10.6138, 2.69777, -1.42325)
 mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="CampusControl/Furniture/Entry"]
 transform = Transform3D(-1.38655, 0, 1.17531e-07, 0, 3.15379, 0, -1.21216e-07, 0, -1.3444, 12.6844, 1.49923, -1.42325)
 mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 10.5951, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
+[node name="GlassDoor" parent="CampusControl/Furniture/Entry" instance=ExtResource("36_fbdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32712, 0, -1.44525)
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 9.3096, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
+[node name="GlassDoor2" parent="CampusControl/Furniture/Entry" instance=ExtResource("36_fbdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5751, 0, -1.44525)
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 11.9526, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
+[node name="Entry2" type="Node3D" parent="CampusControl/Furniture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.42657)
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 10.687, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
-
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(3.49428e-09, 3.15379, 4.00202e-15, 0.0799397, -1.37857e-07, -3.36751e-08, -6.98856e-09, 0, -0.385199, 10.7569, 2.28316, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
-
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(3.49428e-09, 3.15379, 4.00202e-15, 0.0799397, -1.37857e-07, -3.36751e-08, -6.98856e-09, 0, -0.385199, 10.7569, 0.0256607, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
-
-[node name="Glass2" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor"]
-transform = Transform3D(3.16851, 0, 0, 0, -7.62025e-10, 3.28595, 0, -0.0174331, -1.43634e-07, 10.6904, 1.10648, -1.45272)
-mesh = SubResource("BoxMesh_hj0bg")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture")
-surface_material_override/0 = SubResource("StandardMaterial3D_ijaeb")
-
-[node name="GlassDoor2" type="Node3D" parent="CampusControl/Furniture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.82449)
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="CampusControl/Furniture/Entry2"]
 transform = Transform3D(-1.38655, 0, 1.17531e-07, 0, 3.15379, 0, -1.21216e-07, 0, -1.3444, 8.58136, 1.49923, -1.42325)
 mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="CampusControl/Furniture/Entry2"]
 transform = Transform3D(3.45355e-08, 3.15379, -5.13745e-15, 0.79008, -1.37857e-07, -1.17531e-07, -6.9071e-08, 0, -1.3444, 10.6138, 2.69777, -1.42325)
 mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="CampusControl/Furniture/Entry2"]
 transform = Transform3D(-1.38655, 0, 1.17531e-07, 0, 3.15379, 0, -1.21216e-07, 0, -1.3444, 12.6844, 1.49923, -1.42325)
 mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 10.5951, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
+[node name="GlassDoor" parent="CampusControl/Furniture/Entry2" instance=ExtResource("36_fbdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32712, 0, -1.44525)
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 9.3096, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
+[node name="GlassDoor2" parent="CampusControl/Furniture/Entry2" instance=ExtResource("36_fbdsg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5751, 0, -1.44525)
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 11.9526, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
+[node name="Paper_000" parent="CampusControl/Furniture" instance=ExtResource("42_kxiys")]
+transform = Transform3D(0.996149, 0, 0.0876773, 0, 1, 0, -0.0876773, 0, 0.996149, 7.28165, 0.706428, 5.06087)
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(-0.0799397, 0, 3.36751e-08, 0, 3.15379, 0, -6.98855e-09, 0, -0.385199, 10.687, 1.49923, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
-
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(3.49428e-09, 3.15379, 4.00202e-15, 0.0799397, -1.37857e-07, -3.36751e-08, -6.98856e-09, 0, -0.385199, 10.7569, 2.28316, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
-
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(3.49428e-09, 3.15379, 4.00202e-15, 0.0799397, -1.37857e-07, -3.36751e-08, -6.98856e-09, 0, -0.385199, 10.7569, 0.0256607, -1.42325)
-mesh = SubResource("BoxMesh_18vu0")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
-
-[node name="Glass2" type="MeshInstance3D" parent="CampusControl/Furniture/GlassDoor2"]
-transform = Transform3D(3.16851, 0, 0, 0, -7.62025e-10, 3.28595, 0, -0.0174331, -1.43634e-07, 10.6904, 1.10648, -1.45272)
-mesh = SubResource("BoxMesh_hj0bg")
-skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture")
-surface_material_override/0 = SubResource("StandardMaterial3D_ijaeb")
+[node name="Paper_001" parent="CampusControl/Furniture" instance=ExtResource("42_kxiys")]
+transform = Transform3D(-3.97106e-08, 1, -4.73756e-08, 0.0876773, -4.37114e-08, -0.996149, -0.996149, -4.37114e-08, -0.0876773, 5.98107, 1.23353, 4.80482)
 
 [node name="Monitor_000" parent="CampusControl/Furniture" instance=ExtResource("31_nbj7l")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 9.65813, 0.70399, 4.8328)
@@ -577,6 +529,21 @@ transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 
 
 [node name="Folder_001" parent="CampusControl/Furniture" instance=ExtResource("39_dgtg0")]
 transform = Transform3D(-0.855596, -0.154728, -0.493979, -0.133998, 0.987957, -0.0773638, 0.5, 2.66169e-09, -0.866025, 8.41508, 0.722761, 4.90108)
+
+[node name="WaterDispenser_001" parent="CampusControl/Furniture" instance=ExtResource("42_y24d5")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 7.77115, -3.54426e-07, -2.13737)
+
+[node name="WaterDispenser_000" parent="CampusControl/Furniture" instance=ExtResource("42_y24d5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.845508, 3.30037e-08, 7.95888)
+
+[node name="Phone_000" parent="CampusControl/Furniture" instance=ExtResource("43_1mbge")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.60493, 0.689731, 4.92015)
+
+[node name="PenBox_000" parent="CampusControl/Furniture" instance=ExtResource("44_itma0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.50959, 0.690697, 4.91287)
+
+[node name="CanDispenser_000" parent="CampusControl/Furniture" instance=ExtResource("45_0wqbi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.154, -2.84752e-07, -1.35024)
 
 [node name="Characters" type="Node3D" parent="CampusControl"]
 

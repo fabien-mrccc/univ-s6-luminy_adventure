@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5aou6ecstskv"]
+
+[ext_resource type="PackedScene" uid="uid://b5y8bt4k8u630" path="res://assets/models/furniture/Paper_000.glb" id="1_6isag"]
+
+[node name="Paper_000" instance=ExtResource("1_6isag")]
