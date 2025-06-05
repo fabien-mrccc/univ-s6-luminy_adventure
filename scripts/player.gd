@@ -4,6 +4,9 @@ extends CharacterBody3D
 ## Movement speed in walk mode.
 const WALK_SPEED := 2.0
 
+## Movement speed in sprint mode.
+const SPRINT_SPEED := 8.0
+
 ## Mouse sensitivity for looking around.
 const SENSITIVITY := 0.004
 
@@ -17,17 +20,20 @@ const WALK_OFFSET := 0.1
 const GRAVITY := 9.8
 
 ## Current horizontal movement speed.
-var _speed: float
+var _speed: float = WALK_SPEED
 
-## Camera base position and target for smooth transition.
+## Flag indicating whether sprinting is active.
+var is_sprinting := false
+
+## Camera base position and interpolated target position.
 var base_camera_pos: Vector3
 var camera_target_pos: Vector3
 
-
+## Node references.
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var animation_player: AnimationPlayer = $Head/Character_020/AnimationPlayer
-
+@onready var shader_material: ShaderMaterial = $MotionLinesCanvas/MotionLines.material
 
 ## Called when the node enters the scene tree.
 ## Captures the mouse and initializes the camera FOV and positions.
@@ -36,7 +42,7 @@ func _ready() -> void:
 	camera.fov = BASE_FOV
 	base_camera_pos = camera.position
 	camera_target_pos = base_camera_pos
-	animation_player.play("Idle")
+	_play_animation("Idle")
 
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.
@@ -51,13 +57,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_movement_input(delta)
-
-	# Smoothly interpolate camera position to avoid sharp transitions
 	camera.position = camera.position.lerp(camera_target_pos, delta * 10.0)
-
 	move_and_slide()
 
-## Applies gravity when (possible in air or jump impulse when grounded).
+## Applies gravity to the player when airborne.
 ## @param delta: float - Frame time.
 func _apply_gravity(delta: float) -> void:
 	if is_on_floor():
@@ -65,31 +68,42 @@ func _apply_gravity(delta: float) -> void:
 	else:
 		velocity.y -= GRAVITY * delta
 
-## Updates horizontal movement input and effects, animations and camera transition.
+## Updates horizontal movement input, speed, animations, and shader parameters.
 ## @param delta: float - Frame time.
 func _handle_movement_input(delta: float) -> void:
-	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	var is_moving = input_dir.length() > 0 
-	
-	if is_moving:
-		if animation_player.current_animation != "Walk":
-			animation_player.play("Walk", 0.3)
-			camera_target_pos = base_camera_pos - Vector3(0, 0, WALK_OFFSET)
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var is_moving := input_dir.length_squared() > 0.001
+	is_sprinting = Input.is_action_pressed("sprint")
+
+	if is_sprinting and is_moving:
+		_set_speed_and_anim(SPRINT_SPEED, "Run", true)
+		camera_target_pos = base_camera_pos - Vector3(0, 0, WALK_OFFSET)
+	elif is_moving:
+		_set_speed_and_anim(WALK_SPEED, "Walk", false)
+		camera_target_pos = base_camera_pos - Vector3(0, 0, WALK_OFFSET)
 	else:
-		if animation_player.current_animation != "Idle":
-			animation_player.play("Idle", 0.3)
-			camera_target_pos = base_camera_pos
+		_set_speed_and_anim(WALK_SPEED, "Idle", false)
+		camera_target_pos = base_camera_pos
 
-	_speed = WALK_SPEED
+	var direction := (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var accel := 7.0 if is_on_floor() else 3.0
+	velocity.x = lerp(velocity.x, direction.x * _speed, delta * accel)
+	velocity.z = lerp(velocity.z, direction.z * _speed, delta * accel)
 
-	var direction: Vector3 = (head.transform.basis * transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+## Sets movement speed, animation, and sprint shader parameter.
+## @param speed: float - Movement speed to apply.
+## @param anim_name: String - Animation name to play.
+## @param sprint_active: bool - Whether sprint is active for shader effect.
+func _set_speed_and_anim(speed: float, anim_name: String, sprint_active: bool) -> void:
+	_speed = speed
+	shader_material.set_shader_parameter("sprint_active", int(sprint_active))
+	_play_animation(anim_name)
 
-	if is_on_floor():
-		velocity.x = direction.x * _speed if direction else lerp(velocity.x, 0.0, delta * 7.0)
-		velocity.z = direction.z * _speed if direction else lerp(velocity.z, 0.0, delta * 7.0)
-	else:
-		velocity.x = lerp(velocity.x, direction.x * _speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * _speed, delta * 3.0)
+## Plays the specified animation only if not already playing.
+## @param name: String - Animation name to play.
+func _play_animation(name: String) -> void:
+	if animation_player.current_animation != name:
+		animation_player.play(name, 0.3)
 
 ## Simulates a single physics step. Useful for unit testing.
 ## @param delta: float - Frame time.
