@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Luminy Adventure"
-run/main_scene="uid://xms5fak82ved"
+run/main_scene="uid://bw6lwrenobwu7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [editor_plugins]

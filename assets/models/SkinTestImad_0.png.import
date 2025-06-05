@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://1exj0danlltl"
+path.s3tc="res://.godot/imported/SkinTestImad_0.png-28ed41e70003f231de8e6f501c88a9d7.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "28cb950a81839738315f45280c3242e2"
+}
+
+[deps]
+
+source_file="res://assets/models/SkinTestImad_0.png"
+dest_files=["res://.godot/imported/SkinTestImad_0.png-28ed41e70003f231de8e6f501c88a9d7.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

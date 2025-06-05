@@ -1,19 +1,31 @@
 extends Node3D
 
-# On prépare le chemin vers la scène Card.tscn
 var card_scene = preload("res://scenes/card.tscn")
-
-# Liste des valeurs des cartes de 1 à 11
-var values = [1,2,3,4,5,6,7,8,9,10,11]
+var deck_values = []
+var player_cards = []
+var ai_cards = []
 
 func _ready():
-	# On affiche les cartes au démarrage de la scène
-	for i in values:
+	deck_values = [1,2,3,4,5,6,7,8,9,10,11]
+	deck_values.shuffle()
+
+	# POSITION DE BASE : alignée avec ta table
+	var y = 0.3  # hauteur approximative au-dessus de la table
+
+	# 💳 Carte joueur (côté bas de la table)
+	for i in range(2):
+		var value = deck_values.pop_front()
 		var card = card_scene.instantiate()
-		card.set_value(i)
-
-		# Positionne la carte dans l'espace 3D (décalées sur X)
-		card.position = Vector3(i * 1.2, 0.5, 0)
-
-		# Ajoute la carte comme enfant de Deck (visible dans la scène)
+		card.set_value(value)
+		card.position = Vector3(-1 + i * 2.5, y, -1.5)
 		add_child(card)
+		player_cards.append(card)
+
+	# 💳 Carte IA (côté haut de la table)
+	for i in range(2):
+		var value = deck_values.pop_front()
+		var card = card_scene.instantiate()
+		# On laisse le "?" par défaut
+		card.position = Vector3(-1 + i * 2.5, y, 1.5)
+		add_child(card)
+		ai_cards.append(card)
