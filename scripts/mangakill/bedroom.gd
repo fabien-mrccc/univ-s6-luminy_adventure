@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var dialogue_box: Control = $Dialogue
+@onready var note: Sprite2D = $Note
 var story_step := 0
 
 func _ready():
@@ -24,6 +25,7 @@ func _on_intro_step(index: int) -> void:
 		match index:
 			0:
 				# Choix 0 : Regarder autour
+				note.show()
 				dialogue_box.show_dialogue(
 					"Sous le lit, une page déchirée, tachée d’encre :\n\n\"Akira savait. Il m’avait prévenu. Trop tard.\"",
 					["Prendre l’indice"]
@@ -38,10 +40,18 @@ func _on_intro_step(index: int) -> void:
 				dialogue_box.choice_selected.connect(_on_go_to_hallway)
 				
 func _on_take_hint(index: int) -> void:
-	Clues.add_clue("Akira savait. Il m’avait prévenu. Trop tard.")
+	var note_image = load("res://assets/mangakill/note.png")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.add_clue(note_image)
+	else:
+		print("Main introuvable.")
 	dialogue_box.show_dialogue("Tu ranges la page. Elle pourrait être importante.", ["Suivant"])
 	dialogue_box.choice_selected.connect(_on_go_to_hallway)
 
 func _on_go_to_hallway(index: int) -> void:
-	# Transition vers le couloir (à personnaliser selon ta scène suivante)
-	get_tree().change_scene_to_file("res://scenes/mangakill/hallway.tscn")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.change_scene("res://scenes/mangakill/hallway.tscn")
+	else:
+		print("Main introuvable.")

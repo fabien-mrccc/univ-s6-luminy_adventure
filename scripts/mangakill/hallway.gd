@@ -29,7 +29,8 @@ func _on_first_choice(index: int) -> void:
 		dialogue_box.choice_selected.connect(_on_ren_intro_1)
 	else:
 		# Aller à la salle de bain
-		get_tree().change_scene_to_file("res://scenes/mangakill/bathroom.tscn")
+		dialogue_box.choice_selected.connect(_go_to_bathroom)
+
 
 func _on_ren_intro_1(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_ren_intro_1)
@@ -104,4 +105,8 @@ func _on_final_choice_with_ren(index: int) -> void:
 
 func _go_to_bathroom(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_go_to_bathroom)
-	get_tree().change_scene_to_file("res://scenes/mangakill/bathroom.tscn")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.change_scene("res://scenes/mangakill/bathroom.tscn")
+	else:
+		print("Main introuvable.")

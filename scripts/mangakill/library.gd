@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var dialogue_box: Control = $Dialogue
+@onready var library_mika: Sprite2D = $LibraryMika
+@onready var notebook: Sprite2D = $Notebook
 
 func _ready():
 	start_scene()
@@ -58,6 +60,7 @@ func _on_suzu_choice(index: int) -> void:
 
 func _on_mika_enters(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_mika_enters)
+	library_mika.show()
 	dialogue_box.show_dialogue("Quelques instants plus tard, Mika entre calmement.", ["Suivant"])
 	dialogue_box.choice_selected.connect(_on_player_questions_mika)
 
@@ -106,7 +109,10 @@ func _on_final_choice(index: int) -> void:
 		1:
 			dialogue_box.show_dialogue("Le texte change en fonction de tes décisions passées.", ["Accuser"])
 		2:
-			if "Clé" in Clues.clues :
+			var key_image = load("res://assets/mangakill/Key_clue.png")
+			var main = get_tree().root.get_node("Main")
+			if key_image in main.clue_layer.get_clues():
+				notebook.show()
 				dialogue_box.show_dialogue("Tu trouves un carnet :\n« Quelqu’un manipule les pages… Ce n’est plus le monde que j’ai connu. »\nMika regarde, mais comprend-elle ?", ["Prendre l'indice"])
 				dialogue_box.choice_selected.connect(_on_take_hint)
 			else: 
@@ -116,11 +122,18 @@ func _on_final_choice(index: int) -> void:
 	dialogue_box.choice_selected.connect(_go_to_accusation)
 
 func _on_take_hint(index: int) -> void:
-	Clues.add_clue("Un carnet :\n« Quelqu’un manipule les pages… Ce n’est plus le monde que j’ai connu. »\n")
+	var notebook_image = load("res://assets/mangakill/Notebook_clue.png")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.add_clue(notebook_image)
 	dialogue_box.show_dialogue("Tu prends le carnet", ["Suivant"])
 	dialogue_box.choice_selected.connect(_go_to_accusation)
 
 func _go_to_accusation(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_go_to_accusation)
-	get_tree().change_scene_to_file("res://scenes/mangakill/accusation.tscn")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.change_scene("res://scenes/mangakill/accusation.tscn")
+	else:
+		print("Main introuvable.")
 	

@@ -30,4 +30,3 @@ func _on_choice(index: int) -> void:
 			dialogue_box.show_dialogue(
 				"Mika : (calme) Tu as compris. Ce monde n’est plus à moi. Ferme-le.\n(Le livre se referme. Tu es libre.)"
 			)
-	Clues.remove_clue()

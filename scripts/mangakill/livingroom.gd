@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var dialogue_box: Control = $Dialogue
+@onready var shirt: Sprite2D = $Shirt
 
 func _ready():
 	start_scene()
@@ -45,6 +46,7 @@ func _on_choice_made(index: int) -> void:
 				["Découvrir la pièce suivante"]
 			)
 		1:
+			shirt.show()
 			dialogue_box.show_dialogue(
 				"Une chemise ensanglantée, mais le sang est trop frais pour être celui d’un mort.",
 				["Prendre l'indice"]
@@ -59,7 +61,10 @@ func _on_choice_made(index: int) -> void:
 
 func _on_blood_found(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_blood_found)
-	Clues.add_clue("Chemise ensanglantéé")
+	var shirt_image = load("res://assets/mangakill/Shirt_clue.png")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.add_clue(shirt_image)
 	dialogue_box.show_dialogue("Joueur : Ton sang ?", ["Suivant"])
 	dialogue_box.choice_selected.connect(_on_confront_tetsuo)
 
@@ -70,4 +75,8 @@ func _on_confront_tetsuo(index: int) -> void:
 
 func _go_to_library(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_go_to_library)
-	get_tree().change_scene_to_file("res://scenes/mangakill/library.tscn")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.change_scene("res://scenes/mangakill/library.tscn")
+	else:
+		print("Main introuvable.")

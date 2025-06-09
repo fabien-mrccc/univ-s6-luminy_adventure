@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var dialogue_box: Control = $Dialogue
+@onready var bathroom_mirror: Sprite2D = $BathroomMirror
+@onready var bracelet: Sprite2D = $Bracelet
+@onready var key: Sprite2D = $Key
 
 func _ready():
 	start_scene()
@@ -28,12 +31,15 @@ func _on_bathroom_choice(index: int) -> void:
 
 	match index:
 		0:
+			bathroom_mirror.show()
 			dialogue_box.show_dialogue(
 				"Ton reflet te regarde… et cligne des yeux en décalé. Il n'est pas toi.",
 				["Découvrir la pièce suivante"]
 			)
 			dialogue_box.choice_selected.connect(_go_to_livingroom)
 		1:
+			key.show()
+			bracelet.show()
 			dialogue_box.show_dialogue(
 				"Tu obtiens la clé. Derrière le lavabo, le bracelet. Initiale : S\nIl est cassé.",
 				["Prendre l'indice"]
@@ -50,11 +56,19 @@ func _on_bathroom_choice(index: int) -> void:
 
 
 func _on_take_hint(index: int) -> void:
-	Clues.add_clue("Clé")
-	Clues.add_clue("Bracelet cassé avec initial S")
+	var key_image = load("res://assets/mangakill/Key_clue.png")
+	var bracelet_image = load("res://assets/mangakill/Bracelet_clue.png")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.add_clue(key_image)
+		main.add_clue(bracelet_image)
 	dialogue_box.show_dialogue("Tu prends la clé et le bracelet et tu sors de la salle de bain", ["Découvrir la pièce suivante"])
 	dialogue_box.choice_selected.connect(_go_to_livingroom)
 	
 func _go_to_livingroom(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_go_to_livingroom)
-	get_tree().change_scene_to_file("res://scenes/mangakill/livingroom.tscn")
+	var main = get_tree().root.get_node("Main")
+	if main:
+		main.change_scene("res://scenes/mangakill/livingroom.tscn")
+	else:
+		print("Main introuvable.")

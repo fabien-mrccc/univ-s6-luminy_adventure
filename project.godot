@@ -11,13 +11,8 @@ config_version=5
 [application]
 
 config/name="Luminy Adventure"
-run/main_scene="uid://681jlews7h3x"
+run/main_scene="uid://ys6hsc8evd4p"
 config/features=PackedStringArray("4.4", "Forward Plus")
-
-[autoload]
-
-Rainsound="*res://scenes/mangakill/rainsound.tscn"
-Clues="*res://ui/canvas_layer.tscn"
 
 [display]
 

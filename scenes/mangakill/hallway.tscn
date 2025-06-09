@@ -1,22 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://yceflyxs1f2a"]
+[gd_scene load_steps=4 format=3 uid="uid://yceflyxs1f2a"]
 
 [ext_resource type="Script" uid="uid://cf8stxlmh1jip" path="res://scripts/mangakill/hallway.gd" id="1_tbxnn"]
-[ext_resource type="Texture2D" uid="uid://bqejf43qhtyle" path="res://assets/mangakill/firstBG.png" id="2_h1g8m"]
+[ext_resource type="Texture2D" uid="uid://cgx4yj5wg7tqi" path="res://assets/mangakill/Hallway.png" id="2_esxvw"]
 [ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://ui/dialogue.tscn" id="2_tbxnn"]
-[ext_resource type="PackedScene" uid="uid://ctwd73o0h4sv4" path="res://scenes/mangakill/rain.tscn" id="3_hx4kw"]
 
 [node name="Hallway" type="Node2D"]
 script = ExtResource("1_tbxnn")
 
-[node name="ImageHallwayIci" type="Sprite2D" parent="."]
-texture = ExtResource("2_h1g8m")
-
-[node name="rain" parent="." instance=ExtResource("3_hx4kw")]
+[node name="HallwayImage" type="Sprite2D" parent="."]
+texture = ExtResource("2_esxvw")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_tbxnn")]
-offset_left = -294.0
-offset_top = 522.0
-offset_right = -294.0
-offset_bottom = 522.0
+offset_left = -500.0
+offset_top = 350.0
+offset_right = -500.0
+offset_bottom = 350.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -16,6 +16,10 @@ func show_dialogue(text: String, choices: Array = []):
 	# Créer les nouveaux boutons
 	for i in choices.size():
 		var button = Button.new()
+		var font = load("res://assets/mangakill/fonts/PixelOperator8-Bold.ttf")
+		button.add_theme_font_override("font", font)
+		button.add_theme_font_size_override("size", 30)
+		
 		button.text = choices[i]
 		button.pressed.connect(Callable(self, "_on_choice_pressed").bind(i))
 		choices_container.add_child(button)
