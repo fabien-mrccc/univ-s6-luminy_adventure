@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://do6d36apfsbm2"]
+
+[ext_resource type="Script" uid="uid://x0gl6v5m13x0" path="res://scripts/button.gd" id="1_rhj8v"]
+[ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="2_rhj8v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4pas"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mi6dp"]
+
+[node name="button" type="Node3D"]
+script = ExtResource("1_rhj8v")
+
+[node name="Button" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("BoxShape3D_n4pas")
+debug_color = Color(4.81308e-06, 0.7317, 0.851807, 0.42)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("BoxMesh_mi6dp")
+
+[node name="Label3D" type="Label3D" parent="Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16305, 1.09953, 0.577899)
+text = "button"
+
+[node name="Interactable" parent="." instance=ExtResource("2_rhj8v")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]
