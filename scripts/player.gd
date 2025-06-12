@@ -29,6 +29,10 @@ var is_sprinting := false
 var base_camera_pos: Vector3
 var camera_target_pos: Vector3
 
+## Player movement controls.
+var movement_enabled := true 
+var camera_enabled := true
+
 ## Node references.
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
@@ -47,6 +51,8 @@ func _ready() -> void:
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.
 func _unhandled_input(event: InputEvent) -> void:
+	if not camera_enabled:
+		return  
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -55,9 +61,14 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Applies movement, gravity, smooth camera update and FOV update each frame.
 ## @param delta: float - Frame time.
 func _physics_process(delta: float) -> void:
-	_apply_gravity(delta)
-	_handle_movement_input(delta)
+	if movement_enabled:
+		_handle_movement_input(delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+		velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
+	
 	camera.position = camera.position.lerp(camera_target_pos, delta * 10.0)
+	_apply_gravity(delta)
 	move_and_slide()
 
 ## Applies gravity to the player when airborne.
