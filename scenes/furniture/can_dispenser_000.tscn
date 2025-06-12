@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://s1iqbgoseq0o"]
+
+[ext_resource type="PackedScene" uid="uid://buuisvgbmdwpk" path="res://assets/models/furniture/CanDispenser_000.glb" id="1_eq82w"]
+
+[node name="CanDispenser_000" instance=ExtResource("1_eq82w")]

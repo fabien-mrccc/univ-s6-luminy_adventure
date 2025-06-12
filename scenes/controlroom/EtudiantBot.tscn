@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://drdxfic4sjh5p"]
+
+[ext_resource type="Script" uid="uid://dss1k52owe11j" path="res://scripts/controlroom/etudiant_bot.gd" id="1_mvp70"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5jmie"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_djyc0"]
+
+[node name="EtudiantBot" type="Node3D"]
+script = ExtResource("1_mvp70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.863107, 0, 0, 0, 0.795051, 0, 0, 0, 1, 0.0110643, 0.242546, 0.176353)
+mesh = SubResource("SphereMesh_5jmie")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4535, 0)
+mesh = SubResource("CapsuleMesh_djyc0")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccw6kik7klmlk"]
+
+[ext_resource type="PackedScene" uid="uid://6quqq7fowhp4" path="res://assets/models/furniture/WaterDispenser_000.glb" id="1_w6fat"]
+
+[node name="WaterDispenser_000" instance=ExtResource("1_w6fat")]

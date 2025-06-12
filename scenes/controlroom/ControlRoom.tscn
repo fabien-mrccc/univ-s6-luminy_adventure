@@ -1,0 +1,223 @@
+[gd_scene load_steps=19 format=3 uid="uid://bw6lwrenobwu7"]
+
+[ext_resource type="PackedScene" uid="uid://ckke57a6wns6f" path="res://scenes/player.tscn" id="1_k1x1q"]
+[ext_resource type="Script" uid="uid://ce2ttj2wrt2u8" path="res://scripts/controlroom/control_room.gd" id="1_yay3m"]
+[ext_resource type="PackedScene" uid="uid://drdxfic4sjh5p" path="res://scenes/controlroom/EtudiantBot.tscn" id="2_6tqfq"]
+[ext_resource type="Texture2D" uid="uid://d0ox3fe56dxvp" path="res://assets/UI/3c5a11a0-0d41-40e1-a5c5-8bee4155d576.jpg" id="4_tmxc6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2c62f"]
+size = Vector2(100, 100)
+
+[sub_resource type="Skin" id="Skin_gyfs4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mm7a"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2c62f"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_gyfs4"]
+sky_material = SubResource("ProceduralSkyMaterial_2c62f")
+
+[sub_resource type="Environment" id="Environment_d5x1h"]
+background_mode = 2
+sky = SubResource("Sky_gyfs4")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_k1x1q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6tqfq"]
+
+[sub_resource type="Curve3D" id="Curve3D_k1x1q"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0354562, 0, -0.0316601, 0, 0, 0, 0, 0, 0, -9.70478, 0, 0.0558453, 0, 0, 0, 0, 0, 0, -9.74853, 0, 3.46855, 0, 0, 0, 0, 0, 0, 0.00829454, 0, 13.7942),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_yay3m"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.104325, 0, 13.6709, 0, 0, 0, 0, 0, 0, 2.44055, 0, 13.593, 0, 0, 0, 0, 0, 0, 5.0114, 0, 13.541, 0, 0, 0, 0, 0, 0, 10.5426, 0, 14.2941),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yay3m"]
+texture = ExtResource("4_tmxc6")
+texture_margin_left = 256.0
+texture_margin_top = 256.0
+texture_margin_right = 256.0
+texture_margin_bottom = 256.0
+
+[sub_resource type="Theme" id="Theme_qq8yg"]
+Panel/styles/panel = SubResource("StyleBoxTexture_yay3m")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tqfq"]
+bg_color = Color(0.969137, 0.969137, 0.969137, 1)
+
+[sub_resource type="Theme" id="Theme_tmxc6"]
+
+[node name="ControlRoom" type="Node3D"]
+script = ExtResource("1_yay3m")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_2c62f")
+skin = SubResource("Skin_gyfs4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_8mm7a")
+
+[node name="WorldSettings" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldSettings"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldSettings"]
+environment = SubResource("Environment_d5x1h")
+
+[node name="Player" parent="." instance=ExtResource("1_k1x1q")]
+
+[node name="Bureau + Murs" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.43211, 0, 0, 0, 1.42983, 0, 0, 0, 1.18095, 0.00229216, 0, -1.45649)
+mesh = SubResource("BoxMesh_k1x1q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.0864254, 0, 0, 0, 1.27602, 0, 0, 0, 1, 0.455782, 1.07827, 0.0294607)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.0864254, 0, 0, 0, 1.27602, 0, 0, 0, 1, -0.453423, 1.07827, 0.0294607)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.0864254, 0, 0, 0, 2.47756, 0, 0, 0, 5.87131, -0.453423, 0.647248, 2.34137)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.0864254, 0, 0, 0, 2.47756, 0, 0, 0, 11.8459, -2.24427, 0.643316, -6.33056)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.0864254, 0, 0, 0, 2.47756, 0, 0, 0, 11.8459, 2.25011, 0.643316, -6.33056)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(1.79145, 0, 0, 0, 2.47756, 0, 0, 0, 0.372402, -1.39245, 0.647248, -0.410951)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(3.5328, 0, 0, 0, 2.47756, 0, 0, 0, 0.372402, 0.512694, 0.647248, -12.1593)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(1.79145, 0, 0, 0, 2.47756, 0, 0, 0, 0.372402, 1.40321, 0.647248, -0.410951)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(-0.00613606, 0, 1.00359, 0, 2.47757, 0, -0.181904, 0, -0.0338537, -0.00718603, 0.673179, 5.30214)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.0864254, 0, 0, 0, 2.47756, 0, 0, 0, 5.87131, 0.455997, 0.647248, 2.34137)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.993723, 0, 0, 0, 0.425966, 0, 0, 0, 1.11226, -0.00175321, 1.83823, -0.0356902)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Bureau + Murs"]
+transform = Transform3D(0.993723, 0, 0, 0, 0.425966, 0, 0, 0, 5.02843, -0.00175321, 1.83823, 2.85346)
+mesh = SubResource("BoxMesh_6tqfq")
+
+[node name="BotPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.0445)
+curve = SubResource("Curve3D_k1x1q")
+
+[node name="BotPathFollow" type="PathFollow3D" parent="BotPath"]
+transform = Transform3D(-0.726839, 0, -0.686799, 0, 1, 0, 0.686799, 0, -0.726839, 0.00829453, 0, 13.7942)
+progress = 27.2889
+loop = false
+
+[node name="EtudiantBot" parent="BotPath/BotPathFollow" instance=ExtResource("2_6tqfq")]
+transform = Transform3D(0.701275, 0, -1.39698e-09, 0, 0.603458, 0, -1.39698e-09, 0, 0.626864, 0, 0.991071, 0)
+
+[node name="AcceptPath" type="Path3D" parent="BotPath"]
+curve = SubResource("Curve3D_yay3m")
+
+[node name="AcceptFollow" type="PathFollow3D" parent="BotPath/AcceptPath"]
+transform = Transform3D(0.0202223, 0, -0.999779, 0, 1, 0, 0.999779, 0, 0.0202223, 3.97079, 0, 13.562)
+progress = 4.07658
+
+[node name="EtudiantBot" parent="BotPath/AcceptPath/AcceptFollow" instance=ExtResource("2_6tqfq")]
+transform = Transform3D(0.701275, 0, 9.31323e-10, 0, 0.603458, 0, 0, 0, 0.626864, 0.099916, 0.991071, 3.92748)
+
+[node name="Dialogue" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -392.0
+offset_right = -640.0
+offset_bottom = -476.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1340.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_qq8yg")
+
+[node name="PanelDocument" type="Panel" parent="Dialogue/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6tqfq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/VBoxContainer/PanelDocument"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ContentBox" type="VBoxContainer" parent="Dialogue/VBoxContainer/PanelDocument/MarginContainer"]
+layout_mode = 2
+
+[node name="CarteEtudiant" type="Label" parent="Dialogue/VBoxContainer/PanelDocument/MarginContainer/ContentBox"]
+layout_mode = 2
+
+[node name="Nom" type="Label" parent="Dialogue/VBoxContainer/PanelDocument/MarginContainer/ContentBox"]
+layout_mode = 2
+
+[node name="Chambre" type="Label" parent="Dialogue/VBoxContainer/PanelDocument/MarginContainer/ContentBox"]
+layout_mode = 2
+
+[node name="Raison" type="Label" parent="Dialogue/VBoxContainer/PanelDocument/MarginContainer/ContentBox"]
+layout_mode = 2
+
+[node name="ChoiseContainer" type="GridContainer" parent="Dialogue/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tmxc6")
+columns = 2
+
+[node name="Accepter" type="Button" parent="Dialogue/VBoxContainer/ChoiseContainer"]
+layout_mode = 2
+
+[node name="Refuser" type="Button" parent="Dialogue/VBoxContainer/ChoiseContainer"]
+layout_mode = 2
+
+[node name="Reaction" type="RichTextLabel" parent="Dialogue"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 11.0
+offset_right = 87.0
+offset_bottom = 51.0

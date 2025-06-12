@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1kfpa480gk2m"]
+
+[ext_resource type="PackedScene" uid="uid://d3ertf2u66c7k" path="res://assets/models/furniture/Folder_000.glb" id="1_bgcyb"]
+
+[node name="Folder_000" instance=ExtResource("1_bgcyb")]

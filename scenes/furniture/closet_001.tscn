@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ydfhby78slqf"]
+
+[ext_resource type="PackedScene" uid="uid://2etd34p4ryid" path="res://assets/models/furniture/Closet_000.glb" id="1_6bhr3"]
+
+[node name="Closet_000" instance=ExtResource("1_6bhr3")]
+
+[node name="RightDoor" parent="." index="1"]
+transform = Transform3D(0.0109426, 0, 0.139747, 0, 0.444932, 0, -0.253054, 0, 0.00604294, -0.494073, 0.0557834, -0.267161)
