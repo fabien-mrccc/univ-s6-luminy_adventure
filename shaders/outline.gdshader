@@ -50,12 +50,7 @@ uniform float grazing_angle_mask_power = 1.0;
 uniform float grazing_angle_modulation_factor = 50.0;
 
 uniform sampler2D depth_texture: hint_depth_texture, filter_linear, repeat_disable;
-
-#ifndef SUPPORT_MOBILE
 uniform sampler2D normr_texture: hint_normal_roughness_texture, filter_linear, repeat_disable;
-#else
-varying flat mat4 model_view_matrix;
-#endif // !SUPPORT_MOBILE
 
 struct uv_neighbors {
 	vec2 center;
@@ -138,74 +133,6 @@ float detect_edges_depth(neighbor_depth_samples depth_samples, vec3 pixel_normal
 	return step(t, n_total - (depth_samples.c_d * 8.0));
 }
 
-// Reconstruction helpers
-// Source: https://www.reddit.com/r/godot/comments/v70p2k/improved_normal_from_depth/
-#ifdef SUPPORT_MOBILE
-vec3 reconstruct_world_position(float depth, mat4 model_view, mat4 inv_proj, vec2 screen_uv, mat4 world, mat4 inv_cam) {
-	vec4 pos = inverse(model_view) * inv_proj * vec4((screen_uv * 2.0 - 1.0), depth * 2.0 - 1.0, 1.0);
-	pos.xyz /= (pos.w + 0.0001 * (1.0 - abs(sign(pos.w))));
-	return (pos * inv_cam).xyz + world[3].xyz;
-}
-
-#ifndef NAIVE_NORMAL_RECONSTRUCTION
-vec3 reconstruct_world_normal(sampler2D depth_tex, mat4 model_view, mat4 inv_proj, vec2 screen_uv, mat4 world, mat4 inv_cam, vec2 viewport_size) {
-	vec2 e = vec2(1.0 / viewport_size);
-	float c0 = texture(depth_tex, screen_uv).r;
-	float l2 = texture(depth_tex, screen_uv - vec2(2, 0) * e).r;
-	float l1 = texture(depth_tex, screen_uv - vec2(1, 0) * e).r;
-	float r1 = texture(depth_tex, screen_uv + vec2(1, 0) * e).r;
-	float r2 = texture(depth_tex, screen_uv + vec2(2, 0) * e).r;
-	float b2 = texture(depth_tex, screen_uv - vec2(0, 2) * e).r;
-	float b1 = texture(depth_tex, screen_uv - vec2(0, 1) * e).r;
-	float t1 = texture(depth_tex, screen_uv + vec2(0, 1) * e).r;
-	float t2 = texture(depth_tex, screen_uv + vec2(0, 2) * e).r;
-
-	float dl = abs(l1 * l2 / (2.0 * l2 - l1) - c0);
-	float dr = abs(r1 * r2 / (2.0 * r2 - r1) - c0);
-	float db = abs(b1 * b2 / (2.0 * b2 - b1) - c0);
-	float dt = abs(t1 * t2 / (2.0 * t2 - t1) - c0);
-
-	vec3 ce = reconstruct_world_position(c0, model_view, inv_proj, screen_uv, world, inv_cam);
-
-	vec3 dpdx = (dl < dr) ? ce - reconstruct_world_position(l1, model_view, inv_proj, screen_uv - vec2(1, 0) * e, world, inv_cam) :
-						   -ce + reconstruct_world_position(r1, model_view, inv_proj, screen_uv + vec2(1, 0) * e, world, inv_cam);
-	vec3 dpdy = (db < dt) ? ce - reconstruct_world_position(b1, model_view, inv_proj, screen_uv - vec2(0, 1) * e, world, inv_cam) :
-						   -ce + reconstruct_world_position(t1, model_view, inv_proj, screen_uv + vec2(0, 1) * e, world, inv_cam);
-
-	return normalize(cross(dpdx, dpdy));
-}
-#else
-vec3 reconstruct_world_normal(sampler2D depth_tex, mat4 model_view, mat4 inv_proj, vec2 screen_uv, mat4 world, mat4 inv_cam, vec2 viewport_size) {
-	vec3 pos = reconstruct_world_position(texture(depth_tex, screen_uv).x, model_view, inv_proj, screen_uv, world, inv_cam);
-	return normalize(cross(dFdx(pos), dFdy(pos)));
-}
-#endif // !NAIVE_NORMAL_RECONSTRUCTION
-
-float detect_edges_normal_reconstructed(uv_neighbors uvs, sampler2D depth_tex, mat4 model_view, mat4 inv_proj, vec2 screen_uv, mat4 world, mat4 inv_cam, vec2 viewport_size) {
-	vec3 n_u = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.up, world, inv_cam, viewport_size);
-	vec3 n_d = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.down, world, inv_cam, viewport_size);
-	vec3 n_l = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.left, world, inv_cam, viewport_size);
-	vec3 n_r = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.right, world, inv_cam, viewport_size);
-	vec3 n_tl = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.top_left, world, inv_cam, viewport_size);
-	vec3 n_tr = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.top_right, world, inv_cam, viewport_size);
-	vec3 n_bl = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.bottom_left, world, inv_cam, viewport_size);
-	vec3 n_br = reconstruct_world_normal(depth_tex, model_view, inv_proj, uvs.bottom_right, world, inv_cam, viewport_size);
-
-	vec3 normal_finite_difference0 = n_tr - n_bl;
-	vec3 normal_finite_difference1 = n_tl - n_br;
-	vec3 normal_finite_difference2 = n_l - n_r;
-	vec3 normal_finite_difference3 = n_u - n_d;
-
-	float edge_normal = sqrt(
-		dot(normal_finite_difference0, normal_finite_difference0) +
-		dot(normal_finite_difference1, normal_finite_difference1) +
-		dot(normal_finite_difference2, normal_finite_difference2) +
-		dot(normal_finite_difference3, normal_finite_difference3)
-	) * 0.5;
-
-	return smoothstep(normal_threshold - normal_smoothing, normal_threshold + normal_smoothing, edge_normal);
-}
-#else
 float detect_edges_normal(uv_neighbors uvs, sampler2D norm_tex, vec3 cam_dir_world) {
 	vec3 n_u = texture(norm_tex, uvs.up).xyz;
 	vec3 n_d = texture(norm_tex, uvs.down).xyz;
@@ -230,14 +157,9 @@ float detect_edges_normal(uv_neighbors uvs, sampler2D norm_tex, vec3 cam_dir_wor
 
 	return smoothstep(normal_threshold - normal_smoothing, normal_threshold + normal_smoothing, edge_normal);
 }
-#endif // SUPPORT_MOBILE
 
 void vertex() {
 	POSITION = vec4(VERTEX, 1.0);
-
-#ifdef SUPPORT_MOBILE
-	model_view_matrix = INV_VIEW_MATRIX * mat4(VIEW_MATRIX[0], VIEW_MATRIX[1], VIEW_MATRIX[2], VIEW_MATRIX[3]);
-#endif
 }
 
 void fragment() {
@@ -253,19 +175,10 @@ void fragment() {
 	n = get_neighbors(SCREEN_UV, thickness, aspect);
 	depth_samples = get_linear_depth_samples(n, depth_texture, INV_PROJECTION_MATRIX);
 
-#ifndef SUPPORT_MOBILE
 	vec3 pixel_normal = texture(normr_texture, SCREEN_UV).xyz;
-#else
-	vec3 pixel_normal = reconstruct_world_normal(depth_texture, model_view_matrix, INV_PROJECTION_MATRIX, SCREEN_UV, MODEL_MATRIX, INV_VIEW_MATRIX, VIEWPORT_SIZE.xy);
-#endif
 
 	float depth_edges = detect_edges_depth(depth_samples, pixel_normal, VIEW);
-
-#ifndef SUPPORT_MOBILE
 	float norm_edges = min(detect_edges_normal(n, normr_texture, CAMERA_DIRECTION_WORLD), 1.0);
-#else
-	float norm_edges = min(detect_edges_normal_reconstructed(n, depth_texture, model_view_matrix, INV_PROJECTION_MATRIX, SCREEN_UV, MODEL_MATRIX, INV_VIEW_MATRIX, VIEWPORT_SIZE.xy), 1.0);
-#endif
 
 	ALBEDO.rgb = outline_color.rgb;
 	ALPHA = max(depth_edges, norm_edges) * outline_color.a * fade_a;

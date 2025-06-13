@@ -57,8 +57,20 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_movement_input(delta)
-	camera.position = camera.position.lerp(camera_target_pos, delta * 10.0)
+
+	var previous_position: Vector3 = global_position
+
 	move_and_slide()
+
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var is_moving := input_dir.length_squared() > 0.001
+	var movement_delta: Vector3 = global_position - previous_position
+	movement_delta.y = 0.0 
+
+	if is_moving and is_on_floor() and movement_delta.length_squared() < 0.0001:
+		global_position.y += 0.05
+
+	camera.position = camera.position.lerp(camera_target_pos, delta * 10.0)
 
 ## Applies gravity to the player when airborne.
 ## @param delta: float - Frame time.

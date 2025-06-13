@@ -64,12 +64,12 @@ size = Vector3(1625.45, 2643.3, 0.500854)
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_gyfs4"]
+[sub_resource type="Sky" id="Sky_3obfh"]
 sky_material = SubResource("ProceduralSkyMaterial_2c62f")
 
 [sub_resource type="Environment" id="Environment_d5x1h"]
 background_mode = 2
-sky = SubResource("Sky_gyfs4")
+sky = SubResource("Sky_3obfh")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -478,7 +478,7 @@ mesh = SubResource("BoxMesh_18vu0")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Game/Furniture/Lights/Light_004")
 
 [node name="GlassDoor" parent="CampusControl/Furniture/Entry" instance=ExtResource("36_fbdsg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32712, 0, -1.44525)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.55533, 0, -1.44525)
 
 [node name="GlassDoor2" parent="CampusControl/Furniture/Entry" instance=ExtResource("36_fbdsg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5751, 0, -1.44525)
