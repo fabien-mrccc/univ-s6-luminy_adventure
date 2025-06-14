@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cabsswomrfn3h"]
 
-[ext_resource type="PackedScene" uid="uid://2677qo18mavw" path="res://scenes/world/map.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://dqf18m1yyypxw" path="res://scenes/world/map.tscn" id="2_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://wihwtp6uyh56" path="res://scenes/world/world_ui.tscn" id="3_4wyf3"]
 
@@ -22,7 +22,7 @@ glow_enabled = true
 [node name="WorldUi" parent="." instance=ExtResource("3_4wyf3")]
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2358, 91.1555, 20.0399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.52, 31.6874, 146.615)
 
 [node name="WorldSettings" type="Node3D" parent="."]
 

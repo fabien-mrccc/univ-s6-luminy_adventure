@@ -2,10 +2,10 @@
 extends CharacterBody3D
 
 ## Movement speed in walk mode.
-const WALK_SPEED := 2.0
+const WALK_SPEED := 4.0
 
 ## Movement speed in sprint mode.
-const SPRINT_SPEED := 8.0
+const SPRINT_SPEED := 10.0
 
 ## Mouse sensitivity for looking around.
 const SENSITIVITY := 0.004

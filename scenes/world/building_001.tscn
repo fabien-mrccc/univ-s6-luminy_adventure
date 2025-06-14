@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://p3tubydlqog7"]
+
+[ext_resource type="PackedScene" uid="uid://bxksmu4xh0jtn" path="res://assets/models/world/Building_000.glb" id="1_a1am0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0fby"]
+albedo_color = Color(0.880854, 0.763286, 0.218876, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s0fby"]
+points = PackedVector3Array(-6.21962, -4.03341, -50.157, -7.7206, 8.17303, -51.6629, 6.21782, -4.03341, -50.157, -6.21962, -4.03341, 50.1466, -9.33858, 49.0505, -50.157, -6.21962, 49.0505, -53.7901, 7.7188, 8.17303, -51.6629, -7.7206, 8.17303, 51.6524, 6.21782, -4.03341, 50.1466, -9.33858, 50.208, -50.157, -9.33858, 49.0505, 50.1466, 6.21782, 49.0505, -53.7901, -6.21962, 50.208, -53.7901, 9.33678, 49.0505, -50.157, 7.7188, 8.17303, 51.6524, -6.21962, 49.0505, 53.7901, -9.33858, 50.208, 50.1466, 6.21782, 50.208, -53.7901, 9.33678, 50.208, -50.157, 9.33678, 49.0505, 50.1466, 6.21782, 49.0505, 53.7901, -6.21962, 50.208, 53.7901, 9.33678, 50.208, 50.1466, 6.21782, 50.208, 53.7901)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhkug"]
+albedo_color = Color(0.882353, 0.764706, 0.219608, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yhkug"]
+points = PackedVector3Array(-0.600091, -0.927699, -1.99512, -1.09513, 1.18805, -2.14865, 0.599876, -0.927699, -1.99512, -1.00015, -0.927699, -1.9623, -1.09513, 1.37052, -2.14865, 1.09513, 1.18805, -2.14865, -1.03317, -0.927699, -1.44029, -1.09513, 1.18805, 2.14865, 0.999936, -0.927699, -1.9623, 1.09513, 1.37052, -2.14865, -1.09513, 1.37074, -0.022294, 1.03295, -0.927699, -1.44029, 1.09513, 1.18805, 2.14865, -1.03317, -0.927699, 1.43986, -1.00015, -0.927699, 1.96188, -0.600091, -0.927699, 1.99469, -1.09513, 1.37052, 2.14865, 1.09513, 1.37074, -0.022294, -1.09513, 1.37074, 0.0218735, 1.03295, -0.927699, 1.43986, 1.09513, 1.37052, 2.14865, 0.599876, -0.927699, 1.99469, 0.999936, -0.927699, 1.96188, 1.09513, 1.37074, 0.0218735)
+
+[node name="Building_000" instance=ExtResource("1_a1am0")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.865257, 0, 0, 0, 0.865257, 0, 0, 0, 0.924802, 0, 0, -2.74829)
+surface_material_override/1 = SubResource("StandardMaterial3D_s0fby")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_s0fby")
+
+[node name="Cube_001" parent="." index="1"]
+transform = Transform3D(-2.98272e-07, 0, -6.33742, 0, 5.13655, 0, 6.82367, 0, -2.77017e-07, 11.8828, 0, 1.87645)
+surface_material_override/3 = SubResource("StandardMaterial3D_yhkug")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_yhkug")
