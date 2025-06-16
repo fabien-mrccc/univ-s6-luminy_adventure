@@ -1,39 +1,39 @@
-## Spawns static cylindrical colliders based on instances in a MultiMesh.
+## Spawns static cylindrical colliders for each instance in all MultiMeshInstance3D nodes
+## that are direct children of this node. Attach this script to a parent node
+## containing one or more MultiMeshInstance3D nodes.
 extends Node3D
 
-## Path to the MultiMeshInstance3D containing tree instances.
-@export_node_path("MultiMeshInstance3D")
-var tree_multimesh_path: NodePath
+## Radius of the generated cylinder colliders.
+@export var tree_radius: float = 1.0
 
-## Radius of the cylinder colliders.
-@export var tree_radius: float = 2
-
-## Height of the cylinder colliders.
+## Height of the generated cylinder colliders.
 @export var tree_height: float = 3.0
 
 ## Called when the node enters the scene tree.
-## Instantiates StaticBody3D nodes with cylinder-shaped CollisionShape3D
-## for each instance in the MultiMesh, up to the specified limit if necessary.
+## Iterates through all MultiMeshInstance3D children and spawns a StaticBody3D
+## with a cylindrical CollisionShape3D for each instance in their MultiMesh.
 func _ready():
-	var tree_mmi = get_node(tree_multimesh_path)
-	var mm = tree_mmi.multimesh
-	var count = mm.instance_count
+	for child in get_children():
+		if child is MultiMeshInstance3D:
+			var mm = child.multimesh
+			var count = mm.instance_count
 
-	for i in count:
-		var transform = mm.get_instance_transform(i)
+			for i in range(count):
+				var transform = mm.get_instance_transform(i)
 
-		var body = StaticBody3D.new()
-		body.transform = transform
+				var body = StaticBody3D.new()
+				body.transform = transform
 
-		var shape = CollisionShape3D.new()
-		var cylinder = CylinderShape3D.new()
-		cylinder.radius = tree_radius
-		cylinder.height = tree_height
-		shape.shape = cylinder
+				var shape = CollisionShape3D.new()
+				var cylinder = CylinderShape3D.new()
+				cylinder.radius = tree_radius
+				cylinder.height = tree_height
+				shape.shape = cylinder
 
-		var shape_transform = Transform3D.IDENTITY
-		shape_transform.origin.y = tree_height / 2.0
-		shape.transform = shape_transform
+				# Offset the collider so it sits correctly on the ground.
+				var shape_transform = Transform3D.IDENTITY
+				shape_transform.origin.y = tree_height / 2.0
+				shape.transform = shape_transform
 
-		body.add_child(shape)
-		add_child(body)
+				body.add_child(shape)
+				add_child(body)

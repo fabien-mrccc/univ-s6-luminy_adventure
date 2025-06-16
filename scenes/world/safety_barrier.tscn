@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85pdd6mdi8wn"]
+
+[ext_resource type="PackedScene" uid="uid://ibxv0cdoadtt" path="res://assets/models/world/SafetyBarrier.glb" id="1_cbnwc"]
+
+[node name="SafetyBarrier" instance=ExtResource("1_cbnwc")]

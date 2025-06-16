@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://crys8o785yd0r"]
+
+[ext_resource type="PackedScene" uid="uid://bxksmu4xh0jtn" path="res://assets/models/world/Building_000.glb" id="1_pmn5l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmn5l"]
+albedo_color = Color(0.807843, 0.807843, 0.807843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0fby"]
+albedo_color = Color(0.678431, 0.890196, 0.984314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10j0e"]
+albedo_color = Color(0.807843, 0.807843, 0.807843, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s0fby"]
+points = PackedVector3Array(-6.21962, -4.03341, -50.157, -7.7206, 8.17303, -51.6629, 6.21782, -4.03341, -50.157, -6.21962, -4.03341, 50.1466, -9.33858, 49.0505, -50.157, -6.21962, 49.0505, -53.7901, 7.7188, 8.17303, -51.6629, -7.7206, 8.17303, 51.6524, 6.21782, -4.03341, 50.1466, -9.33858, 50.208, -50.157, -9.33858, 49.0505, 50.1466, 6.21782, 49.0505, -53.7901, -6.21962, 50.208, -53.7901, 9.33678, 49.0505, -50.157, 7.7188, 8.17303, 51.6524, -6.21962, 49.0505, 53.7901, -9.33858, 50.208, 50.1466, 6.21782, 50.208, -53.7901, 9.33678, 50.208, -50.157, 9.33678, 49.0505, 50.1466, 6.21782, 49.0505, 53.7901, -6.21962, 50.208, 53.7901, 9.33678, 50.208, 50.1466, 6.21782, 50.208, 53.7901)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_baqmw"]
+albedo_color = Color(0.807843, 0.807843, 0.807843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08osa"]
+albedo_color = Color(0.658824, 0.658824, 0.658824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhkug"]
+albedo_color = Color(0.678431, 0.890196, 0.984314, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yhkug"]
+points = PackedVector3Array(-0.600091, -0.927699, -1.99512, -1.09513, 1.18805, -2.14865, 0.599876, -0.927699, -1.99512, -1.00015, -0.927699, -1.9623, -1.09513, 1.37052, -2.14865, 1.09513, 1.18805, -2.14865, -1.03317, -0.927699, -1.44029, -1.09513, 1.18805, 2.14865, 0.999936, -0.927699, -1.9623, 1.09513, 1.37052, -2.14865, -1.09513, 1.37074, -0.022294, 1.03295, -0.927699, -1.44029, 1.09513, 1.18805, 2.14865, -1.03317, -0.927699, 1.43986, -1.00015, -0.927699, 1.96188, -0.600091, -0.927699, 1.99469, -1.09513, 1.37052, 2.14865, 1.09513, 1.37074, -0.022294, -1.09513, 1.37074, 0.0218735, 1.03295, -0.927699, 1.43986, 1.09513, 1.37052, 2.14865, 0.599876, -0.927699, 1.99469, 0.999936, -0.927699, 1.96188, 1.09513, 1.37074, 0.0218735)
+
+[node name="Building_000" instance=ExtResource("1_pmn5l")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.865257, 0, 0, 0, 0.865257, 0, 0, 0, 0.865257, 0.907505, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_pmn5l")
+surface_material_override/1 = SubResource("StandardMaterial3D_s0fby")
+surface_material_override/2 = SubResource("StandardMaterial3D_10j0e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_s0fby")
+
+[node name="Cube_001" parent="." index="1"]
+transform = Transform3D(8.82622, 0, 0, 0, 5.13655, 0, 0, 0, 5.13655, 0.230793, 3.3049, -0.7743)
+surface_material_override/0 = SubResource("StandardMaterial3D_baqmw")
+surface_material_override/2 = SubResource("StandardMaterial3D_08osa")
+surface_material_override/3 = SubResource("StandardMaterial3D_yhkug")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_yhkug")

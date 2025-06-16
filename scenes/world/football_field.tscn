@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://hli56ikb2ms5"]
+
+[ext_resource type="PackedScene" uid="uid://dx5iumf8dmheh" path="res://assets/models/world/FootballField.glb" id="1_f5mad"]
+
+[node name="FootballField" instance=ExtResource("1_f5mad")]

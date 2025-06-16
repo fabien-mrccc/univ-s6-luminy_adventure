@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca7jlomd6qc50"]
+
+[ext_resource type="PackedScene" uid="uid://bxksmu4xh0jtn" path="res://assets/models/world/Building_000.glb" id="1_a1g08"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0fby"]
+albedo_color = Color(0.819608, 0.717647, 0.486275, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s0fby"]
+points = PackedVector3Array(-6.21962, -4.03341, -50.157, -7.7206, 8.17303, -51.6629, 6.21782, -4.03341, -50.157, -6.21962, -4.03341, 50.1466, -9.33858, 49.0505, -50.157, -6.21962, 49.0505, -53.7901, 7.7188, 8.17303, -51.6629, -7.7206, 8.17303, 51.6524, 6.21782, -4.03341, 50.1466, -9.33858, 50.208, -50.157, -9.33858, 49.0505, 50.1466, 6.21782, 49.0505, -53.7901, -6.21962, 50.208, -53.7901, 9.33678, 49.0505, -50.157, 7.7188, 8.17303, 51.6524, -6.21962, 49.0505, 53.7901, -9.33858, 50.208, 50.1466, 6.21782, 50.208, -53.7901, 9.33678, 50.208, -50.157, 9.33678, 49.0505, 50.1466, 6.21782, 49.0505, 53.7901, -6.21962, 50.208, 53.7901, 9.33678, 50.208, 50.1466, 6.21782, 50.208, 53.7901)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhkug"]
+albedo_color = Color(0.0705882, 0.333333, 0.133333, 1)
+
+[node name="Building_000" instance=ExtResource("1_a1g08")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.865257, 0, 0, 0, 0.539863, 0, 0, 0, 0.24084, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_s0fby")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_s0fby")
+
+[node name="Cube_001" parent="." index="1"]
+transform = Transform3D(8.82622, 0, 0, 0, 5.13655, 0, 0, 0, 5.13655, 13.9918, 0, 0)
+visible = false
+surface_material_override/3 = SubResource("StandardMaterial3D_yhkug")
