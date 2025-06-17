@@ -48,6 +48,14 @@ The main scene is `game.tscn`, which contains the full campus map. All mini-game
 
 Unit tests were created using the GUT framework to verify the main gameplay mechanics and each mini-game. 
 
+## Authors
+
+- Fabien Marcuccini  
+- Amina Fanani  
+- Batiste Borg  
+- Imad Mouffok  
+- Salim Ahmed
+
 ## License
 
 Academic project – Aix-Marseille University – 2025
