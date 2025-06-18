@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://34irou564b4i"]
 
 [ext_resource type="Script" uid="uid://b1w2vycyrt4qk" path="res://scripts/mangakill/livingroom.gd" id="1_cyfin"]
-[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://ui/dialogue.tscn" id="2_cyfin"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://scenes/mangakill/dialogue.tscn" id="2_cyfin"]
 [ext_resource type="Texture2D" uid="uid://cortqlyt1g88p" path="res://assets/mangakill/Livingroom.png" id="2_f2sdy"]
 [ext_resource type="Texture2D" uid="uid://0ge1fgjiu10g" path="res://assets/mangakill/Shirt.png" id="4_ykg7c"]
 

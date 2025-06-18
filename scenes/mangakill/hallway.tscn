@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf8stxlmh1jip" path="res://scripts/mangakill/hallway.gd" id="1_tbxnn"]
 [ext_resource type="Texture2D" uid="uid://cgx4yj5wg7tqi" path="res://assets/mangakill/Hallway.png" id="2_esxvw"]
-[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://ui/dialogue.tscn" id="2_tbxnn"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://scenes/mangakill/dialogue.tscn" id="2_tbxnn"]
 
 [node name="Hallway" type="Node2D"]
 script = ExtResource("1_tbxnn")

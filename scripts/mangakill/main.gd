@@ -7,7 +7,7 @@ var current_scene
 ## Instantiates the clue layer from its scene and adds it as a child.
 ## Then changes the current scene to the homepage scene.
 func _ready():
-	var clue_scene = preload("res://ui/clues_layer.tscn")
+	var clue_scene = preload("res://scenes/mangakill/clues_layer.tscn")
 	clue_layer = clue_scene.instantiate()
 	print("ClueLayer instancié")
 	add_child(clue_layer)
