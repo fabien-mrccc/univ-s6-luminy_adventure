@@ -1,6 +1,6 @@
 extends GutTest
 
-var DialogueScene = preload("res://ui/dialogue.tscn")
+var DialogueScene = preload("res://scenes/mangakill/dialogue.tscn")
 var dialogue
 
 # Ces variables seront modifiées par le signal

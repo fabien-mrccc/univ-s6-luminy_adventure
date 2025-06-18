@@ -1,6 +1,6 @@
 extends "res://addons/gut/test.gd"
 
-var ClueScene = preload("res://ui/clues_layer.tscn")
+var ClueScene = preload("res://scenes/mangakill/clues_layer.tscn")
 var clues
 
 func before_each():
@@ -16,7 +16,7 @@ func test_no_clue_message():
 	clues._on_clue_pressed()
 	await get_tree().process_frame
 
-	assert_eq(clues.label.text, "Tu n'as trouvé aucun indice.")
+	assert_eq(clues.clue_label.text, "Tu n'as trouvé aucun indice.")
 	assert_eq(clues.clue_list.get_child_count(), 0)
 
 func test_adds_and_displays_clue():
@@ -26,7 +26,7 @@ func test_adds_and_displays_clue():
 	clues._on_clue_pressed()
 	await get_tree().process_frame
 
-	assert_eq(clues.label.text, "")
+	assert_eq(clues.clue_label.text, "")
 	assert_eq(clues.clue_list.get_child_count(), 1)
 
 	var added_child = clues.clue_list.get_child(0)

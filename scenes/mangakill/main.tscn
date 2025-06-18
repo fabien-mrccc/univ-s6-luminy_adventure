@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ys6hsc8evd4p"]
 
 [ext_resource type="Script" uid="uid://brt6qag2hp7lj" path="res://scripts/mangakill/main.gd" id="1_a4sy0"]
-[ext_resource type="AudioStream" uid="uid://dqjpjux8d61q2" path="res://assets/mangakill/creepy_song.mp3" id="2_nkj86"]
+[ext_resource type="AudioStream" uid="uid://cp7a3x3f632ht" path="res://assets/mangakill/creepy_song.mp3" id="2_nkj86"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_a4sy0")
