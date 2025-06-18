@@ -1,60 +1,156 @@
-# Luminy Adventure
+# 🇫🇷 Luminy Adventure (english version below)
 
-**Luminy Adventure** is a solo immersive video game developed with the Godot Engine. Players can freely explore the Luminy campus and complete various missions through mini-games. This project was created as part of a university assignment by a team of five.
+## Présentation du jeu
 
-## Overview
+Luminy Adventure est un jeu vidéo immersif solo qui permet d’explorer librement le campus de Luminy (Marseille) à travers une série de mini-jeux répartis dans l’environnement. Une to-do list vous guide dans les différentes activités à accomplir.
 
-The player will be able to navigate the Luminy campus. While exploring, they will encounter interactive locations and access different mini-games. A built-in to-do list tracks progress. There is no required order for completing tasks, the experience is fully non-linear.
+### Activités disponibles
 
-## Controls
+* Participer à un cours : Répondez à des questions sur le campus.
+* Faire le tour du campus en voiture : Terminez un circuit chronométré.
+* Travailler à l’accueil du CROUS : Vérifiez les documents d’étudiants.
+* Survivre dans un manga : Résolvez une enquête narrative.
+* Découvrir la botanique des calanques : Collectez des plantes typiques.
 
-- **Move Forward**: Z  
-- **Move Backward**: S  
-- **Move Left**: Q  
-- **Move Right**: D  
-- **Sprint**: Shift + direction key  
-- **Interact**: E (when the interaction prompt appears)  
-- **Click buttons in mini-games**: Left mouse click  
+### Contrôles
 
-## How to Run the Project
+| Action             | Touche            |
+| ------------------ | ----------------- |
+| Déplacer la caméra | Souris            |
+| Avancer            | Z                 |
+| Reculer            | S                 |
+| Gauche             | Q                 |
+| Droite             | D                 |
+| Courir             | Shift + ZQSD      |
+| Interagir          | E (quand affiché) |
+| Clic bouton        | Clic gauche       |
 
-1. Clone the repository:  
-   `git clone https://github.com/fabien-mrccc/univ-s6-luminy_adventure.git`
+### Lancer le jeu
 
-2. Open the project with [Godot Engine](https://godotengine.org/).  
-3. Launch the main scene `game.tscn` by clicking **Run Project**.
+Téléchargez l’exécutable correspondant à votre plateforme (Windows/macOS), puis double-cliquez pour démarrer.
 
-## Available Missions
+### Progression
 
-- **Attend a class**: Answer multiple-choice questions from a teacher in a classroom.
-- **Drive around Luminy**: A time trial race around the campus.
-- **Work at the CROUS reception**: Check student documents and decide who can enter the building.
-- **Survive a manga**: A branching narrative game with decisions and consequences.
-- **Find Luminy's plants**: Identify and collect local flora such as cistus, Montpellier aphyllanthe, and dubious daffodils.
+Les mini-jeux peuvent être joués dans n’importe quel ordre. Votre progression est sauvegardée automatiquement.
 
-## Technologies Used
+---
 
-- **Game Engine**: Godot Engine  
-- **Unit Testing**: Godot Unit Test (GUT)  
-- **3D Modeling & Animation**: Blender  
-- **2D Artwork**: Procreate  
-- **Version Control**: GitHub  
+## Pour les développeurs
 
-## Project Structure
+### Structure du projet
 
-The main scene is `game.tscn`, which contains the full campus map. All mini-games are accessible from this scene through in-game triggers.
+* addons/ : Plugins Godot (ex. GUT)
+* assets/ : Ressources visuelles et audio
+* scenes/ : Scènes du jeu
+* scripts/ : Scripts GDScript
+* shaders/ : Shaders visuels
+* tests/ : Tests unitaires GUT
 
-## Testing
+La scène par défaut est **world.tscn**.
 
-Unit tests were created using the GUT framework to verify the main gameplay mechanics and each mini-game. 
+### Lancer dans Godot
+
+* Cloner le dépôt :
+  `git clone https://github.com/fabien-mrccc/univ-s6-luminy_adventure.git`
+* Ou télécharger le .zip depuis GitHub.
+* Importer le dossier dans Godot.
+* Cliquer sur **Run Project** pour lancer le jeu.
+
+### Lancer les tests
+
+* Activer GUT dans **Project > Project Settings > Plugins**.
+* Ouvrir l’onglet GUT (en bas de l’écran).
+* Cliquer sur **Run All** pour exécuter tous les tests.
+
+Si aucun test ne se lance, assurez-vous que le dossier `res://tests` est bien présent dans l’option “Include Subdirs” de GUT (fenêtre à droite).
+
+## Auteurs
+
+- Fabien MARCUCCINI
+- Amina FANANI
+- Batiste BORG
+- Imad MOUFFOK
+- Salim AHMED
+
+## Licence
+
+Projet académique – Aix-Marseille Université – 2025
+
+---
+
+# 🇬🇧 Luminy Adventure
+
+## Game Overview
+
+Luminy Adventure is a single-player immersive video game that lets you freely explore the Luminy campus (Marseille) through a series of mini-games embedded in the environment. A to-do list helps you track the available activities.
+
+### Available Activities
+
+* Attend a class: Answer questions about the campus.
+* Drive around campus: Complete a timed lap.
+* Work at the CROUS front desk: Check student documents.
+* Survive inside a manga: Solve a narrative mystery.
+* Discover calanques botany: Collect local plant species.
+
+### Controls
+
+| Action       | Key            |
+| ------------ | -------------- |
+| Move camera  | Mouse          |
+| Move forward | Z              |
+| Move back    | S              |
+| Move left    | Q              |
+| Move right   | D              |
+| Run          | Shift + ZQSD   |
+| Interact     | E (when shown) |
+| UI click     | Left click     |
+
+### Launch the Game
+
+Download the executable for your platform (Windows/macOS) and double-click to start.
+
+### Progression
+
+Mini-games can be completed in any order. Your progress is saved automatically.
+
+---
+
+## For Developers
+
+### Project Structure
+
+* addons/ : Godot plugins (e.g. GUT)
+* assets/ : Visual and audio resources
+* scenes/ : Game scenes
+* scripts/ : GDScript scripts
+* shaders/ : Visual shaders
+* tests/ : GUT unit tests
+
+The default scene is **world.tscn**.
+
+### Run in Godot
+
+* Clone the repository:
+  `git clone https://github.com/fabien-mrccc/univ-s6-luminy_adventure.git`
+* Or download the .zip from GitHub.
+* Import the project folder into Godot.
+* Click **Run Project** to launch the game.
+
+### Run Unit Tests
+
+* Enable GUT in **Project > Project Settings > Plugins**.
+* Open the GUT tab (at the bottom of the editor).
+* Click **Run All** to execute all tests.
+
+If no tests run, make sure the `res://tests folder` is present and included in GUT’s “Include Subdirs” option (panel on the right).
 
 ## Authors
 
-- Fabien Marcuccini  
-- Amina Fanani  
-- Batiste Borg  
-- Imad Mouffok  
-- Salim Ahmed
+- Fabien MARCUCCINI
+- Amina FANANI
+- Batiste BORG
+- Imad MOUFFOK
+- Salim AHMED
 
 ## License
 
