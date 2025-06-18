@@ -12,7 +12,6 @@ script = ExtResource("1_uxpb3")
 
 [node name="Rainsound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_e5cgy")
-bus = &"RainInside"
 
 [node name="LibraryImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_fqsnt")
@@ -27,9 +26,9 @@ position = Vector2(-14, -108)
 texture = ExtResource("4_e5cgy")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_uxpb3")]
-offset_left = -500.0
-offset_top = 350.0
-offset_right = -500.0
-offset_bottom = 350.0
+offset_left = -550.0
+offset_top = 290.0
+offset_right = -550.0
+offset_bottom = 290.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -28,9 +28,9 @@ visible = false
 texture = ExtResource("5_om4rj")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_d6g27")]
-offset_left = -500.0
-offset_top = 350.0
-offset_right = -500.0
-offset_bottom = 350.0
+offset_left = -550.0
+offset_top = 290.0
+offset_right = -550.0
+offset_bottom = 290.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -5,33 +5,36 @@ extends Node2D
 func _ready():
 	_enter_hallway()
 
+## Displays the hallway introduction dialogue.
+## Connects the next step to the scene start.
 func _enter_hallway():
 	dialogue_box.show_dialogue("Tu sors de la chambre et tu te retrouve dans le couloir.", ["Suivant"])
 	dialogue_box.choice_selected.connect(start_scene)
 
+## Starts the main hallway scene.
+## Presents the player with two choices.
 func start_scene(index: int) -> void:
-	# Introduction avec les deux premiers choix
 	dialogue_box.show_dialogue(
 		"Ren, assis dos au mur, griffonne des symboles sur le sol.",
 		["Parler à Ren", "Découvrir la prochaine pièce"]
 	)
 	dialogue_box.choice_selected.connect(_on_first_choice)
 
+## Handles the player's first decision in the hallway.
+## Either begins the Ren dialogue or transitions to the next room.
 func _on_first_choice(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_first_choice)
 
 	if index == 0:
-		# Début de l'échange avec Ren
 		dialogue_box.show_dialogue(
 			"« Qui es-tu ? »",
 			["Suivant"]
 		)
 		dialogue_box.choice_selected.connect(_on_ren_intro_1)
 	else:
-		# Aller à la salle de bain
 		dialogue_box.choice_selected.connect(_go_to_bathroom)
 
-
+## Continues Ren's introduction dialogue.
 func _on_ren_intro_1(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_ren_intro_1)
 
@@ -41,6 +44,7 @@ func _on_ren_intro_1(index: int) -> void:
 	)
 	dialogue_box.choice_selected.connect(_on_ren_intro_2)
 
+## Continues Ren's dialogue about Akira.
 func _on_ren_intro_2(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_ren_intro_2)
 
@@ -50,6 +54,7 @@ func _on_ren_intro_2(index: int) -> void:
 	)
 	dialogue_box.choice_selected.connect(_on_ren_intro_3)
 
+## Continues Ren's backstory about Akira’s fate.
 func _on_ren_intro_3(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_ren_intro_3)
 
@@ -59,6 +64,7 @@ func _on_ren_intro_3(index: int) -> void:
 	)
 	dialogue_box.choice_selected.connect(_on_ren_intro_4)
 
+## Questions Ren’s implication in the story.
 func _on_ren_intro_4(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_ren_intro_4)
 
@@ -68,6 +74,7 @@ func _on_ren_intro_4(index: int) -> void:
 	)
 	dialogue_box.choice_selected.connect(_on_ren_intro_5)
 
+## Offers final branching choices for more dialogue or exiting.
 func _on_ren_intro_5(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_ren_intro_5)
 
@@ -81,6 +88,8 @@ func _on_ren_intro_5(index: int) -> void:
 	)
 	dialogue_box.choice_selected.connect(_on_final_choice_with_ren)
 
+## Handles the player's final dialogue choice with Ren.
+## Responds with different lines depending on the selected question.
 func _on_final_choice_with_ren(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_final_choice_with_ren)
 
@@ -103,6 +112,8 @@ func _on_final_choice_with_ren(index: int) -> void:
 
 	dialogue_box.choice_selected.connect(_go_to_bathroom)
 
+## Transitions from the hallway to the bathroom scene.
+## Changes the scene using the main node reference.
 func _go_to_bathroom(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_go_to_bathroom)
 	var main = get_tree().root.get_node("Main")

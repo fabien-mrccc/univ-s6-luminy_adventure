@@ -14,7 +14,6 @@ texture = ExtResource("2_hu6xd")
 
 [node name="Rainsound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_i4sud")
-bus = &"RainInside"
 
 [node name="Note" type="Sprite2D" parent="."]
 visible = false
@@ -23,9 +22,9 @@ scale = Vector2(0.599153, 0.62439)
 texture = ExtResource("3_oi2l4")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_elacj")]
-offset_left = -500.0
-offset_top = 350.0
-offset_right = -500.0
-offset_bottom = 350.0
+offset_left = -550.0
+offset_top = 290.0
+offset_right = -550.0
+offset_bottom = 290.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
