@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://hli56ikb2ms5"]
-
-[ext_resource type="PackedScene" uid="uid://dx5iumf8dmheh" path="res://assets/models/world/FootballField.glb" id="1_f5mad"]
-
-[node name="FootballField" instance=ExtResource("1_f5mad")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:8989cd3a5de6ac5b454c5a72ecbf45023897763dfb0381f473380f1073ca171c
+size 244
