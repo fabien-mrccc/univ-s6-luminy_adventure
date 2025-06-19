@@ -2,7 +2,7 @@ extends GutTest
 
 ## Preloaded player scene for instantiating in tests.
 ## Reference to the player node in the instantiated scene.
-var player_scene = preload("res://scenes/test_player.tscn") 
+var player_scene = preload("res://scenes/tests/test_player.tscn") 
 var player_node
 
 ## Sets up the player scene and node before each test case.
