@@ -9,6 +9,10 @@ const BRAKE_FORCE := 150
 @onready var front_right_wheel = $Wheel_Front_Right
 @onready var front_left_wheel = $Wheel_Front_Left
 
+func _physics_process(delta: float) -> void:
+	handle_vehicle(delta)
+	apply_forces()
+
 func handle_vehicle(delta: float) -> void:
 	steering = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEERING, delta * 2.5)
 	if Input.is_action_pressed("move_forward"):
