@@ -21,3 +21,11 @@ func _on_finish_line_entered(body):
 	if body == player_car and race_started:
 		race_started = false
 		print("Temps final: %.2f secondes" % race_time)
+
+func _on_offroad_zone_exited(body):
+	if body == player_car:
+		var z_pos = body.global_position.z
+		var respawn_pos = Vector3(0, 1, z_pos)
+		body.global_position = respawn_pos
+		body.linear_velocity = Vector3.ZERO
+		body.angular_velocity = Vector3.ZERO
