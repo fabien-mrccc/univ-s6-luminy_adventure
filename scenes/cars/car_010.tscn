@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=4 uid="uid://bkwe2gyrnwvot"]
 
-[ext_resource type="Script" uid="uid://cnltu1j3tw56i" path="res://lfs/scripts/car.gd" id="1_cbc28"]
+[ext_resource type="Script" uid="uid://ddrdqp6niu2hy" path="res://lfs/scripts/car.gd" id="1_cbc28"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6t68d"]
 resource_name = "Indicators"
