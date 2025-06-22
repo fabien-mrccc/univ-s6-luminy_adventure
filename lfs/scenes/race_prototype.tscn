@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b14km3gcawxwy"]
+[gd_scene load_steps=15 format=3 uid="uid://dv2ht1hayqtuh"]
 
-[ext_resource type="Script" uid="uid://cxonp680usdi0" path="res://lfs/scripts/race_manager.gd" id="1_dy1xs"]
-[ext_resource type="PackedScene" uid="uid://b7dejqccroeeh" path="res://lfs/scenes/player_car.tscn" id="3_dy1xs"]
+[ext_resource type="PackedScene" path="res://lfs/scenes/player_car.tscn" id="3_dy1xs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1epb"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -48,7 +47,6 @@ size = Vector2(1000, 1000)
 size = Vector3(1000, 0, 1000)
 
 [node name="RacePrototype" type="Node3D"]
-script = ExtResource("1_dy1xs")
 
 [node name="WorldSettings" type="Node3D" parent="."]
 
