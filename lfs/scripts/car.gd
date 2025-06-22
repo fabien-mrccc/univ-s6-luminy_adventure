@@ -9,6 +9,9 @@ const BRAKE_FORCE := 150
 @onready var front_right_wheel = $Wheel_Front_Right
 @onready var front_left_wheel = $Wheel_Front_Left
 
+func _ready() -> void:
+	setup_wheels()
+
 func _physics_process(delta: float) -> void:
 	handle_vehicle(delta)
 	apply_forces()
