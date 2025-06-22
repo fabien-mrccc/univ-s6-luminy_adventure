@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3h5m04vq2fl2"]
+
+[ext_resource type="PackedScene" uid="uid://dqf18m1yyypxw" path="res://scenes/world/map.tscn" id="1_c14h3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c14h3"]
+size = Vector3(6.7, 0.2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ru2w"]
+albedo_color = Color(0.661279, 0.717057, 0.72152, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qi7c"]
+size = Vector3(6.7, 5, 3)
+
+[node name="Map" instance=ExtResource("1_c14h3")]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 0, 0, 0)
+
+[node name="GrassGround" parent="." index="0"]
+visible = false
+
+[node name="GrassMultiMeshes" parent="." index="8"]
+visible = false
+
+[node name="TreeMultiMeshes" parent="." index="9"]
+visible = false
+
+[node name="Buildings" parent="." index="10"]
+visible = false
+
+[node name="BushMultiMeshes" parent="." index="12"]
+visible = false
+
+[node name="FinishLine" type="Area3D" parent="." index="13"]
+transform = Transform3D(0.0824081, 8.02184e-08, -0.996599, 8.02184e-08, 1, 8.71254e-08, 0.996599, -8.71254e-08, 0.0824081, -145.601, 8.5, -189.884)
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FinishLine" index="0"]
+transform = Transform3D(0.999446, 4.84661e-11, -0.0332947, 4.84803e-11, 1, 2.91072e-09, 0.0332947, -2.91072e-09, 0.999446, -0.856934, 0, 39.9291)
+mesh = SubResource("BoxMesh_c14h3")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_7ru2w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FinishLine" index="1"]
+transform = Transform3D(0.99945, 0, -0.0331552, 2.13163e-14, 1, 0, 0.0331552, 0, 0.99945, -0.789703, 1.38391, 39.9347)
+shape = SubResource("BoxShape3D_7qi7c")
