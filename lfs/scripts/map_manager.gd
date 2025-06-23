@@ -13,11 +13,14 @@ func _ready() -> void:
 	finish_line.body_entered.connect(_on_finish_line_entered)
 	off_road_zones.body_exited.connect(_on_offroad_zone_exited)
 	chrono_label.text = ""
+	start_countdown()
 
 func _physics_process(delta: float) -> void:
 	if race_started:
 		race_time += delta
 		chrono_label.text = "Temps : %.2f s" % race_time
+	if Input.is_action_just_pressed("move_forward") and not race_started:
+		start_race()
 
 func start_countdown():
 	var countdown = ["3", "2", "1", "GO!"]
