@@ -1,8 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://xp4manfw6fru"]
+[gd_scene load_steps=58 format=3 uid="uid://xp4manfw6fru"]
 
 [ext_resource type="PackedScene" uid="uid://dqf18m1yyypxw" path="res://scenes/world/map.tscn" id="1_c14h3"]
 [ext_resource type="Script" uid="uid://we6wnljvn0tb" path="res://lfs/scripts/map_manager.gd" id="2_7qi7c"]
 [ext_resource type="PackedScene" uid="uid://b7dejqccroeeh" path="res://lfs/scenes/player_car.tscn" id="2_7ru2w"]
+[ext_resource type="FontFile" uid="uid://cqsg0tklg1kf7" path="res://assets/ui/NotoSans-SemiBold.ttf" id="4_a50g5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c14h3"]
 size = Vector3(1, 20, 350.967)
@@ -411,9 +412,21 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -210.1
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="17"]
 
 [node name="CountdownLabel" type="Label" parent="CanvasLayer" index="0"]
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_a50g5")
 
 [node name="ChronoLabel" type="Label" parent="CanvasLayer" index="1"]
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_a50g5")

@@ -26,10 +26,11 @@ func _physics_process(delta: float) -> void:
 
 func start_countdown():
 	var countdown = ["3", "2", "1", "GO!"]
-	var delay = 1.0
 	for step in countdown:
 		countdown_label.text = step
-		await get_tree().create_timer(delay).timeout
+		player_car.sleeping = true
+		await get_tree().create_timer(1.0).timeout
+		player_car.sleeping = false
 	countdown_label.text = ""
 	start_race()
 
@@ -44,8 +45,12 @@ func _on_finish_line_entered(body):
 		
 func _on_offroad_zone_exited(body):
 	if body == player_car:
-		var z_pos = body.global_position.z
-		var respawn_pos = Vector3(0, 10, z_pos)
-		body.global_position = respawn_pos
+		var original_transform = body.global_transform
+		var forward = -original_transform.basis.z.normalized()
+		var side_offset = original_transform.basis.x.normalized() * 0.5
+		var respawn_pos = original_transform.origin + side_offset
+		respawn_pos.y = 50.0
+		body.global_transform.origin = respawn_pos
+		body.global_transform.basis = original_transform.basis
 		body.linear_velocity = Vector3.ZERO
 		body.angular_velocity = Vector3.ZERO
