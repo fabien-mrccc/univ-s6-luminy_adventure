@@ -171,27 +171,6 @@ glow_enabled = true
 [node name="Map" instance=ExtResource("1_c14h3")]
 script = ExtResource("2_7qi7c")
 
-[node name="GrassGround" parent="." index="0"]
-visible = false
-
-[node name="TopGround" parent="." index="2"]
-visible = false
-
-[node name="GrassMultiMeshes" parent="." index="8"]
-visible = false
-
-[node name="TreeMultiMeshes" parent="." index="9"]
-visible = false
-
-[node name="Buildings" parent="." index="10"]
-visible = false
-
-[node name="SafetyBarriers" parent="." index="11"]
-visible = false
-
-[node name="BushMultiMeshes" parent="." index="12"]
-visible = false
-
 [node name="OffRoadZones" type="Area3D" parent="." index="13"]
 
 [node name="OffRoadZone_001" type="CollisionShape3D" parent="OffRoadZones" index="0"]
