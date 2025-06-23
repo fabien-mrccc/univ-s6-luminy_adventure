@@ -5,7 +5,7 @@ extends CharacterBody3D
 const WALK_SPEED := 4.0
 
 ## Movement speed in sprint mode.
-const SPRINT_SPEED := 10.0
+const SPRINT_SPEED := 50.0
 
 ## Default camera field of view (FOV).
 const BASE_FOV := 90.0
