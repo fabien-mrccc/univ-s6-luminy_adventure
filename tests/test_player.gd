@@ -8,6 +8,7 @@ var player_node
 ## Sets up the player scene and node before each test case.
 ## This function instantiates the player scene and sets up the player node reference.
 func before_each():
+	print("test")
 	var instance = player_scene.instantiate()
 	add_child(instance)
 	await get_tree().process_frame

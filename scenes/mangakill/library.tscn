@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bglkn0r11px78"]
+
+[ext_resource type="Script" uid="uid://cqymhbdiijd0v" path="res://scripts/mangakill/library.gd" id="1_uxpb3"]
+[ext_resource type="AudioStream" uid="uid://bntqv46uvdbkx" path="res://assets/mangakill/rainsound.mp3" id="2_e5cgy"]
+[ext_resource type="Texture2D" uid="uid://dw5x8x3k3molg" path="res://assets/mangakill/Library_Suzu.png" id="2_fqsnt"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://scenes/mangakill/dialogue.tscn" id="2_uxpb3"]
+[ext_resource type="Texture2D" uid="uid://cjau2y40ltn3n" path="res://assets/mangakill/Library_Mika.png" id="3_fcxe1"]
+[ext_resource type="Texture2D" uid="uid://lvuwyjn6gdbg" path="res://assets/mangakill/Notebook.png" id="4_e5cgy"]
+
+[node name="Library" type="Node2D"]
+script = ExtResource("1_uxpb3")
+
+[node name="Rainsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e5cgy")
+
+[node name="LibraryImage" type="Sprite2D" parent="."]
+texture = ExtResource("2_fqsnt")
+
+[node name="LibraryMika" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_fcxe1")
+
+[node name="Notebook" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, -108)
+texture = ExtResource("4_e5cgy")
+
+[node name="Dialogue" parent="." instance=ExtResource("2_uxpb3")]
+offset_left = -550.0
+offset_top = 290.0
+offset_right = -550.0
+offset_bottom = 290.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
