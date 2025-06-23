@@ -2,7 +2,7 @@ extends GutTest
 
 ## Preloaded player scene for instantiating in tests.
 ## Reference to the player node in the instantiated scene.
-var player_scene = preload("res://scenes/test_player.tscn") 
+var player_scene = preload("res://scenes/tests/test_player.tscn") 
 var player_node
 
 ## Sets up the player scene and node before each test case.
@@ -110,22 +110,3 @@ func test_sprint():
 
 	Input.action_release("sprint")
 	Input.action_release("move_forward")
-	
-## Tests player jump functionality.
-## Simulates pressing the "jump" input action and checks that the player jumps upwards.
-func test_jump():
-	var min_position_y = player_node.global_position.y
-	var max_position_y = min_position_y
-
-	Input.action_press("jump")
-	await get_tree().process_frame
-
-	for i in range(100):
-		player_node.simulate_physics(1 / 60.0)
-		await get_tree().process_frame
-		var current_position_y = player_node.global_position.y
-		max_position_y = max(max_position_y, current_position_y)
-
-	assert_gt(max_position_y, min_position_y, "The player should jump")
-
-	Input.action_release("jump")

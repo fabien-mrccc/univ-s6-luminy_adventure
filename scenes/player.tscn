@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmc4d7ay41pc"]
+[gd_scene load_steps=16 format=3 uid="uid://dmc4d7ay41pc"]
 
 [ext_resource type="Shader" uid="uid://7mgo8br5yida" path="res://shaders/outline.gdshader" id="2_g2els"]
 [ext_resource type="Script" uid="uid://cf0465y103226" path="res://scripts/player.gd" id="2_rbmgg"]
@@ -6,6 +6,8 @@
 [ext_resource type="Shader" uid="uid://beoyblfu783it" path="res://shaders/crosshair.gdshader" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://ogwsnuyi15gb" path="res://scenes/player_interactor.tscn" id="3_tuyoq"]
 [ext_resource type="Shader" uid="uid://bbip387i7ol48" path="res://shaders/motion_lines.gdshader" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://bukbcddymsjud" path="res://scripts/esc_menu.gd" id="4_fjrip"]
+[ext_resource type="Theme" uid="uid://dxedsqw5jfeph" path="res://assets/ui/checkbox_theme.tres" id="4_tuyoq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlg0r"]
 radius = 0.40732
@@ -30,13 +32,26 @@ shader_parameter/grazing_fresnel_power = 5.0
 shader_parameter/grazing_angle_mask_power = 1.0
 shader_parameter/grazing_angle_modulation_factor = 50.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuyoq"]
+bg_color = Color(0.066755, 0.066755, 0.066755, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_fjrip"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjrip"]
 shader = ExtResource("3_qhqgy")
 shader_parameter/crosshair_color = Color(1, 1, 1, 0)
-shader_parameter/border_color = Color(0, 0, 0, 1)
-shader_parameter/radius = 0.1
-shader_parameter/border_thickness = 0.1
-shader_parameter/opacity = 0.0
+shader_parameter/border_color = Color(1, 1, 1, 0.470588)
+shader_parameter/radius = 0.02
+shader_parameter/border_thickness = 0.03
+shader_parameter/opacity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
 shader = ExtResource("4_dqkch")
@@ -73,31 +88,219 @@ transform = Transform3D(1.26985, 0, 0, 0, 2.10397, 0, 0, 0, 6.47604, 0, -0.48864
 
 [node name="Character_020" parent="Head" instance=ExtResource("3_dqkch")]
 
-[node name="CrosshairCanvas" type="CanvasLayer" parent="."]
+[node name="EscMenuLayer" type="CanvasLayer" parent="."]
+layer = 5
+visible = false
+script = ExtResource("4_fjrip")
 
-[node name="CrosshairDot" type="ColorRect" parent="CrosshairCanvas"]
-material = SubResource("ShaderMaterial_qlg0r")
+[node name="Background" type="Panel" parent="EscMenuLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qlg0r")
+
+[node name="MainPanel" type="Panel" parent="EscMenuLayer/Background"]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 265.0
+offset_right = 1185.0
+offset_bottom = 815.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tuyoq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscMenuLayer/Background/MainPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleCenterContainer" type="CenterContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/TitleCenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Paramètres"
+horizontal_alignment = 3
+
+[node name="HboxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/HboxContainer"]
+layout_mode = 2
+
+[node name="SoundHboxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/SoundHboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Volume sonore  "
+
+[node name="SoundHSlider" type="HSlider" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/SoundHboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="HboxContainer3" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/HboxContainer3"]
+layout_mode = 2
+
+[node name="SensitivityHBoxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SensitivityLabel" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/SensitivityHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Sensibilité souris  "
+
+[node name="SensitivityHSlider" type="HSlider" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/SensitivityHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+value = 40.0
+
+[node name="HboxContainer4" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/HboxContainer4"]
+layout_mode = 2
+
+[node name="DisplayCenterContainer" type="CenterContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayHBoxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/DisplayCenterContainer"]
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/DisplayCenterContainer/DisplayHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Mode d'affichage  "
+
+[node name="DisplayOptionButton" type="OptionButton" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/DisplayCenterContainer/DisplayHBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Fenêtré"
+popup/item_0/id = 0
+popup/item_1/text = "Plein écran"
+popup/item_1/id = 1
+
+[node name="HboxContainer2" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/HboxContainer2"]
+layout_mode = 2
+
+[node name="GrassCenterContainer" type="CenterContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GrassHBoxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/GrassCenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_fjrip")
+
+[node name="GrassLabel" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/GrassCenterContainer/GrassHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Herbe"
+
+[node name="GrassCheckBox" type="CheckBox" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/GrassCenterContainer/GrassHBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_tuyoq")
+button_pressed = true
+
+[node name="CrosshairCenterContainer" type="CenterContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CrosshairHBoxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/CrosshairCenterContainer"]
+layout_mode = 2
+
+[node name="CrosshairLabel" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/CrosshairCenterContainer/CrosshairHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Crosshair"
+
+[node name="CrosshairCheckBox" type="CheckBox" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/CrosshairCenterContainer/CrosshairHBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_tuyoq")
+
+[node name="HboxContainer5" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/HboxContainer5"]
+layout_mode = 2
+
+[node name="BUCenterContainer" type="CenterContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BUHboxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/BUCenterContainer"]
+layout_mode = 2
+
+[node name="BUButton" type="Button" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/BUCenterContainer/BUHboxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_colors/font_hover_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_colors/font_color = Color(0.570862, 0.711254, 1, 1)
+theme_override_colors/font_focus_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = " Retourner à la BU "
+
+[node name="ExitCenterContainer" type="CenterContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitHboxContainer" type="HBoxContainer" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/ExitCenterContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="EscMenuLayer/Background/MainPanel/VBoxContainer/ExitCenterContainer/ExitHboxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_colors/font_hover_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_colors/font_color = Color(0.990553, 0.464951, 0.483152, 1)
+theme_override_colors/font_focus_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_colors/font_pressed_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_font_sizes/font_size = 20
+text = " Fermer le jeu "
+
+[node name="CrosshairLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CrosshairLayer"]
+material = SubResource("ShaderMaterial_fjrip")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MotionLinesCanvas" type="CanvasLayer" parent="."]
+[node name="MotionLinesLayer" type="CanvasLayer" parent="."]
 
-[node name="MotionLines" type="ColorRect" parent="MotionLinesCanvas"]
+[node name="MotionLines" type="ColorRect" parent="MotionLinesLayer"]
 material = SubResource("ShaderMaterial_tuyoq")
-anchors_preset = -1
-anchor_right = 0.4
-anchor_bottom = 0.4
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true

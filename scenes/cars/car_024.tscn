@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmvvbg3c0ubic"]
+[gd_scene load_steps=4 format=3 uid="uid://bmvvbg3c0ubic"]
 
 [ext_resource type="PackedScene" uid="uid://bbjv8b6tuchkj" path="res://assets/models/cars/Car_020.glb" id="1_ifqvw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsmau"]
 albedo_color = Color(0.901961, 0.564706, 0.227451, 1)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ifqvw"]
+points = PackedVector3Array(-1.83282, 2.05735, 1.62219, 1.78225, 2.47406, 2.03942, 1.50412, 2.05735, 4.40345, 1.4235, 0.743533, -4.12129, -1.17931, 3.473, -0.932394, -1.47049, 0.746946, 4.29789, -1.47407, 0.743533, -4.12129, 1.36469, 2.05735, -4.35582, 1.64318, 0.80577, 4.26408, -1.41561, 2.05735, 4.54282, 1.15431, 3.50282, 1.14212, -1.41561, 2.05735, -4.35582, 1.17222, 3.52372, -0.971038, -1.17936, 3.47305, 1.11943, 1.64318, 0.944675, -4.07708, -1.83282, 2.47406, 2.03942, -1.55468, 1.22277, -4.35582, 1.50412, 2.05735, -4.21645, 1.41992, 0.746946, 4.29789, -1.55468, 1.22277, 4.54282, 1.36469, 2.05735, 4.54282, -1.83282, 2.47406, 1.62219, 1.78225, 2.05735, 1.62219, 1.64318, 0.944675, 4.40345, 1.78225, 2.47406, 1.62219, 1.64318, 1.22277, -4.07708, 1.64318, 1.22277, 4.40345, -1.83282, 2.05735, 2.03942, 1.78225, 2.05735, 2.03942, 1.64318, 0.80577, 3.98622)
+
 [node name="Car_020" instance=ExtResource("1_ifqvw")]
 
 [node name="Car_Body" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_nsmau")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Car_Body" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car_Body/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ifqvw")
