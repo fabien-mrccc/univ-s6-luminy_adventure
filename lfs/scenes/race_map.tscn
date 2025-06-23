@@ -384,7 +384,7 @@ transform = Transform3D(-0.0141018, 0, -0.999901, 0, 1, 0, 0.999901, 0, -0.01410
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FinishLine" index="0"]
-transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, -3.593, 0, 40.046)
+transform = Transform3D(0.99981, -0.00872521, 0.0174524, 0.00872654, 0.999962, 0, -0.0174517, 0.000152299, 0.999848, -3.593, 0, 40.046)
 mesh = SubResource("BoxMesh_isicv")
 skeleton = NodePath("../CollisionShape3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_wrt6i")
@@ -405,3 +405,13 @@ environment = SubResource("Environment_df4w7")
 
 [node name="PlayerCar" parent="." index="16" instance=ExtResource("2_7ru2w")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -210.162, 8.4967, -187.414)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="17"]
+
+[node name="CountdownLabel" type="Label" parent="CanvasLayer" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ChronoLabel" type="Label" parent="CanvasLayer" index="1"]
+offset_right = 40.0
+offset_bottom = 23.0

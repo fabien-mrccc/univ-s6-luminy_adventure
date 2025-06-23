@@ -1,8 +1,8 @@
 extends VehicleBody3D
 
 const MAX_STEERING := 0.2
-const MAX_ENGINE_FORCE := 400
-const BRAKE_FORCE := 150
+const MAX_ENGINE_FORCE := 150
+const BRAKE_FORCE := 60
 
 @onready var back_right_wheel = $Wheel_Back_Right
 @onready var back_left_wheel = $Wheel_Back_Left
