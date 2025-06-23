@@ -4,6 +4,7 @@ extends Node3D
 @onready var player_car = $PlayerCar/Car_010
 @onready var finish_line = $FinishLine
 @onready var off_road_zones = $OffRoadZones
+@onready var countdown_label = $CanvasLayer/CountdownLabel
 
 var race_started := false
 var race_time := 0.0
@@ -17,6 +18,15 @@ func _physics_process(delta: float) -> void:
 	if race_started:
 		race_time += delta
 		chrono_label.text = "Temps : %.2f s" % race_time
+
+func start_countdown():
+	var countdown = ["3", "2", "1", "GO!"]
+	var delay = 1.0
+	for i in countdown.size():
+		countdown_label.text = countdown[i]
+		await get_tree().create_timer(delay).timeout
+	countdown_label.text = ""
+	start_race()
 
 func start_race():
 	race_started = true
