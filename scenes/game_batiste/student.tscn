@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0t0dbyifnbch"]
+
+[ext_resource type="Script" uid="uid://diyc1b5jxllur" path="res://scripts/student.gd" id="1_4orpo"]
+[ext_resource type="PackedScene" uid="uid://ct7ljun6t6fdm" path="res://assets/models/characters/Character_020.glb" id="2_rtvyc"]
+[ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="2_txaf7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a44nb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ndy7l"]
+
+[node name="student" type="Node3D"]
+script = ExtResource("1_4orpo")
+
+[node name="student" type="CharacterBody3D" parent="."]
+
+[node name="Character_020" parent="student" instance=ExtResource("2_rtvyc")]
+
+[node name="Skeleton3D" parent="student/Character_020/Armature" index="0"]
+bones/0/position = Vector3(2.66454e-15, 0.336239, 0.0228143)
+bones/0/rotation = Quaternion(7.8974e-09, 0.994514, -0.104604, -7.50837e-08)
+bones/1/rotation = Quaternion(-0.142509, -3.14621e-08, -1.69884e-08, 0.989794)
+bones/2/rotation = Quaternion(0.119664, -8.91929e-15, 1.04613e-08, 0.992814)
+bones/3/rotation = Quaternion(-0.0704211, -1.18913e-07, 2.23844e-09, 0.997517)
+bones/4/position = Vector3(0.068136, 0.121522, -0.00684347)
+bones/5/rotation = Quaternion(-0.0595924, -0.144844, -0.556299, 0.816088)
+bones/6/rotation = Quaternion(0.480916, 0.016219, -0.0370179, 0.875835)
+bones/8/position = Vector3(-0.0681361, 0.121522, -0.00684349)
+bones/9/rotation = Quaternion(-0.0028939, 0.0658585, 0.54637, 0.834946)
+bones/10/rotation = Quaternion(0.492287, 0.0407524, 0.0373628, 0.868675)
+bones/12/position = Vector3(0.113058, 0.0204563, -0.00726694)
+bones/12/rotation = Quaternion(-0.00226595, 0.800076, 0.599884, -0.0034483)
+bones/13/rotation = Quaternion(-0.775695, -1.90039e-06, -0.00027645, 0.631108)
+bones/14/rotation = Quaternion(0.751352, -0.0214716, 0.0136726, 0.659411)
+bones/15/position = Vector3(-0.113058, 0.0204563, -0.00726696)
+bones/15/rotation = Quaternion(-9.08298e-06, 0.800096, 0.599873, 1.89064e-05)
+bones/16/rotation = Quaternion(-0.775722, 1.91355e-07, 3.45837e-05, 0.631075)
+bones/17/rotation = Quaternion(0.751436, 0.0189601, -0.0166586, 0.659324)
+bones/18/position = Vector3(-0.113058, 0.381456, -0.208108)
+bones/19/position = Vector3(-0.11579, 0.0437502, -0.227982)
+bones/19/rotation = Quaternion(0.0180525, 0.706876, 0.706876, -0.0180525)
+bones/20/position = Vector3(0.113058, 0.381456, -0.208108)
+bones/21/position = Vector3(0.113058, 0.0437502, -0.227969)
+bones/21/rotation = Quaternion(-0.0178433, 0.706882, 0.706882, 0.0178433)
+
+[node name="AnimationPlayer" parent="student/Character_020" index="1"]
+autoplay = "SitDown"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="student"]
+transform = Transform3D(1.16989, 0, 0, 0, 1.20209, 0, 0, 0, 1, 0, 0.88, 0)
+shape = SubResource("CapsuleShape3D_a44nb")
+
+[node name="Interactable" parent="." instance=ExtResource("2_txaf7")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1.22014, 0, 0, 0, 1.28284, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_ndy7l")
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="student/Character_020"]
+[editable path="Interactable"]
