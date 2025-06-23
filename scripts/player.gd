@@ -45,6 +45,7 @@ const SENSITIVITY_OFFSET := 10000
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var animation_player: AnimationPlayer = $Head/Character_020/AnimationPlayer
 @onready var shader_material: ShaderMaterial = $MotionLinesLayer/MotionLines.material
+@onready var _worldUi = $"../WorldUi"
 
 ## Called when the node enters the scene tree.
 ## Captures the mouse and initializes the camera FOV and positions.
@@ -58,7 +59,7 @@ func _ready() -> void:
 	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
 		save = ResourceLoader.load( save_file_path + save_file_name )
 		Global.qui_veut_reussir_son_annee_finished = true
-		print("in")
+	_update()
 		
 func _verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
@@ -70,6 +71,15 @@ func _load_data():
 func _save():
 	ResourceSaver.save(save, save_file_path + save_file_name)
 	print(save)
+
+func _update():
+	_worldUi._update_aphyllanthes()
+	_worldUi._update_ciste()
+	_worldUi._update_narcisse()
+	_worldUi._update_qui_veut_reussir_son_annee()
+	_worldUi._update_luminy_for_speed()
+	_worldUi._update_control_room()
+	_worldUi._update_manga_kill()
 
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.

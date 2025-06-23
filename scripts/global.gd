@@ -18,7 +18,7 @@ var answers = [
 	3, 3, 1, 2, 4
 ]
 
-var ciste = []
+var cistes = []
 var aphyllanthes = []
 var narcisses = []
 
