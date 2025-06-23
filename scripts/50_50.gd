@@ -39,29 +39,38 @@ func _on_interactable_focused(interactor: Interactor) -> void:
 ## @param interactor: Interactor - The interactor (player) interacting.
 func _on_interactable_interacted(interactor: Interactor) -> void:
 	_dialogue.close()
-
-	if not _talking and not _50_50_used and _explanation:
-		_gen_50_50()
-		_dialogue.display_line("étudiant", "la réponse est soit " + str(_hints[0]) + " soit " + str(_hints[1]))
-		_talking = true
-		_50_50_used = true
-		_question_used = Global.current_question
-
-	elif not _talking and not _50_50_used and not _explanation:
-		_dialogue.display_line("étudiant", "reparle moi si tu veut de l'aide mais je ne t'aiderai qu'une seule fois")
-		_explanation = true
-		_talking = true
-
-	elif _50_50_used and _question_used == Global.current_question:
-		_dialogue.display_line("étudiant", "la réponse est soit " + str(_hints[0]) + " soit " + str(_hints[1]))
-
-	elif _50_50_used and _question_used != Global.current_question:
-		_dialogue.display_line("étudiant", "je t'ai déjà aidé")
-		_talking = true
-
-	elif _talking:
+	
+	if not _talking and Global.qui_veut_reussir_son_annee_finished:
+		_dialogue.display_line("étudiant", "Le jeu est finis")
+		
+	elif _talking and Global.qui_veut_reussir_son_annee_finished:
 		_dialogue.close()
 		_talking = false
+		
+	elif not Global.qui_veut_reussir_son_annee_finished:
+		
+		if _talking:
+			_dialogue.close()
+			_talking = false
+		
+		elif not _talking and not _50_50_used and _explanation and Global.qui_veut_reussir_son_annee_finished != not Global.qui_veut_reussir_son_annee_finished:
+			_gen_50_50()
+			_dialogue.display_line("étudiant", "la réponse est soit " + str(_hints[0]) + " soit " + str(_hints[1]))
+			_talking = true
+			_50_50_used = true
+			_question_used = Global.current_question
+
+		elif not _talking and not _50_50_used and not _explanation:
+			_dialogue.display_line("étudiant", "reparle moi si tu veut de l'aide mais je ne t'aiderai qu'une seule fois")
+			_explanation = true
+			_talking = true
+
+		elif _50_50_used and _question_used == Global.current_question:
+			_dialogue.display_line("étudiant", "la réponse est soit " + str(_hints[0]) + " soit " + str(_hints[1]))
+
+		elif _50_50_used and _question_used != Global.current_question:
+			_dialogue.display_line("étudiant", "je t'ai déjà aidé")
+			_talking = true
 
 ## Closes the interaction prompt when the player moves away.
 ## @param interactor: Interactor - The interactor (player) moving away.

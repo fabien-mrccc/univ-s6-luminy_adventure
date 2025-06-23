@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://d35ocj544uv84"]
+[gd_scene load_steps=7 format=3 uid="uid://d35ocj544uv84"]
 
 [ext_resource type="Script" uid="uid://wgvv7lj423so" path="res://scripts/dialogue.gd" id="1_kp46k"]
-[ext_resource type="Texture2D" uid="uid://c80jamb12vxe2" path="res://assets/textbox/grey_box.png" id="2_3n4vj"]
+[ext_resource type="Texture2D" uid="uid://dqiy64aaw6c2t" path="res://assets/textbox/grey_box.png" id="2_3n4vj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7g4j"]
 
 [sub_resource type="Theme" id="Theme_oi3j2"]
 Panel/styles/panel = SubResource("StyleBoxTexture_d7g4j")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tfnbx"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_luxvm"]
+font_size = 24
 
 [node name="UI" type="CanvasLayer"]
 
@@ -16,6 +22,8 @@ layout_mode = 3
 anchor_top = 0.667
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.359985
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_oi3j2")
@@ -30,25 +38,28 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GreyBox" type="Sprite2D" parent="dialogue"]
-position = Vector2(960, 150.64)
-scale = Vector2(0.933333, 0.859551)
+position = Vector2(960, 119.035)
+scale = Vector2(0.6, 0.681494)
 texture = ExtResource("2_3n4vj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dialogue"]
 layout_mode = 0
-offset_left = 128.0
-offset_right = 1536.0
-offset_bottom = 240.0
+offset_left = 512.0
+offset_top = 32.0
+offset_right = 1408.0
+offset_bottom = 263.0
 
 [node name="name" type="Label" parent="dialogue/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "name"
+label_settings = SubResource("LabelSettings_tfnbx")
+horizontal_alignment = 1
 
 [node name="question" type="Label" parent="dialogue/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "question? text text text text text text text text text text text text text text text  text  text  text  text  text  text  text  text  text  text  text text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text 
-text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text  text text  text  text  text  text  text  test"
+"
+label_settings = SubResource("LabelSettings_luxvm")
+horizontal_alignment = 1
 autowrap_mode = 3

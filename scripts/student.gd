@@ -29,33 +29,37 @@ func _on_interactable_focused(interactor: Interactor) -> void:
 ## @param interactor: Interactor - The player interacting.
 func _on_interactable_interacted(interactor: Interactor) -> void:
 	_dialogue.close()
-
-	if not _talking and not _friend_used and _explanation:
-		# Give the answer directly.
-		_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]))
-		_talking = true
-		_friend_used = true
-		_question_used = Global.current_question
-
-	elif not _talking and not _friend_used and not _explanation:
-		# Provide an initial explanation that help can only be given once.
-		_dialogue.display_line("étudiant", "reparle moi si tu veut de l'aide mais je ne t'aiderai qu'une seule fois")
-		_explanation = true
-		_talking = true
-
-	elif _friend_used and Global.current_question == _question_used:
-		# If help already used for the current question, repeat the answer.
-		_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]))
-
-	elif _friend_used and Global.current_question != _question_used:
-		# If help was used on a previous question, inform the player.
-		_dialogue.display_line("étudiant", "je t'ai déjà aidé")
-		_talking = true
-
-	elif _talking:
-		# Close dialogue if already talking.
+	
+	if Global.qui_veut_reussir_son_annee_finished:
+		_dialogue.display_line("étudiant", "Le jeu est finis")
+		
+	elif _talking and Global.qui_veut_reussir_son_annee_finished:
 		_dialogue.close()
 		_talking = false
+	
+	elif not Global.qui_veut_reussir_son_annee_finished:
+		
+		if _talking:
+			_dialogue.close()
+			_talking = false
+		
+		elif not _talking and not _friend_used and not _explanation:
+			_dialogue.display_line("étudiant", "reparle moi si tu veut de l'aide mais je ne t'aiderai qu'une seule fois")
+			_explanation = true
+			_talking = true
+		
+		elif not _talking and not _friend_used and _explanation:
+			_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]))
+			_talking = true
+			_friend_used = true
+			_question_used = Global.current_question
+
+		elif _friend_used and Global.current_question == _question_used:
+			_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]))
+
+		elif _friend_used and Global.current_question != _question_used:
+			_dialogue.display_line("étudiant", "je t'ai déjà aidé")
+			_talking = true
 
 ## Closes the prompt when the player stops focusing on the NPC.
 ## @param interactor: Interactor - The player moving away.

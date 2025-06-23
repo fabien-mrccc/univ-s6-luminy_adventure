@@ -3,45 +3,22 @@ extends Node3D
 ## Reference to the dialogue UI system.
 @onready var _dialogue = get_node("../UI/dialogue")
 
-var save_file_path = "user://save/"
-var save_file_name = "Save_test.tres"
-var save = Save.new()
-
 ## References to question and answer nodes.
 @onready var _question = $question
 @onready var _answer1 = $answer1
 @onready var _answer2 = $answer2
 @onready var _answer3 = $answer3
 @onready var _answer4 = $answer4
+@onready var _player = $"../Player"
 
 ## Indicates if the NPC is currently talking.
 var talking: bool = false
-
-## Indicates if the game is finished.
-var game_finished:bool = false
-signal  game_finished_signal
 
 ## Indicates if the interaction prompt ("press E") is shown.
 var prompt: bool = false
 
 ## Indicates if the question has been shown already.
 var question_shown: bool = false
-
-func _ready():
-	_verify_save_directory(save_file_path)
-	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
-		save = ResourceLoader.load( save_file_path + save_file_name )
-		
-func _verify_save_directory(path: String):
-	DirAccess.make_dir_absolute(path)
-	
-func _load_data():
-	save = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	print("loaded")
-	
-func _save():
-	ResourceSaver.save(save, save_file_path + save_file_name)
-	print(save)
 
 ## Shows a prompt message when the player focuses on the NPC if not already shown.
 ## @param interactor: Interactor - The player interacting.
@@ -61,7 +38,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 		question_shown = true
 		
 
-	if not talking and not Global.answer and not game_finished and not save.qui_veut_reussir_son_annee:
+	if not talking and not Global.answer and not Global.qui_veut_reussir_son_annee_finished and not _player.save.qui_veut_reussir_son_annee:
 		_dialogue.display_line("Professeur", "Bonjour, regarde le tableau")
 		talking = true
 
@@ -75,7 +52,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 			talking = true
 			Global.current_question += 1
 			if Global.current_question >= Global.answers.size():
-				game_finished = true
+				Global.qui_veut_reussir_son_annee_finished = true
 			else:
 				_next()
 			_reset()
@@ -84,15 +61,16 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 			talking = true
 			Global.current_question += 1
 			if Global.current_question >= Global.answers.size():
-				game_finished = true
+				Global.qui_veut_reussir_son_annee_finished = true
 			else:
 				_next()
 			_reset()
-	elif game_finished or save.qui_veut_reussir_son_annee:
+	elif Global.qui_veut_reussir_son_annee_finished or _player.save.qui_veut_reussir_son_annee:
 		_dialogue.display_line("Professeur", "Le quizz est finis")
-		save._valid_qui_veut_reussir_son_annee()
-		_save()
+		_player.save._valid_qui_veut_reussir_son_annee()
+		_player._save()
 		Global.current_question = Global.answers.size()
+		Global.qui_veut_reussir_son_annee_finished = true
 
 ## Closes the prompt when the player stops focusing on the NPC.
 ## @param interactor: Interactor - The player moving away.

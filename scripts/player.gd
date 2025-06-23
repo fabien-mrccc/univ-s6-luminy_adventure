@@ -1,6 +1,10 @@
 ## Controls the player character's movement and camera behavior.
 extends CharacterBody3D
 
+var save_file_path = "user://save/"
+var save_file_name = "Save_test.tres"
+var save = Save.new()
+
 ## Movement speed in walk mode.
 const WALK_SPEED := 4.0
 
@@ -50,6 +54,22 @@ func _ready() -> void:
 	base_camera_pos = camera.position
 	camera_target_pos = base_camera_pos
 	_play_animation("Idle")
+	_verify_save_directory(save_file_path)
+	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
+		save = ResourceLoader.load( save_file_path + save_file_name )
+		Global.qui_veut_reussir_son_annee_finished = true
+		print("in")
+		
+func _verify_save_directory(path: String):
+	DirAccess.make_dir_absolute(path)
+	
+func _load_data():
+	save = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
+	print("loaded")
+	
+func _save():
+	ResourceSaver.save(save, save_file_path + save_file_name)
+	print(save)
 
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.
