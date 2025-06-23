@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfn505w1lhvx3"]
+
+[ext_resource type="Script" uid="uid://bsskmmcdqj42m" path="res://scripts/teacher.gd" id="1_b6u4t"]
+[ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="1_v8tdc"]
+[ext_resource type="PackedScene" uid="uid://bge080d7f2lal" path="res://assets/models/characters/Character_001.glb" id="2_tapem"]
+[ext_resource type="PackedScene" uid="uid://buvfgdubs8gou" path="res://scenes/game_batiste/answer.tscn" id="4_pflti"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tapem"]
+height = 3.12884
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b6u4t"]
+
+[node name="teacher" type="Node3D"]
+script = ExtResource("1_b6u4t")
+
+[node name="Teacher" type="CharacterBody3D" parent="."]
+
+[node name="Character_001" parent="Teacher" instance=ExtResource("2_tapem")]
+
+[node name="Skeleton3D" parent="Teacher/Character_001/Armature" index="0"]
+bones/0/position = Vector3(6.74359e-09, 0.763925, 0.0703982)
+bones/0/rotation = Quaternion(5.12181e-09, 0.997696, -0.0678405, -7.5324e-08)
+bones/1/rotation = Quaternion(-0.159336, -1.49067e-07, -1.13243e-14, 0.987224)
+bones/3/rotation = Quaternion(0.0886015, 0.0140852, -0.00434012, 0.995958)
+bones/4/position = Vector3(0.0687997, 0.128378, 0.0137051)
+bones/5/rotation = Quaternion(0.278681, -0.431051, -0.608504, 0.60519)
+bones/6/rotation = Quaternion(0.0538723, 0.31085, -0.701752, 0.63876)
+bones/8/position = Vector3(-0.0687996, 0.128378, 0.013705)
+bones/9/rotation = Quaternion(0.418688, 0.108528, 0.496713, 0.752462)
+bones/10/rotation = Quaternion(0.455548, -0.19136, 0.618859, 0.610632)
+bones/12/rotation = Quaternion(0.0213565, 0.1066, 0.991515, -0.071262)
+bones/13/rotation = Quaternion(-0.119764, 0.000342872, -0.0550634, 0.991274)
+bones/14/rotation = Quaternion(0.660489, 0.030361, -0.0236396, 0.749849)
+bones/15/position = Vector3(-0.0768886, 0.00232624, 0.00256351)
+bones/15/rotation = Quaternion(-0.0224685, 0.14692, 0.986501, 0.0687453)
+bones/16/rotation = Quaternion(-0.125969, 0.0425465, 0.0467569, 0.990018)
+bones/17/rotation = Quaternion(0.598295, 0.0446481, -0.041958, 0.79893)
+bones/19/position = Vector3(-0.127095, 0.0880872, 0.114094)
+bones/19/rotation = Quaternion(0.717748, 0.0144413, -0.0499041, 0.694363)
+bones/21/rotation = Quaternion(0.671795, -0.101527, 0.162534, 0.715519)
+
+[node name="AnimationPlayer" parent="Teacher/Character_001" index="1"]
+autoplay = "Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teacher"]
+transform = Transform3D(1.2419, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33331, 0)
+shape = SubResource("CapsuleShape3D_tapem")
+
+[node name="Interactable" parent="." instance=ExtResource("1_v8tdc")]
+
+[node name="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1.228, 0, 0, 0, 1.71571, 0, 0, 0, 1, 0, 1.22211, 0)
+shape = SubResource("CapsuleShape3D_b6u4t")
+
+[node name="question" parent="." instance=ExtResource("4_pflti")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3393, 0)
+
+[node name="answer1" parent="." instance=ExtResource("4_pflti")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3393, 0)
+metadata/index = 10
+
+[node name="answer2" parent="." instance=ExtResource("4_pflti")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3393, 0)
+metadata/index = 20
+
+[node name="answer3" parent="." instance=ExtResource("4_pflti")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3393, 0)
+metadata/index = 30
+
+[node name="answer4" parent="." instance=ExtResource("4_pflti")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.3393, 0)
+metadata/index = 40
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Teacher/Character_001"]
+[editable path="Interactable"]
