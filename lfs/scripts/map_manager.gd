@@ -2,9 +2,16 @@ extends Node3D
 
 @onready var chrono_label = $CanvasLayer/ChronoLabel
 @onready var player_car = $PlayerCar/Car_010
+@onready var finish_line = $FinishLine
+@onready var off_road_zones = $OffRoadZones
 
 var race_started := false
 var race_time := 0.0
+
+func _ready() -> void:
+	finish_line.body_entered.connect(_on_finish_line_entered)
+	off_road_zones.body_exited.connect(_on_offroad_zone_exited)
+	chrono_label.text = ""
 
 func _physics_process(delta: float) -> void:
 	if race_started:
