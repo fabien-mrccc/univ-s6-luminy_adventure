@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctm6p266doxml"]
+[gd_scene load_steps=8 format=3 uid="uid://35phuwnpuomt"]
 
-[ext_resource type="PackedScene" uid="uid://ct7ljun6t6fdm" path="res://assets/models/characters/Character_020.glb" id="1_u1x7q"]
+[ext_resource type="PackedScene" uid="uid://ct7ljun6t6fdm" path="res://assets/models/characters/Character_020.glb" id="1_vqcqq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u877n"]
 albedo_color = Color(0.745098, 0.635294, 0.470588, 1)
@@ -19,7 +19,7 @@ albedo_color = Color(0.745172, 0.634719, 0.471839, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d72gj"]
 albedo_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
 
-[node name="Character_021" instance=ExtResource("1_u1x7q")]
+[node name="Character_021" instance=ExtResource("1_vqcqq")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-1.23006e-10, 0.65349, 0.0228143)
