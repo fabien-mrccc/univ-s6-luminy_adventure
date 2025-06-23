@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://7a6pcd2mitv"]
-
-[ext_resource type="PackedScene" uid="uid://dkht86qj0we5h" path="res://assets/models/world/AphyllantheDeMontpellier.glb" id="1_k560v"]
-
-[node name="AphyllantheDeMontpellier" instance=ExtResource("1_k560v")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:faf46dd9801c3c7f6fef054cc9a6b777a6b99a9b4dd424cd2c46095b385abaa0
+size 265

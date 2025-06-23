@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://b85pdd6mdi8wn"]
-
-[ext_resource type="PackedScene" uid="uid://ibxv0cdoadtt" path="res://assets/models/world/SafetyBarrier.glb" id="1_cbnwc"]
-
-[node name="SafetyBarrier" instance=ExtResource("1_cbnwc")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:2b731c9ed83e8001d6662f9a0995127adc8cbc260217e84c40b7ac90e266e446
+size 244

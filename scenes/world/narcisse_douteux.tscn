@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1qfd4tjh8lvu"]
-
-[ext_resource type="PackedScene" uid="uid://dtukuim3uyc7p" path="res://assets/models/world/NarcisseDouteux.glb" id="1_qbnt3"]
-
-[node name="NarcisseDouteux" instance=ExtResource("1_qbnt3")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c9b83326b520cc70b649d89a84b30a69dfc2d682155a4e33f193f96bafe2aa0
+size 249

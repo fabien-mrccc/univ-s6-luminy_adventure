@@ -1,27 +1,3 @@
-[gd_scene load_steps=6 format=3 uid="uid://b52lpf6o4ifn4"]
-
-[ext_resource type="PackedScene" uid="uid://bxksmu4xh0jtn" path="res://assets/models/world/Building_000.glb" id="1_en5iw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_en5iw"]
-albedo_color = Color(0.807843, 0.807843, 0.807843, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0fby"]
-albedo_color = Color(0.678431, 0.890196, 0.984314, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pl00"]
-albedo_color = Color(0.807843, 0.807843, 0.807843, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhkug"]
-albedo_color = Color(0.0705882, 0.333333, 0.133333, 1)
-
-[node name="Building_000" instance=ExtResource("1_en5iw")]
-
-[node name="Cube" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_en5iw")
-surface_material_override/1 = SubResource("StandardMaterial3D_s0fby")
-surface_material_override/2 = SubResource("StandardMaterial3D_1pl00")
-
-[node name="Cube_001" parent="." index="1"]
-transform = Transform3D(8.82622, 0, 0, 0, 5.13655, 0, 0, 0, 5.13655, 13.9918, 0, 0)
-visible = false
-surface_material_override/3 = SubResource("StandardMaterial3D_yhkug")
+version https://git-lfs.github.com/spec/v1
+oid sha256:77d3ef35c3a34eb5992838f49d473c65c0c82854f23f39bc5698274141b4f7e6
+size 1214

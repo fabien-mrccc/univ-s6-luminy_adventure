@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi1fnvsy7d0hy"]
-
-[ext_resource type="PackedScene" uid="uid://bdk43bwapfiif" path="res://assets/models/world/Ciste.glb" id="1_7v7c6"]
-
-[node name="Ciste" instance=ExtResource("1_7v7c6")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0fa53f62261a8a772dc6e5b3ee9aa218e1b034510c62187bb6b2bc704f28b6b
+size 229
