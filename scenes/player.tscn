@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://beoyblfu783it" path="res://shaders/crosshair.gdshader" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://ogwsnuyi15gb" path="res://scenes/player_interactor.tscn" id="3_tuyoq"]
 [ext_resource type="Shader" uid="uid://bbip387i7ol48" path="res://shaders/motion_lines.gdshader" id="4_dqkch"]
-[ext_resource type="Script" path="res://scripts/esc_menu.gd" id="4_fjrip"]
+[ext_resource type="Script" uid="uid://bukbcddymsjud" path="res://scripts/esc_menu.gd" id="4_fjrip"]
 [ext_resource type="Theme" uid="uid://dxedsqw5jfeph" path="res://assets/ui/checkbox_theme.tres" id="4_tuyoq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlg0r"]
