@@ -1,6 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://xp4manfw6fru"]
+[gd_scene load_steps=57 format=3 uid="uid://xp4manfw6fru"]
 
 [ext_resource type="PackedScene" uid="uid://dqf18m1yyypxw" path="res://scenes/world/map.tscn" id="1_c14h3"]
+[ext_resource type="Script" uid="uid://we6wnljvn0tb" path="res://lfs/scripts/map_manager.gd" id="2_7qi7c"]
 [ext_resource type="PackedScene" uid="uid://b7dejqccroeeh" path="res://lfs/scenes/player_car.tscn" id="2_7ru2w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c14h3"]
@@ -167,6 +168,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Map" instance=ExtResource("1_c14h3")]
+script = ExtResource("2_7qi7c")
 
 [node name="GrassGround" parent="." index="0"]
 visible = false

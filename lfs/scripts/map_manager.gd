@@ -8,25 +8,27 @@ extends Node3D
 
 var race_started := false
 var race_time := 0.0
+var countdown_started := false
 
 func _ready() -> void:
 	finish_line.body_entered.connect(_on_finish_line_entered)
 	off_road_zones.body_exited.connect(_on_offroad_zone_exited)
 	chrono_label.text = ""
-	start_countdown()
+	countdown_label.text = ""
 
 func _physics_process(delta: float) -> void:
+	if not countdown_started and Input.is_action_just_pressed("move_forward"):
+		countdown_started = true
+		start_countdown()
 	if race_started:
 		race_time += delta
 		chrono_label.text = "Temps : %.2f s" % race_time
-	if Input.is_action_just_pressed("move_forward") and not race_started:
-		start_race()
 
 func start_countdown():
 	var countdown = ["3", "2", "1", "GO!"]
 	var delay = 1.0
-	for i in countdown.size():
-		countdown_label.text = countdown[i]
+	for step in countdown:
+		countdown_label.text = step
 		await get_tree().create_timer(delay).timeout
 	countdown_label.text = ""
 	start_race()
