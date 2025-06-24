@@ -10,6 +10,8 @@
 script = ExtResource("1_arvjm")
 
 [node name="BedroomImage" type="Sprite2D" parent="."]
+position = Vector2(-2.00005, 1.52588e-05)
+scale = Vector2(0.821186, 0.670732)
 texture = ExtResource("2_hu6xd")
 
 [node name="Rainsound" type="AudioStreamPlayer" parent="."]
@@ -17,14 +19,14 @@ stream = ExtResource("3_i4sud")
 
 [node name="Note" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-4.99994, 3.05176e-05)
-scale = Vector2(0.599153, 0.62439)
+position = Vector2(3.8147e-06, -108)
+scale = Vector2(0.372881, 0.344512)
 texture = ExtResource("3_oi2l4")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_elacj")]
-offset_left = -550.0
-offset_top = 290.0
-offset_right = -550.0
-offset_bottom = 290.0
+offset_left = -345.0
+offset_top = 140.0
+offset_right = -345.0
+offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

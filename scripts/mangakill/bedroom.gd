@@ -45,6 +45,7 @@ func _on_intro_step(index: int) -> void:
 ## Adds the note to the clues list and prepares for scene transition.
 func _on_take_hint(index: int) -> void:
 	var note_image = load("res://assets/mangakill/note.png")
+
 	var main = get_tree().root.get_node("Main")
 	if main:
 		main.add_clue(note_image)

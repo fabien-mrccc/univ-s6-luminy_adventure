@@ -20,7 +20,7 @@ func show_dialogue(text: String, choices: Array = []):
 		button.add_theme_color_override("font_color", Color(0.75,0,0))
 		var font = load("res://assets/mangakill/fonts/PixelOperator8-Bold.ttf")
 		button.add_theme_font_override("font", font)
-		button.add_theme_font_size_override("font_size", 30)
+		button.add_theme_font_size_override("font_size", 25)
 		button.text = choices[i]
 		button.pressed.connect(Callable(self, "_on_choice_pressed").bind(i))
 		choices_container.add_child(button)

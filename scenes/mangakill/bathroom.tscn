@@ -11,26 +11,32 @@
 script = ExtResource("1_d6g27")
 
 [node name="BathroomImage" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, -1.52588e-05)
+scale = Vector2(0.816102, 0.658537)
 texture = ExtResource("2_dmy12")
 
 [node name="Key" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -112)
+position = Vector2(0, -87)
+scale = Vector2(0.748729, 0.731707)
 texture = ExtResource("3_l86dk")
 
 [node name="Bracelet" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-168, -124)
+position = Vector2(-0.00012207, -107)
+scale = Vector2(0.642373, 0.683537)
 texture = ExtResource("4_lt4rm")
 
 [node name="BathroomMirror" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(-7.62939e-06, -1.52588e-05)
+scale = Vector2(0.816102, 0.658537)
 texture = ExtResource("5_om4rj")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_d6g27")]
-offset_left = -550.0
-offset_top = 290.0
-offset_right = -550.0
-offset_bottom = 290.0
+offset_left = -345.0
+offset_top = 140.0
+offset_right = -345.0
+offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

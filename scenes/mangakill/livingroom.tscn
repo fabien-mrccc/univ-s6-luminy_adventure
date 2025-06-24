@@ -9,17 +9,20 @@
 script = ExtResource("1_cyfin")
 
 [node name="LivingroomImage" type="Sprite2D" parent="."]
+position = Vector2(-2.49999, 4.99997)
+scale = Vector2(0.819068, 0.667073)
 texture = ExtResource("2_f2sdy")
 
 [node name="Shirt" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(60, -294)
+position = Vector2(41, -233)
+scale = Vector2(0.638136, 0.618902)
 texture = ExtResource("4_ykg7c")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_cyfin")]
-offset_left = -550.0
-offset_top = 290.0
-offset_right = -550.0
-offset_bottom = 290.0
+offset_left = -345.0
+offset_top = 140.0
+offset_right = -345.0
+offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

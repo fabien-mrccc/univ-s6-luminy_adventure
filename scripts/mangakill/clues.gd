@@ -35,7 +35,7 @@ func _on_clue_pressed() -> void:
 			var texture_rect := TextureRect.new()
 			texture_rect.texture = clue
 			texture_rect.set_anchors_preset(Control.PRESET_HCENTER_WIDE)
-			texture_rect.custom_minimum_size = Vector2(1085, 1085)
+			texture_rect.custom_minimum_size = Vector2(690, 690)
 			texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			clue_list.add_child(texture_rect)

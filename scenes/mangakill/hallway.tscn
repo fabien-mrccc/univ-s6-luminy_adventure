@@ -8,12 +8,14 @@
 script = ExtResource("1_tbxnn")
 
 [node name="HallwayImage" type="Sprite2D" parent="."]
+position = Vector2(-6.00003, -1.99997)
+scale = Vector2(0.811864, 0.659756)
 texture = ExtResource("2_esxvw")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_tbxnn")]
-offset_left = -550.0
-offset_top = 290.0
-offset_right = -550.0
-offset_bottom = 290.0
+offset_left = -345.0
+offset_top = 140.0
+offset_right = -345.0
+offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

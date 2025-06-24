@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5umndkil0qji"]
+[gd_scene load_steps=5 format=3 uid="uid://c5umndkil0qji"]
 
 [ext_resource type="Script" uid="uid://briaa7dh3ex66" path="res://scripts/mangakill/accusation.gd" id="1_hcrxd"]
 [ext_resource type="AudioStream" uid="uid://bntqv46uvdbkx" path="res://assets/mangakill/rainsound.mp3" id="2_aavxf"]
 [ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://scenes/mangakill/dialogue.tscn" id="2_hcrxd"]
-[ext_resource type="Texture2D" uid="uid://bqejf43qhtyle" path="res://assets/mangakill/firstBG.png" id="2_wimgl"]
-[ext_resource type="PackedScene" uid="uid://ctwd73o0h4sv4" path="res://scenes/mangakill/rain.tscn" id="3_geol7"]
+[ext_resource type="Texture2D" uid="uid://s0l2wswqpmip" path="res://assets/mangakill/homepage.png" id="3_b85y6"]
 
 [node name="Accusation" type="Node2D"]
 script = ExtResource("1_hcrxd")
@@ -14,14 +13,14 @@ stream = ExtResource("2_aavxf")
 bus = &"RainOutside"
 
 [node name="ImageAccusationIci" type="Sprite2D" parent="."]
-texture = ExtResource("2_wimgl")
-
-[node name="rain" parent="." instance=ExtResource("3_geol7")]
+position = Vector2(-1.49998, -2.99998)
+scale = Vector2(0.81822, 0.670732)
+texture = ExtResource("3_b85y6")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_hcrxd")]
-offset_left = -550.0
-offset_top = 290.0
-offset_right = -550.0
-offset_bottom = 290.0
+offset_left = -345.0
+offset_top = 140.0
+offset_right = -345.0
+offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

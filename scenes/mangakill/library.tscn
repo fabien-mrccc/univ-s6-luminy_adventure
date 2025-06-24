@@ -14,21 +14,26 @@ script = ExtResource("1_uxpb3")
 stream = ExtResource("2_e5cgy")
 
 [node name="LibraryImage" type="Sprite2D" parent="."]
+position = Vector2(-0.500031, 1.49995)
+scale = Vector2(0.816525, 0.664024)
 texture = ExtResource("2_fqsnt")
 
 [node name="LibraryMika" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(-0.500031, 1.49995)
+scale = Vector2(0.816525, 0.664024)
 texture = ExtResource("3_fcxe1")
 
 [node name="Notebook" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-14, -108)
+position = Vector2(-3.05176e-05, -142)
+scale = Vector2(0.699153, 0.606098)
 texture = ExtResource("4_e5cgy")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_uxpb3")]
-offset_left = -550.0
-offset_top = 290.0
-offset_right = -550.0
-offset_bottom = 290.0
+offset_left = -345.0
+offset_top = 140.0
+offset_right = -345.0
+offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
