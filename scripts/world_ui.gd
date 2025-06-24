@@ -49,5 +49,11 @@ func _update_control_room():
 		_checkBox_control_room.button_pressed = true
 		
 func _update_manga_kill():
+	if Global.manga_kill_finished:
+		print(Global.manga_kill_finished)
+		_player.save._valid_manga_kill()
+		_player._save()
+		print(_player.save._valid_manga_kill())
+	
 	if _player.save.manga_kill:
 		_checkBox_manga_kill.button_pressed = true

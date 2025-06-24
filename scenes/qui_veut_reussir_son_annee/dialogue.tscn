@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d35ocj544uv84"]
 
-[ext_resource type="Script" uid="uid://wgvv7lj423so" path="res://scripts/dialogue.gd" id="1_kp46k"]
-[ext_resource type="Texture2D" uid="uid://c80jamb12vxe2" path="res://assets/textbox/grey_box.png" id="2_3n4vj"]
+[ext_resource type="Script" uid="uid://wgvv7lj423so" path="res://scripts/qui_veut_reussir_son_annee/dialogue.gd" id="1_kp46k"]
+[ext_resource type="Texture2D" uid="uid://b4epoj6ysguwe" path="res://assets/textbox/grey_box.png" id="2_3n4vj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7g4j"]
 

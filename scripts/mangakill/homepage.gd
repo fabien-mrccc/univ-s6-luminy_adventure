@@ -20,6 +20,7 @@ func _ready():
 ## Called when the player presses the play button.
 ## Hides the button, shows the dialogue box, and begins the context introduction.
 func _on_play_pressed():
+	Global.manga_kill_finished = true
 	play_button.hide()
 	dialogue_box.show()
 	_show_next_context()

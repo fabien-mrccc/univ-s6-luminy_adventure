@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buvfgdubs8gou"]
 
-[ext_resource type="Script" uid="uid://d4ahnfi4psw83" path="res://scripts/answer.gd" id="1_rpycv"]
+[ext_resource type="Script" uid="uid://d4ahnfi4psw83" path="res://scripts/qui_veut_reussir_son_annee/answer.gd" id="1_rpycv"]
 
 [node name="answer" type="Label3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3393, 0)

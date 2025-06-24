@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0t0dbyifnbch"]
 
-[ext_resource type="Script" uid="uid://diyc1b5jxllur" path="res://scripts/student.gd" id="1_4orpo"]
+[ext_resource type="Script" uid="uid://diyc1b5jxllur" path="res://scripts/qui_veut_reussir_son_annee/student.gd" id="1_4orpo"]
 [ext_resource type="PackedScene" uid="uid://ct7ljun6t6fdm" path="res://assets/models/characters/Character_020.glb" id="2_rtvyc"]
 [ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="2_txaf7"]
 

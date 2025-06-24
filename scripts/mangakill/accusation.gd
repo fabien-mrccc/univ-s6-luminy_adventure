@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
 	start_accusation()
 
+
 ## Called to initiate the accusation sequence.
 ## Displays dialogue with multiple accusation choices and connects the selection signal.
 func start_accusation():

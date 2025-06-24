@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfn505w1lhvx3"]
 
-[ext_resource type="Script" uid="uid://bsskmmcdqj42m" path="res://scripts/teacher.gd" id="1_b6u4t"]
+[ext_resource type="Script" uid="uid://bsskmmcdqj42m" path="res://scripts/qui_veut_reussir_son_annee/teacher.gd" id="1_b6u4t"]
 [ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="1_v8tdc"]
 [ext_resource type="PackedScene" uid="uid://bge080d7f2lal" path="res://assets/models/characters/Character_001.glb" id="2_tapem"]
-[ext_resource type="PackedScene" uid="uid://buvfgdubs8gou" path="res://scenes/game_batiste/answer.tscn" id="4_pflti"]
+[ext_resource type="PackedScene" uid="uid://buvfgdubs8gou" path="res://scenes/qui_veut_reussir_son_annee/answer.tscn" id="4_pflti"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tapem"]
 height = 3.12884

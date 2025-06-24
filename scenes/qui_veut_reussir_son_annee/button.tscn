@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://do6d36apfsbm2"]
 
-[ext_resource type="Script" uid="uid://x0gl6v5m13x0" path="res://scripts/button.gd" id="1_rhj8v"]
+[ext_resource type="Script" uid="uid://x0gl6v5m13x0" path="res://scripts/qui_veut_reussir_son_annee/button.gd" id="1_rhj8v"]
 [ext_resource type="PackedScene" uid="uid://gdr0xxrx3e7a" path="res://assets/models/furniture/Buzzer_000.glb" id="2_3q610"]
 [ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="2_rhj8v"]
 
