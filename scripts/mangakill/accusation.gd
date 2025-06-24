@@ -19,30 +19,27 @@ func start_accusation():
 ## Displays a dialogue based on the chosen character.
 func _on_choice(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_on_choice)
+	
 	match index:
 		0: # Suzu
 			dialogue_box.show_dialogue(
 				"Voix : Tu t’es trompé...\nTu es condamné à rejouer le même manga. Pour toujours.", ["Quitter"]
 			)
-			dialogue_box.choice_selected.connect(_exit)
 		1: # Tetsuo
 			dialogue_box.show_dialogue(
 				"Voix : Tu t’es trompé...\nTu es condamné à rejouer le même manga. Pour toujours.", ["Quitter"]
 			)
-			dialogue_box.choice_selected.connect(_exit)
 		2: # Ren
 			dialogue_box.show_dialogue(
 				"Voix : Tu t’es trompé...\nTu es condamné à rejouer le même manga. Pour toujours.", ["Quitter"]
 			)
-			dialogue_box.choice_selected.connect(_exit)
 		3: # Mika
 			Global.manga_kill_finished = true
 			dialogue_box.show_dialogue(
 				"Mika : (calme) Tu as compris. Ce monde n’est plus à moi. Ferme-le.\nTu es libre.", ["Quitter"]
 			)
-			dialogue_box.choice_selected.connect(_exit)
 
-	
 func _exit():
 	dialogue_box.choice_selected.disconnect(_exit)
+	dialogue_box.show_dialogue("")
 	get_tree().change_scene_to_file("res://scenes/world.tscn")

@@ -24,9 +24,9 @@ scale = Vector2(0.372881, 0.344512)
 texture = ExtResource("3_oi2l4")
 
 [node name="Dialogue" parent="." instance=ExtResource("2_elacj")]
-offset_left = -345.0
+offset_left = -369.0
 offset_top = 140.0
-offset_right = -345.0
+offset_right = -369.0
 offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

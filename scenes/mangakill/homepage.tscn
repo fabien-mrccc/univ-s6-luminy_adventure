@@ -45,9 +45,9 @@ text = "JOUER
 
 [node name="Dialogue" parent="." instance=ExtResource("5_rv7mw")]
 visible = false
-offset_left = -345.0
+offset_left = -369.0
 offset_top = 140.0
-offset_right = -345.0
+offset_right = -369.0
 offset_bottom = 140.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
