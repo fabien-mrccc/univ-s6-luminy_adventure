@@ -11,11 +11,7 @@ config_version=5
 [application]
 
 config/name="Luminy Adventure"
-<<<<<<< HEAD
-run/main_scene="uid://bw6lwrenobwu7"
-=======
 run/main_scene="uid://cabsswomrfn3h"
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
@@ -24,34 +20,19 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-<<<<<<< HEAD
-window/size/viewport_width=1280
-window/size/viewport_height=720
-=======
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 
-<<<<<<< HEAD
-[file_customization]
-
-folder_colors={
-"res://assets/AssetsControlRoom/": "red",
-"res://scenes/characters/character_ControlRoom/": "red",
-"res://scenes/controlroom/": "red"
-}
-=======
 [global_group]
 
 player="groupe pour interagir avec le joueur"
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 
 [input]
 

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=11 format=3 uid="uid://cc7qh1sqwpw5c"]
-=======
 [gd_scene load_steps=13 format=3 uid="uid://dmc4d7ay41pc"]
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 
 [ext_resource type="Shader" uid="uid://7mgo8br5yida" path="res://shaders/outline.gdshader" id="2_g2els"]
 [ext_resource type="Script" uid="uid://cf0465y103226" path="res://scripts/player.gd" id="2_rbmgg"]

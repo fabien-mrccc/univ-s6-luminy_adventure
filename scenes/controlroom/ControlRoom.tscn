@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://bw6lwrenobwu7"]
 
-[ext_resource type="PackedScene" uid="uid://cc7qh1sqwpw5c" path="res://scenes/player.tscn" id="1_k1x1q"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_k1x1q"]
 [ext_resource type="Script" uid="uid://et7xyn8oikqo" path="res://scripts/controlroom/control_room.gd" id="1_yay3m"]
 [ext_resource type="Script" uid="uid://2e85udjo6oyp" path="res://scripts/controlroom/dialogue_bubble.gd" id="3_dqnk3"]
 [ext_resource type="PackedScene" uid="uid://bcurcb35ibpqd" path="res://scenes/furniture/chair_000.tscn" id="7_5vc3n"]

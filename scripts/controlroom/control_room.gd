@@ -40,7 +40,7 @@ var error_count: int = 0
 
 func _ready() -> void:
 	dialogue_bubble.visible = false
-	player.movement_enabled = false
+	player.can_move = false
 
 	btn_accept.pressed.connect(_on_accept_pressed)
 	btn_refuse.pressed.connect(_on_refuse_pressed)
@@ -86,11 +86,10 @@ func spawn_student() -> void:
 	current_student.connect("interaction_complete", Callable(self, "_on_student_interaction_complete"))
 
 	_set_ui_visible(false)
-	player.movement_enabled = false
 
 func _on_student_arrived() -> void:
 	_set_ui_visible(true)
-	player.camera_enabled = false
+	player.can_look = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	if current_document and is_instance_valid(current_document):
@@ -100,7 +99,7 @@ func _on_student_arrived() -> void:
 func _on_accept_pressed() -> void:
 	if is_instance_valid(current_student):
 		_set_ui_visible(false)
-		player.camera_enabled = true
+		player.can_look = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		current_student.continue_after_accept()
 
@@ -113,7 +112,7 @@ func _on_accept_pressed() -> void:
 func _on_refuse_pressed() -> void:
 	if is_instance_valid(current_student):
 		_set_ui_visible(false)
-		player.camera_enabled = true
+		player.can_look = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		current_student.go_back()
 

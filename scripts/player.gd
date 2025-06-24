@@ -34,17 +34,11 @@ var can_look := true
 var base_camera_pos: Vector3
 var camera_target_pos: Vector3
 
-<<<<<<< HEAD
-## Player movement controls.
-var movement_enabled := true 
-var camera_enabled := true
-=======
 ## Mouse sensitivity for looking around.
 @export var sensitivity: float = 40
 
 ## Mouse sensitivity offset.
 const SENSITIVITY_OFFSET := 10000
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 
 ## Node references.
 @onready var head: Node3D = $Head
@@ -94,17 +88,13 @@ func _update():
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.
 func _unhandled_input(event: InputEvent) -> void:
-<<<<<<< HEAD
-	if not camera_enabled:
-		return  
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-=======
+		head.rotate_y(-event.relative.x * sensitivity / SENSITIVITY_OFFSET)
+		camera.rotate_x(-event.relative.y * sensitivity / SENSITIVITY_OFFSET)
+
 	if can_look and event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitivity / SENSITIVITY_OFFSET)
 		camera.rotate_x(-event.relative.y * sensitivity / SENSITIVITY_OFFSET)
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		
 ## Handles toggling the escape menu and mouse mode.
@@ -127,16 +117,6 @@ func _process(_delta: float) -> void:
 ## Applies movement, gravity, smooth camera update and FOV update each frame.
 ## @param delta: float - Frame time.
 func _physics_process(delta: float) -> void:
-<<<<<<< HEAD
-	if movement_enabled:
-		_handle_movement_input(delta)
-	else:
-		velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
-		velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
-	
-	camera.position = camera.position.lerp(camera_target_pos, delta * 10.0)
-	_apply_gravity(delta)
-=======
 	if not can_move:
 		return
 		
@@ -145,7 +125,6 @@ func _physics_process(delta: float) -> void:
 
 	var previous_position: Vector3 = global_position
 
->>>>>>> 6dbcc20d0274591875d765bcbc8877f7756aed54
 	move_and_slide()
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
