@@ -73,13 +73,17 @@ func _save():
 	print(save)
 
 func _update():
-	_worldUi._update_aphyllanthes()
-	_worldUi._update_ciste()
-	_worldUi._update_narcisse()
-	_worldUi._update_qui_veut_reussir_son_annee()
-	_worldUi._update_luminy_for_speed()
-	_worldUi._update_control_room()
-	_worldUi._update_manga_kill()
+	if get_tree().current_scene.name == "game_batiste":
+		_worldUi._update_qui_veut_reussir_son_annee()
+	else:
+		_worldUi._update_qui_veut_reussir_son_annee()
+		_worldUi._update_aphyllanthes()
+		_worldUi._update_ciste()
+		_worldUi._update_narcisse()
+		_worldUi._update_qui_veut_reussir_son_annee()
+		_worldUi._update_luminy_for_speed()
+		_worldUi._update_control_room()
+		_worldUi._update_manga_kill()
 
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.

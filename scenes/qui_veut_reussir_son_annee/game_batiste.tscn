@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b4w5f4vmll2rr"]
+[gd_scene load_steps=44 format=3 uid="uid://b4w5f4vmll2rr"]
 
 [ext_resource type="PackedScene" uid="uid://bfn505w1lhvx3" path="res://scenes/qui_veut_reussir_son_annee/teacher.tscn" id="1_oub57"]
 [ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_fbp86"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bcurcb35ibpqd" path="res://scenes/furniture/chair_000.tscn" id="18_nwfw0"]
 [ext_resource type="PackedScene" uid="uid://bjxx2lu8pwh35" path="res://scenes/furniture/table_000.tscn" id="20_qdo87"]
 [ext_resource type="PackedScene" uid="uid://blwvd1saxf6cg" path="res://scenes/furniture/window_000.tscn" id="21_ok0ex"]
+[ext_resource type="PackedScene" uid="uid://wihwtp6uyh56" path="res://scenes/world/world_ui.tscn" id="22_yas4q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_d7g4j"]
 size = Vector2(100, 100)
@@ -89,6 +90,8 @@ albedo_color = Color(0.354722, 0.698141, 0.879672, 1)
 [node name="qui_veut_reussir_son_annee" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00329018, 0.0310411, -0.0123625)
 
+[node name="WorldUi" parent="." instance=ExtResource("22_yas4q")]
+
 [node name="teacher" parent="." instance=ExtResource("1_oub57")]
 transform = Transform3D(0.990541, 0, -0.13722, 0, 1, 0, 0.13722, 0, 0.990541, -4.57661, 0.1, 4.546)
 
@@ -128,8 +131,16 @@ transform = Transform3D(0.127394, 0, -0.991852, 0, 1, 0, 0.991852, 0, 0.127394, 
 [node name="student" parent="." instance=ExtResource("3_hffrp")]
 transform = Transform3D(-0.949874, 0, 0.312633, 0, 1, 0, -0.312633, 0, -0.949874, 1.15044, 0.039563, -2.10014)
 
+[node name="call" type="Label3D" parent="student"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.68603, 0)
+text = "appel à un ami"
+
 [node name="50_50" parent="." instance=ExtResource("4_6vjq8")]
 transform = Transform3D(-0.924852, 0, 0.380328, 0, 1, 0, -0.380328, 0, -0.924852, 2.98138, 0.0372381, -1.48089)
+
+[node name="Label3D" type="Label3D" parent="50_50"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.74646, 0)
+text = "50/50"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.280227, 0, 0, 0, -3.3807e-08, 0.250452, 0, -0.773414, -1.09476e-08, -1.88146, 0, 2.44523)

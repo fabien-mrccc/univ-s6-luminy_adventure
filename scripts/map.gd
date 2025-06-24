@@ -1,6 +1,9 @@
 extends Node3D
 
 @onready var _World_Ui = $"../WorldUi"
+@onready var _dialogue = $UI/dialogue
+
+var _prompt: bool = false
 
 func _on_aphyllanthe_de_montpellier_1_aphyllanthe_found() -> void:
 	_World_Ui._update_aphyllanthes()
@@ -85,3 +88,19 @@ func _on_ciste_10_ciste_found() -> void:
 
 func _on_ciste_11_ciste_found() -> void:
 	_World_Ui._update_ciste()
+
+
+func _on_interactable_focused(interactor: Interactor) -> void:
+	if not _prompt:
+		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_prompt = true
+
+
+func _on_interactable_interacted(interactor: Interactor) -> void:
+	get_tree().change_scene_to_file("res://scenes/qui_veut_reussir_son_annee/game_batiste.tscn")
+
+
+func _on_interactable_unfocused(interactor: Interactor) -> void:
+	if _prompt:
+		_dialogue.close()
+		_prompt = false
