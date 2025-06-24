@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://bw6lwrenobwu7"]
+[gd_scene load_steps=43 format=3 uid="uid://bw6lwrenobwu7"]
 
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_k1x1q"]
+[ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="1_k1x1q"]
 [ext_resource type="Script" uid="uid://et7xyn8oikqo" path="res://scripts/controlroom/control_room.gd" id="1_yay3m"]
 [ext_resource type="Script" uid="uid://2e85udjo6oyp" path="res://scripts/controlroom/dialogue_bubble.gd" id="3_dqnk3"]
 [ext_resource type="PackedScene" uid="uid://bcurcb35ibpqd" path="res://scenes/furniture/chair_000.tscn" id="7_5vc3n"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cnvclhknul11p" path="res://scenes/furniture/phone_000.tscn" id="25_hkmmk"]
 [ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="26_vt0od"]
 [ext_resource type="PackedScene" uid="uid://d08o20o2la8q8" path="res://scenes/furniture/bin_000.tscn" id="27_7l2ku"]
+[ext_resource type="PackedScene" uid="uid://wihwtp6uyh56" path="res://scenes/world/world_ui.tscn" id="27_wjeyl"]
 [ext_resource type="PackedScene" uid="uid://s1iqbgoseq0o" path="res://scenes/furniture/can_dispenser_000.tscn" id="28_7h5ol"]
 [ext_resource type="PackedScene" uid="uid://eq0xaxu5fcks" path="res://scenes/characters/character_031.tscn" id="29_and0v"]
 
@@ -596,3 +597,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.41
 
 [node name="Character_032" parent="Environemement/Characters" instance=ExtResource("29_and0v")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.4164, 0.000853762, -9.69836)
+
+[node name="WorldUi" parent="." instance=ExtResource("27_wjeyl")]
+
+[node name="CanvasLayer" parent="WorldUi" index="0"]
+visible = false
+
+[editable path="WorldUi"]

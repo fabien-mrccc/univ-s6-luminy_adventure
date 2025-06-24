@@ -104,3 +104,7 @@ func _on_interactable_unfocused(interactor: Interactor) -> void:
 	if _prompt:
 		_dialogue.close()
 		_prompt = false
+
+
+func _on_interactable_interacted_ControlRoom(interactor: Interactor) -> void:
+	get_tree().change_scene_to_file("res://scenes/controlroom/ControlRoom.tscn")

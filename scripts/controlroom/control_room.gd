@@ -57,8 +57,14 @@ func spawn_student() -> void:
 	if current_index >= student_scenes.size():
 		if error_count == 0:
 			print("🎉 All answers correct.")
+			player.save._valid_control_room()
+			player._save()
+			get_tree().change_scene_to_file("res://scenes/world.tscn")
 		else:
 			print("❌ Mistakes made: %d" % error_count)
+			player.save._valid_control_room()
+			player._save()
+			get_tree().change_scene_to_file("res://scenes/world.tscn")
 		return
 
 	var student_scene = load(student_scenes[current_index])

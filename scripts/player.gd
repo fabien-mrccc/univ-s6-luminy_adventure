@@ -75,6 +75,10 @@ func _save():
 func _update():
 	if get_tree().current_scene.name == "game_batiste":
 		_worldUi._update_qui_veut_reussir_son_annee()
+	
+	elif get_tree().current_scene.name == "ControlRoom":
+		pass
+	
 	else:
 		_worldUi._update_qui_veut_reussir_son_annee()
 		_worldUi._update_aphyllanthes()
