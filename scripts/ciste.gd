@@ -10,7 +10,7 @@ signal ciste_found
 
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not _prompt:
-		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_dialogue.display_line("", "appuyer sur E pour interagir")
 		_prompt = true
 		
 

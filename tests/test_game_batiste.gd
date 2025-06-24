@@ -307,7 +307,7 @@ func test_initial_dialogue_interaction():
 	teacher_node._on_interactable_interacted(interactor_node)
 	await get_tree().process_frame
 	assert_true(teacher_node.talking, "The NPC should be talking")
-	assert_eq(dialogue_node._question.text, "Bonjour, regarde le tableau", "The NPC should be talking")
+	assert_eq(dialogue_node._question.text, "Bonjour, les questions sont au tableau", "The NPC should be talking")
 
 # Tests handling a correct answer.
 func test_handle_correct_answer():
@@ -350,7 +350,7 @@ func test_finish_quiz():
 	await get_tree().process_frame
 	teacher_node._on_interactable_interacted(interactor_node)
 	await get_tree().process_frame
-	assert_eq(dialogue_node._question.text, "Le quizz est finis", "The current question should be incremented")
+	assert_eq(dialogue_node._question.text, "Le quiz est fini", "The current question should be incremented")
 
 # Tests closing the interaction prompt when the player moves away.
 func test_close_interaction_prompt_teacher():

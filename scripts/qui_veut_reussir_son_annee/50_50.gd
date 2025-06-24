@@ -32,7 +32,7 @@ var _question_used: int = -1
 ## @param interactor: Interactor - The interactor (player) approaching.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not _prompt:
-		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_dialogue.display_line("", "appuyer sur E pour interagir")
 		_prompt = true
 
 ## Handles the player interacting with the NPC, including the 50/50 help logic.
@@ -41,7 +41,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 	_dialogue.close()
 	
 	if not _talking and Global.qui_veut_reussir_son_annee_finished:
-		_dialogue.display_line("étudiant", "Le jeu est finis")
+		_dialogue.display_line("étudiant", "Le jeu est fini")
 		
 	elif _talking and Global.qui_veut_reussir_son_annee_finished:
 		_dialogue.close()
@@ -61,7 +61,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 			_question_used = Global.current_question
 
 		elif not _talking and not _50_50_used and not _explanation:
-			_dialogue.display_line("étudiant", "reparle moi si tu veut de l'aide mais je ne t'aiderai qu'une seule fois")
+			_dialogue.display_line("étudiant", "parle-moi si tu veux de l'aide, mais je ne t'aiderai qu'une seule fois")
 			_explanation = true
 			_talking = true
 

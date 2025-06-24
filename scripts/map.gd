@@ -92,7 +92,7 @@ func _on_ciste_11_ciste_found() -> void:
 
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not _prompt:
-		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_dialogue.display_line("", "appuyer sur E pour interagir")
 		_prompt = true
 
 

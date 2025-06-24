@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b4w5f4vmll2rr"]
+[gd_scene load_steps=46 format=3 uid="uid://b4w5f4vmll2rr"]
 
 [ext_resource type="PackedScene" uid="uid://bfn505w1lhvx3" path="res://scenes/qui_veut_reussir_son_annee/teacher.tscn" id="1_oub57"]
 [ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_fbp86"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://t68dtijt81x7" path="res://assets/models/furniture/Door_000.glb" id="9_ok0ex"]
 [ext_resource type="PackedScene" uid="uid://2etd34p4ryid" path="res://assets/models/furniture/Closet_000.glb" id="10_l50ta"]
 [ext_resource type="PackedScene" uid="uid://yterj3wm2ph8" path="res://assets/models/furniture/Table_000.glb" id="11_6swgg"]
+[ext_resource type="Script" uid="uid://c42b1stp8mtm4" path="res://scripts/door_000.gd" id="11_yhna7"]
 [ext_resource type="PackedScene" uid="uid://emxgbixuevc2" path="res://assets/models/furniture/Chair_000.glb" id="12_nm8ho"]
+[ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="12_uyayh"]
 [ext_resource type="PackedScene" uid="uid://b5y8bt4k8u630" path="res://assets/models/furniture/Paper_000.glb" id="13_vlbxv"]
 [ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="14_oe1sp"]
 [ext_resource type="PackedScene" uid="uid://dlq7lr8rry1w4" path="res://assets/models/furniture/Bin_000.glb" id="15_st20j"]
@@ -200,6 +202,7 @@ transform = Transform3D(-0.964705, 0, 0.263334, 0, 1, 0, -0.263334, 0, -0.964705
 
 [node name="Door_000" parent="." instance=ExtResource("9_ok0ex")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.17431, 0, 3.86483)
+script = ExtResource("11_yhna7")
 
 [node name="DoorFrame" parent="Door_000" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_nwfw0")
@@ -207,6 +210,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nwfw0")
 [node name="Door" parent="Door_000" index="1"]
 surface_material_override/1 = SubResource("StandardMaterial3D_roacq")
 surface_material_override/2 = SubResource("StandardMaterial3D_qdo87")
+
+[node name="Interactable" parent="Door_000" instance=ExtResource("12_uyayh")]
+
+[node name="CollisionShape3D" parent="Door_000/Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114746, 1.10629, 0.0977578)
 
 [node name="wall" type="Node3D" parent="."]
 
@@ -430,6 +438,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572
 [node name="Window_004" parent="windows" instance=ExtResource("21_ok0ex")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572, 1.2, -1.94009)
 
+[connection signal="focused" from="Door_000/Interactable" to="Door_000" method="_on_interactable_focused"]
+[connection signal="interacted" from="Door_000/Interactable" to="Door_000" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Door_000/Interactable" to="Door_000" method="_on_interactable_unfocused"]
+
 [editable path="teacher"]
 [editable path="teacher/Teacher/Character_001"]
 [editable path="teacher/Interactable"]
@@ -447,6 +459,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572
 [editable path="button4/Button/Buzzer_000"]
 [editable path="button4/Interactable"]
 [editable path="Door_000"]
+[editable path="Door_000/Interactable"]
 [editable path="Character_021"]
 [editable path="Character_022"]
 [editable path="Character_031"]

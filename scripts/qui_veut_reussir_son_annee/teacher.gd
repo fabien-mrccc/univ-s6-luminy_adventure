@@ -24,7 +24,7 @@ var question_shown: bool = false
 ## @param interactor: Interactor - The player interacting.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not prompt:
-		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_dialogue.display_line("", "appuyer sur E pour interagir")
 		prompt = true
 
 ## Handles interaction with the NPC, displaying questions and feedback.
@@ -39,7 +39,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 		
 
 	if not talking and not Global.answer and not Global.qui_veut_reussir_son_annee_finished and not _player.save.qui_veut_reussir_son_annee:
-		_dialogue.display_line("Professeur", "Bonjour, regarde le tableau")
+		_dialogue.display_line("Professeur", "Bonjour, les questions sont au tableau")
 		talking = true
 
 	elif talking:
@@ -66,7 +66,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 				_next()
 			_reset()
 	elif Global.qui_veut_reussir_son_annee_finished or _player.save.qui_veut_reussir_son_annee:
-		_dialogue.display_line("Professeur", "Le quizz est finis")
+		_dialogue.display_line("Professeur", "Le quiz est fini")
 		_player.save._valid_qui_veut_reussir_son_annee()
 		_player._save()
 		Global.current_question = Global.answers.size()
