@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx2eo2ms36dac"]
+
+[ext_resource type="PackedScene" uid="uid://y6de0plelcpm" path="res://assets/models/characters/Character_030.glb" id="1_quskc"]
+[ext_resource type="Script" uid="uid://b2irayli8ivt" path="res://scripts/controlroom/student.gd" id="2_nv7so"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwe0t"]
+albedo_color = Color(0.741176, 0.368627, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfev6"]
+albedo_color = Color(0.0133687, 0.0117331, 0.111246, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ss1t5"]
+albedo_color = Color(0.0117647, 0.0117647, 0.109804, 1)
+
+[node name="4" instance=ExtResource("1_quskc")]
+script = ExtResource("2_nv7so")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-1.23005e-10, 0.632689, 0.0228143)
+bones/0/rotation = Quaternion(1.09783e-08, 0.989371, -0.145412, -7.46954e-08)
+bones/3/rotation = Quaternion(-0.0810734, -1.1893e-07, 9.6799e-10, 0.996708)
+bones/4/position = Vector3(0.0662104, 0.115986, -0.00593021)
+bones/5/rotation = Quaternion(-0.130806, 0.0524154, -0.444945, 0.884402)
+bones/6/rotation = Quaternion(0.175066, -0.00170254, 0.0370262, 0.983859)
+bones/7/rotation = Quaternion(-0.0736638, 0.00795726, -0.00262191, 0.997248)
+bones/8/position = Vector3(-0.0662104, 0.115986, -0.00593018)
+bones/9/rotation = Quaternion(0.162951, 0.155055, 0.447801, 0.865378)
+bones/10/rotation = Quaternion(0.175066, 0.00170254, -0.0370262, 0.983859)
+bones/12/position = Vector3(0.0934597, -0.012536, -0.0189097)
+bones/12/rotation = Quaternion(0.0889268, 0.340734, 0.934937, 0.0434187)
+bones/13/rotation = Quaternion(-0.00343725, -0.0889016, -0.000312036, 0.996035)
+bones/14/rotation = Quaternion(0.700343, 0.0800991, -0.0613338, 0.706641)
+bones/15/position = Vector3(-0.0968029, -0.00735398, -0.00397849)
+bones/15/rotation = Quaternion(-0.0318581, 0.203613, 0.977977, 0.0329829)
+bones/16/rotation = Quaternion(-0.351931, 0.0421016, 0.0367631, 0.934356)
+bones/17/rotation = Quaternion(0.720747, -0.0433899, -0.0044444, 0.691825)
+bones/18/position = Vector3(-0.113058, 0.381456, -0.208108)
+bones/19/position = Vector3(-0.0797608, 0.0571894, -0.19955)
+bones/19/rotation = Quaternion(0.0486291, 0.555833, 0.826713, -0.072328)
+bones/20/position = Vector3(0.113058, 0.381456, -0.208108)
+bones/21/position = Vector3(0.0889522, 0.0773736, 0.207467)
+bones/21/rotation = Quaternion(-0.0381525, 0.873835, 0.484263, 0.0211434)
+
+[node name="Body" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_bwe0t")
+surface_material_override/2 = SubResource("StandardMaterial3D_mfev6")
+surface_material_override/3 = SubResource("StandardMaterial3D_ss1t5")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Walk"

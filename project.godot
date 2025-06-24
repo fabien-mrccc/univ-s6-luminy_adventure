@@ -16,13 +16,20 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/AssetsControlRoom/": "red",
+"res://scenes/characters/character_ControlRoom/": "red",
+"res://scenes/controlroom/": "red"
+}
 
 [input]
 

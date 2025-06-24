@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5bukvc5id0g2"]
+
+[ext_resource type="Texture2D" uid="uid://glcskrgn17mq" path="res://assets/AssetsControlRoom/PhotoEtudiant1.png" id="1_0y8pq"]
+[ext_resource type="Script" uid="uid://dx66dm0fh1qti" path="res://scripts/controlroom/doc_1.gd" id="1_amej4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptktr"]
+bg_color = Color(0.0705842, 0.500028, 0.849088, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y8pq"]
+bg_color = Color(2.40654e-06, 0.81098, 0.665478, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_amej4"]
+font_size = 60
+font_color = Color(0.858824, 0, 1, 1)
+outline_size = 5
+outline_color = Color(5.19812e-06, 0, 0.921522, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0smuy"]
+bg_color = Color(2.40654e-06, 0.81098, 0.665478, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hisqs"]
+font_size = 43
+outline_size = 7
+outline_color = Color(0.0784314, 0, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xnxm"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbug0"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[node name="Doc1" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 266.0
+offset_right = -1264.0
+offset_bottom = -454.0
+grow_horizontal = 0
+scale = Vector2(0.86132, 0.82773)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_amej4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1281.0
+offset_bottom = 718.0
+scale = Vector2(0.387411, 0.384944)
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(56, 82)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ptktr")
+
+[node name="Photo" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 410.0
+offset_bottom = 362.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel/Photo"]
+layout_mode = 0
+offset_right = 410.0
+offset_bottom = 361.0
+texture = ExtResource("1_0y8pq")
+
+[node name="Texte1" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 12.0
+offset_right = 1265.0
+offset_bottom = 121.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/Texte1"]
+layout_mode = 0
+offset_right = 830.0
+offset_bottom = 108.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0y8pq")
+text = "Carte de résident de Luminy"
+label_settings = SubResource("LabelSettings_amej4")
+
+[node name="NOMPrenomDate" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 179.0
+offset_right = 1248.0
+offset_bottom = 389.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/NOMPrenomDate"]
+layout_mode = 0
+offset_right = 783.0
+offset_bottom = 209.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0smuy")
+text = "Nom : Salim Prénom : Ahmed                
+
+Date de naissance : 15/08/1986"
+label_settings = SubResource("LabelSettings_hisqs")
+
+[node name="Style" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 485.0
+offset_right = 1181.0
+offset_bottom = 716.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xnxm")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/Style"]
+layout_mode = 0
+offset_right = 1011.0
+offset_bottom = 231.0
+text = "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+label_settings = SubResource("LabelSettings_wbug0")

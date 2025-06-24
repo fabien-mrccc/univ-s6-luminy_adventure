@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=3 uid="uid://chuey1b55ct4i"]
+
+[ext_resource type="Script" uid="uid://sp1lyb64dlbl" path="res://scripts/controlroom/doc_3.gd" id="1_6ce55"]
+[ext_resource type="Texture2D" uid="uid://8dmv6tu7eeuw" path="res://assets/AssetsControlRoom/PhotoEtudiant3.png" id="2_6ce55"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptktr"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y8pq"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_amej4"]
+font_size = 62
+font_color = Color(1, 0.454902, 0.945098, 1)
+outline_size = 5
+outline_color = Color(1, 0.454902, 0.945098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0smuy"]
+bg_color = Color(1, 0.454902, 0.945098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hisqs"]
+font_size = 44
+font_color = Color(0.694118, 0, 1, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xnxm"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ulyp"]
+bg_color = Color(1, 0, 0.290196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbug0"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[node name="Doc3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 249.0
+offset_right = -1264.0
+offset_bottom = -471.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.86132, 0.82773)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_6ce55")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -15.0931
+offset_top = 45.9087
+offset_right = 1265.91
+offset_bottom = 1693.91
+scale = Vector2(0.299187, 0.31764)
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(56, 82)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ptktr")
+
+[node name="Photo" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 20.9779
+offset_top = 1271.07
+offset_right = 430.978
+offset_bottom = 1633.07
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel/Photo"]
+layout_mode = 0
+offset_right = 410.0
+offset_bottom = 361.0
+texture = ExtResource("2_6ce55")
+
+[node name="Texte1" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 98.8957
+offset_top = 25.1075
+offset_right = 928.896
+offset_bottom = 134.108
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/Texte1"]
+layout_mode = 0
+offset_left = -29.9684
+offset_right = 1149.03
+offset_bottom = 175.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0y8pq")
+text = "Carte de Contrôle Intensif des Surfaces 
+Touchées (C.C.I.S.T.)"
+label_settings = SubResource("LabelSettings_amej4")
+
+[node name="NOMPrenomDate" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 44.9526
+offset_top = 345.228
+offset_right = 828.953
+offset_bottom = 555.228
+scale = Vector2(1.45802, 1.26154)
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/NOMPrenomDate"]
+layout_mode = 0
+offset_right = 783.0
+offset_bottom = 209.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0smuy")
+text = "Nom : Désinfectine
+
+Prénom : Cléopâtre                
+
+Date de naissance : 14/07/1997"
+label_settings = SubResource("LabelSettings_hisqs")
+
+[node name="Style" type="Panel" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 128.864
+offset_top = 928.978
+offset_right = 1142.86
+offset_bottom = 1159.98
+theme_override_styles/panel = SubResource("StyleBoxFlat_4xnxm")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/Style"]
+layout_mode = 0
+offset_left = 86.9084
+offset_top = -84.7379
+offset_right = 1097.91
+offset_bottom = 146.262
+rotation = 0.320181
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ulyp")
+text = "   conforme ISO 9999-GEL"
+label_settings = SubResource("LabelSettings_wbug0")
+uppercase = true

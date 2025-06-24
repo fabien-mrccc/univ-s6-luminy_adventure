@@ -7,6 +7,8 @@
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-1.23006e-10, 0.65349, 0.0228143)
 bones/0/rotation = Quaternion(7.8974e-09, 0.994514, -0.104604, -7.50837e-08)
+bones/1/rotation = Quaternion(-0.142509, -3.14621e-08, -1.69884e-08, 0.989794)
+bones/2/rotation = Quaternion(0.119664, -8.91929e-15, 1.04613e-08, 0.992814)
 bones/3/rotation = Quaternion(-0.0704211, -1.18913e-07, 2.23844e-09, 0.997517)
 bones/4/position = Vector3(0.068136, 0.115865, -0.0059102)
 bones/5/rotation = Quaternion(-0.0438356, -0.0186486, -0.50915, 0.859358)
@@ -22,7 +24,9 @@ bones/15/position = Vector3(-0.113058, 0.0204563, -0.00726701)
 bones/15/rotation = Quaternion(-0.000447167, 0.175167, 0.984533, 0.00342178)
 bones/16/rotation = Quaternion(-0.142133, 0.0433488, 0.000228645, 0.988898)
 bones/17/rotation = Quaternion(0.755603, 0.00205011, 0.00245997, 0.655022)
+bones/18/position = Vector3(-0.113058, 0.381456, -0.208108)
 bones/19/rotation = Quaternion(0.0616284, 0.704416, 0.704416, -0.0616284)
+bones/20/position = Vector3(0.113058, 0.381456, -0.208108)
 bones/21/rotation = Quaternion(-0.0308436, 0.706434, 0.706434, 0.0308436)
 
 [node name="Head" parent="Armature/Skeleton3D" index="1"]
