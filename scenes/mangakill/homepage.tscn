@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://681jlews7h3x"]
+
+[ext_resource type="Script" uid="uid://cnss2tklu4t0t" path="res://scripts/mangakill/homepage.gd" id="1_ulxrp"]
+[ext_resource type="PackedScene" uid="uid://do3ajwdfyfw7d" path="res://scenes/esc_menu_layer.tscn" id="2_hnr6d"]
+[ext_resource type="Texture2D" uid="uid://s0l2wswqpmip" path="res://assets/mangakill/homepage.png" id="2_w3cql"]
+[ext_resource type="PackedScene" uid="uid://ctwd73o0h4sv4" path="res://scenes/mangakill/rain.tscn" id="3_g1tsn"]
+[ext_resource type="FontFile" uid="uid://b5wduvtcv4okq" path="res://assets/mangakill/fonts/PixelOperator8-Bold.ttf" id="4_0ynot"]
+[ext_resource type="AudioStream" uid="uid://bntqv46uvdbkx" path="res://assets/mangakill/rainsound.mp3" id="4_w3cql"]
+[ext_resource type="PackedScene" uid="uid://wdfong0tqovg" path="res://scenes/mangakill/dialogue.tscn" id="5_rv7mw"]
+
+[node name="Mangakill" type="Node2D"]
+script = ExtResource("1_ulxrp")
+
+[node name="EscMenuLayer" parent="." instance=ExtResource("2_hnr6d")]
+visible = true
+
+[node name="Background" parent="EscMenuLayer" index="0"]
+offset_left = -951.0
+offset_top = -524.0
+offset_right = -951.0
+offset_bottom = -524.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Homepage" type="Sprite2D" parent="."]
+position = Vector2(15, -17)
+texture = ExtResource("2_w3cql")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="rain" parent="." instance=ExtResource("3_g1tsn")]
+
+[node name="Rainsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_w3cql")
+autoplay = true
+bus = &"RainOutside"
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = -378.0
+offset_top = -78.0
+offset_right = 380.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("4_0ynot")
+theme_override_font_sizes/font_size = 150
+text = "JOUER
+"
+
+[node name="Dialogue" parent="." instance=ExtResource("5_rv7mw")]
+visible = false
+offset_left = -550.0
+offset_top = 290.0
+offset_right = -550.0
+offset_bottom = 290.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(6, 13)
+
+[editable path="EscMenuLayer"]

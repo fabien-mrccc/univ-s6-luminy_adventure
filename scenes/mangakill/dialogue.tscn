@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://wdfong0tqovg"]
+
+[ext_resource type="Script" uid="uid://m6x038c5ktra" path="res://scripts/mangakill/dialogue.gd" id="1_jmcln"]
+[ext_resource type="FontFile" uid="uid://lnhtkcumpl6" path="res://assets/mangakill/fonts/PixelOperator8.ttf" id="2_jeqil"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1tqb"]
+bg_color = Color(0, 0, 0, 0.796078)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.870588)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1180.0
+offset_top = -1640.0
+offset_right = -1180.0
+offset_bottom = -1640.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+script = ExtResource("1_jmcln")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1100.0
+offset_bottom = 450.0
+alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1100, 470)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_j1tqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 28.0
+offset_right = 1094.0
+offset_bottom = 488.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBox"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jeqil")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ChoicesContainer" type="GridContainer" parent="VBoxContainer/Panel/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjvmcc4kcp23i"]
+
+[ext_resource type="PackedScene" uid="uid://djagx8gy27s53" path="res://assets/mangakill/MangaKill.glb" id="1_g2baf"]
+
+[node name="MangaKill" instance=ExtResource("1_g2baf")]

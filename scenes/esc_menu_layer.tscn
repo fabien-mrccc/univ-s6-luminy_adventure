@@ -1,0 +1,204 @@
+[gd_scene load_steps=6 format=3 uid="uid://do3ajwdfyfw7d"]
+
+[ext_resource type="Script" uid="uid://bukbcddymsjud" path="res://scripts/esc_menu.gd" id="1_ekppm"]
+[ext_resource type="Theme" uid="uid://dxedsqw5jfeph" path="res://assets/ui/checkbox_theme.tres" id="2_tce07"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuyoq"]
+bg_color = Color(0.066755, 0.066755, 0.066755, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_fjrip"]
+
+[node name="EscMenuLayer" type="CanvasLayer"]
+layer = 5
+visible = false
+script = ExtResource("1_ekppm")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qlg0r")
+
+[node name="MainPanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 265.0
+offset_right = 1185.0
+offset_bottom = 815.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tuyoq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MainPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleCenterContainer" type="CenterContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="Background/MainPanel/VBoxContainer/TitleCenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Paramètres"
+horizontal_alignment = 3
+
+[node name="HboxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MainPanel/VBoxContainer/HboxContainer"]
+layout_mode = 2
+
+[node name="SoundHboxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="Background/MainPanel/VBoxContainer/SoundHboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Volume sonore  "
+
+[node name="SoundHSlider" type="HSlider" parent="Background/MainPanel/VBoxContainer/SoundHboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="HboxContainer3" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MainPanel/VBoxContainer/HboxContainer3"]
+layout_mode = 2
+
+[node name="SensitivityHBoxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SensitivityLabel" type="Label" parent="Background/MainPanel/VBoxContainer/SensitivityHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Sensibilité souris  "
+
+[node name="SensitivityHSlider" type="HSlider" parent="Background/MainPanel/VBoxContainer/SensitivityHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+value = 40.0
+
+[node name="HboxContainer4" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MainPanel/VBoxContainer/HboxContainer4"]
+layout_mode = 2
+
+[node name="DisplayCenterContainer" type="CenterContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayHBoxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer/DisplayCenterContainer"]
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="Background/MainPanel/VBoxContainer/DisplayCenterContainer/DisplayHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Mode d'affichage  "
+
+[node name="DisplayOptionButton" type="OptionButton" parent="Background/MainPanel/VBoxContainer/DisplayCenterContainer/DisplayHBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Fenêtré"
+popup/item_0/id = 0
+popup/item_1/text = "Plein écran"
+popup/item_1/id = 1
+
+[node name="HboxContainer2" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MainPanel/VBoxContainer/HboxContainer2"]
+layout_mode = 2
+
+[node name="GrassCenterContainer" type="CenterContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GrassHBoxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer/GrassCenterContainer"]
+layout_mode = 2
+theme = SubResource("Theme_fjrip")
+
+[node name="GrassLabel" type="Label" parent="Background/MainPanel/VBoxContainer/GrassCenterContainer/GrassHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Herbe"
+
+[node name="GrassCheckBox" type="CheckBox" parent="Background/MainPanel/VBoxContainer/GrassCenterContainer/GrassHBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tce07")
+button_pressed = true
+
+[node name="CrosshairCenterContainer" type="CenterContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CrosshairHBoxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer/CrosshairCenterContainer"]
+layout_mode = 2
+
+[node name="CrosshairLabel" type="Label" parent="Background/MainPanel/VBoxContainer/CrosshairCenterContainer/CrosshairHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Crosshair"
+
+[node name="CrosshairCheckBox" type="CheckBox" parent="Background/MainPanel/VBoxContainer/CrosshairCenterContainer/CrosshairHBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tce07")
+
+[node name="HboxContainer5" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MainPanel/VBoxContainer/HboxContainer5"]
+layout_mode = 2
+
+[node name="BUCenterContainer" type="CenterContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="BUHboxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer/BUCenterContainer"]
+layout_mode = 2
+
+[node name="BUButton" type="Button" parent="Background/MainPanel/VBoxContainer/BUCenterContainer/BUHboxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_colors/font_hover_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_colors/font_color = Color(0.570862, 0.711254, 1, 1)
+theme_override_colors/font_focus_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.572549, 0.709804, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = " Retourner à la BU "
+
+[node name="ExitCenterContainer" type="CenterContainer" parent="Background/MainPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitHboxContainer" type="HBoxContainer" parent="Background/MainPanel/VBoxContainer/ExitCenterContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="Background/MainPanel/VBoxContainer/ExitCenterContainer/ExitHboxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_colors/font_hover_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_colors/font_color = Color(0.990553, 0.464951, 0.483152, 1)
+theme_override_colors/font_focus_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_colors/font_pressed_color = Color(0.992157, 0.466667, 0.482353, 1)
+theme_override_font_sizes/font_size = 20
+text = " Fermer le jeu "

@@ -1,0 +1,465 @@
+[gd_scene load_steps=46 format=3 uid="uid://b4w5f4vmll2rr"]
+
+[ext_resource type="PackedScene" uid="uid://bfn505w1lhvx3" path="res://scenes/qui_veut_reussir_son_annee/teacher.tscn" id="1_oub57"]
+[ext_resource type="PackedScene" uid="uid://dmc4d7ay41pc" path="res://scenes/player.tscn" id="2_fbp86"]
+[ext_resource type="PackedScene" uid="uid://c0t0dbyifnbch" path="res://scenes/qui_veut_reussir_son_annee/student.tscn" id="3_hffrp"]
+[ext_resource type="PackedScene" uid="uid://5eqib1l547j2" path="res://scenes/qui_veut_reussir_son_annee/50_50.tscn" id="4_6vjq8"]
+[ext_resource type="PackedScene" uid="uid://do6d36apfsbm2" path="res://scenes/qui_veut_reussir_son_annee/button.tscn" id="5_ms73l"]
+[ext_resource type="PackedScene" uid="uid://dchjr8fihijwh" path="res://assets/models/furniture/Desk_000.glb" id="6_jmv3r"]
+[ext_resource type="PackedScene" uid="uid://d35ocj544uv84" path="res://scenes/qui_veut_reussir_son_annee/dialogue.tscn" id="7_nwfw0"]
+[ext_resource type="PackedScene" uid="uid://bfktm7tfkhojf" path="res://assets/models/furniture/Board_000.glb" id="8_qdo87"]
+[ext_resource type="PackedScene" uid="uid://t68dtijt81x7" path="res://assets/models/furniture/Door_000.glb" id="9_ok0ex"]
+[ext_resource type="PackedScene" uid="uid://2etd34p4ryid" path="res://assets/models/furniture/Closet_000.glb" id="10_l50ta"]
+[ext_resource type="PackedScene" uid="uid://yterj3wm2ph8" path="res://assets/models/furniture/Table_000.glb" id="11_6swgg"]
+[ext_resource type="Script" uid="uid://c42b1stp8mtm4" path="res://scripts/door_000.gd" id="11_yhna7"]
+[ext_resource type="PackedScene" uid="uid://emxgbixuevc2" path="res://assets/models/furniture/Chair_000.glb" id="12_nm8ho"]
+[ext_resource type="PackedScene" uid="uid://c61mb2p3x5d3x" path="res://scenes/interactable.tscn" id="12_uyayh"]
+[ext_resource type="PackedScene" uid="uid://b5y8bt4k8u630" path="res://assets/models/furniture/Paper_000.glb" id="13_vlbxv"]
+[ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="14_oe1sp"]
+[ext_resource type="PackedScene" uid="uid://dlq7lr8rry1w4" path="res://assets/models/furniture/Bin_000.glb" id="15_st20j"]
+[ext_resource type="PackedScene" uid="uid://cts4bow2xc2fv" path="res://assets/models/furniture/Light_000.glb" id="16_fbp86"]
+[ext_resource type="PackedScene" uid="uid://35phuwnpuomt" path="res://scenes/characters/world/character_080.tscn" id="17_6vjq8"]
+[ext_resource type="PackedScene" uid="uid://cuf28bjg3s2a5" path="res://scenes/characters/world/character_090.tscn" id="18_ms73l"]
+[ext_resource type="PackedScene" uid="uid://bcurcb35ibpqd" path="res://scenes/furniture/chair_000.tscn" id="18_nwfw0"]
+[ext_resource type="PackedScene" uid="uid://bjxx2lu8pwh35" path="res://scenes/furniture/table_000.tscn" id="20_qdo87"]
+[ext_resource type="PackedScene" uid="uid://blwvd1saxf6cg" path="res://scenes/furniture/window_000.tscn" id="21_ok0ex"]
+[ext_resource type="PackedScene" uid="uid://wihwtp6uyh56" path="res://scenes/world/world_ui.tscn" id="22_yas4q"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_d7g4j"]
+size = Vector2(100, 100)
+
+[sub_resource type="Skin" id="Skin_c2l70"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l50ta"]
+albedo_color = Color(1, 1, 0.866667, 1)
+roughness = 0.15
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2713"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d7g4j"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_gyfs4"]
+sky_material = SubResource("ProceduralSkyMaterial_d7g4j")
+
+[sub_resource type="Environment" id="Environment_c2l70"]
+background_mode = 2
+sky = SubResource("Sky_gyfs4")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwfw0"]
+albedo_color = Color(0.377504, 0.154855, 0.0431141, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roacq"]
+albedo_color = Color(0.376471, 0.152941, 0.0431373, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdo87"]
+albedo_color = Color(0.999999, 0.499888, 0.376014, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qebs8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6swgg"]
+albedo_color = Color(1, 1, 0.866667, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oub57"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbp86"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm8ho"]
+albedo_color = Color(1, 1, 0.866667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlbxv"]
+albedo_color = Color(1, 1, 0.866667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oe1sp"]
+albedo_color = Color(1, 1, 0.866667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok0ex"]
+albedo_color = Color(1, 1, 0.866667, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hffrp"]
+size = Vector3(1.02612, 1.24402, 10.2341)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st20j"]
+albedo_color = Color(0.796078, 0.847059, 0.32549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w52m"]
+albedo_color = Color(0.354722, 0.698141, 0.879672, 1)
+
+[node name="qui_veut_reussir_son_annee" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00329018, 0.0310411, -0.0123625)
+
+[node name="WorldUi" parent="." instance=ExtResource("22_yas4q")]
+
+[node name="teacher" parent="." instance=ExtResource("1_oub57")]
+transform = Transform3D(0.990541, 0, -0.13722, 0, 1, 0, 0.13722, 0, 0.990541, -4.57661, 0.1, 4.546)
+
+[node name="Teacher" parent="teacher" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165492, 0, 1.19462)
+
+[node name="Interactable" parent="teacher" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165492, 0, 1.19462)
+
+[node name="question" parent="teacher" index="2"]
+transform = Transform3D(-0.718302, 0, -0.130719, 0, 1, 0, 0.0945281, 0, -0.993311, 3.7809, 2.40439, 3.35052)
+visible = false
+
+[node name="answer1" parent="teacher" index="3"]
+transform = Transform3D(-0.992287, 0, -0.123965, 0, 1, 0, 0.123965, 0, -0.992287, 3.8358, 1.90211, 3.34)
+visible = false
+metadata/index = 5
+
+[node name="answer2" parent="teacher" index="4"]
+transform = Transform3D(-0.99539, 0, -0.0959153, 0, 1, 0, 0.0959153, 0, -0.99539, 3.85049, 1.1689, 3.27935)
+visible = false
+metadata/index = 10
+
+[node name="answer3" parent="teacher" index="5"]
+transform = Transform3D(-0.870039, 0, -0.492986, 0, 1, 0, 0.492986, 0, -0.870039, 6.8127, 1.902, 2.38388)
+visible = false
+metadata/index = 15
+
+[node name="answer4" parent="teacher" index="6"]
+transform = Transform3D(-0.977966, 0, 0.208765, 0, 1, 0, -0.208765, 0, -0.977966, 0.7736, 1.902, 3.29709)
+visible = false
+metadata/index = 20
+
+[node name="Player" parent="." instance=ExtResource("2_fbp86")]
+transform = Transform3D(0.127394, 0, -0.991852, 0, 1, 0, 0.991852, 0, 0.127394, -6.63506, -0.0352683, 3.81221)
+
+[node name="student" parent="." instance=ExtResource("3_hffrp")]
+transform = Transform3D(-0.949874, 0, 0.312633, 0, 1, 0, -0.312633, 0, -0.949874, 1.15044, 0.039563, -2.10014)
+
+[node name="call" type="Label3D" parent="student"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.68603, 0)
+text = "appel à un ami"
+
+[node name="50_50" parent="." instance=ExtResource("4_6vjq8")]
+transform = Transform3D(-0.924852, 0, 0.380328, 0, 1, 0, -0.380328, 0, -0.924852, 2.98138, 0.0372381, -1.48089)
+
+[node name="Label3D" type="Label3D" parent="50_50"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.74646, 0)
+text = "50/50"
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.280227, 0, 0, 0, -3.3807e-08, 0.250452, 0, -0.773414, -1.09476e-08, -1.88146, 0, 2.44523)
+mesh = SubResource("QuadMesh_d7g4j")
+skin = SubResource("Skin_c2l70")
+surface_material_override/0 = SubResource("StandardMaterial3D_l50ta")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_t2713")
+
+[node name="WorldSettings" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldSettings"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldSettings"]
+environment = SubResource("Environment_c2l70")
+
+[node name="button1" parent="." groups=["buttons"] instance=ExtResource("5_ms73l")]
+transform = Transform3D(-0.868355, 0, -0.495944, 0, 1, 0, 0.495944, 0, -0.868355, 3.33769, 0.684625, 4.97275)
+metadata/id = 1
+
+[node name="button2" parent="." groups=["buttons"] instance=ExtResource("5_ms73l")]
+transform = Transform3D(-0.868355, 0, -0.495944, 0, 1, 0, 0.495944, 0, -0.868355, 2.23723, 0.685, 5.60126)
+metadata/id = 2
+
+[node name="Label3D" parent="button2/Button" index="2"]
+text = "2"
+
+[node name="Desk_000" parent="." instance=ExtResource("6_jmv3r")]
+transform = Transform3D(-0.868355, 0, -0.495944, 0, 1, 0, 0.495944, 0, -0.868355, 2.76693, 1.49012e-08, 5.29873)
+
+[node name="UI" parent="." instance=ExtResource("7_nwfw0")]
+
+[node name="button3" parent="." groups=["buttons"] instance=ExtResource("5_ms73l")]
+transform = Transform3D(-0.964705, 0, 0.263334, 0, 1, 0, -0.263334, 0, -0.964705, -2.19737, 0.684625, 5.45985)
+metadata/id = 3
+
+[node name="Label3D" parent="button3/Button" index="2"]
+text = "3"
+
+[node name="button4" parent="." groups=["buttons"] instance=ExtResource("5_ms73l")]
+transform = Transform3D(-0.964705, 0, 0.263334, 0, 1, 0, -0.263334, 0, -0.964705, -3.41993, 0.685, 5.12613)
+metadata/id = 4
+
+[node name="Label3D" parent="button4/Button" index="2"]
+text = "4"
+
+[node name="Board_000" parent="." instance=ExtResource("8_qdo87")]
+transform = Transform3D(1.32144, 0, 0, 0, 1.2728, 0, 0, 0, 1, -1.27757, 0.776208, 8.42616)
+
+[node name="Desk_001" parent="." instance=ExtResource("6_jmv3r")]
+transform = Transform3D(-0.964705, 0, 0.263334, 0, 1, 0, -0.263334, 0, -0.964705, -2.83146, 1.49012e-08, 5.28676)
+
+[node name="Door_000" parent="." instance=ExtResource("9_ok0ex")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.17431, 0, 3.86483)
+script = ExtResource("11_yhna7")
+
+[node name="DoorFrame" parent="Door_000" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nwfw0")
+
+[node name="Door" parent="Door_000" index="1"]
+surface_material_override/1 = SubResource("StandardMaterial3D_roacq")
+surface_material_override/2 = SubResource("StandardMaterial3D_qdo87")
+
+[node name="Interactable" parent="Door_000" instance=ExtResource("12_uyayh")]
+
+[node name="CollisionShape3D" parent="Door_000/Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114746, 1.10629, 0.0977578)
+
+[node name="wall" type="Node3D" parent="."]
+
+[node name="wall" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(0.176154, 0, 0, 0, 4.58515, 0, 0, 0, 56.7384, -7.31475, 1.288, 2.4516)
+mesh = SubResource("BoxMesh_qebs8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6swgg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall/wall"]
+physics_material_override = SubResource("PhysicsMaterial_oub57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/wall/StaticBody3D"]
+shape = SubResource("BoxShape3D_fbp86")
+
+[node name="wall2" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(0.176154, 0, 0, 0, 4.58515, 0, 0, 0, 61.9978, 4.77524, 1.288, 2.65498)
+mesh = SubResource("BoxMesh_qebs8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nm8ho")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall/wall2"]
+physics_material_override = SubResource("PhysicsMaterial_oub57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/wall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_fbp86")
+
+[node name="wall3" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(-7.69993e-09, 0, 13.2501, 0, 4.58515, 0, -0.176154, 0, -5.7918e-07, -1.31136, 1.288, -5.07778)
+mesh = SubResource("BoxMesh_qebs8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vlbxv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall/wall3"]
+physics_material_override = SubResource("PhysicsMaterial_oub57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/wall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_fbp86")
+
+[node name="wall4" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(-7.69993e-09, 0, 12.299, 0, 4.58515, 0, -0.176154, 0, -5.37608e-07, -1.34545, 1.30607, 8.54165)
+mesh = SubResource("BoxMesh_qebs8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_oe1sp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall/wall4"]
+physics_material_override = SubResource("PhysicsMaterial_oub57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/wall4/StaticBody3D"]
+shape = SubResource("BoxShape3D_fbp86")
+
+[node name="ceiling" type="MeshInstance3D" parent="wall"]
+transform = Transform3D(-1.11441e-08, -16.366, 0, 0.254948, -7.1538e-07, 0, 0, 0, 29.4117, -2.53872, 3.6433, 2.48982)
+mesh = SubResource("BoxMesh_qebs8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ok0ex")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall/ceiling"]
+physics_material_override = SubResource("PhysicsMaterial_oub57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/ceiling/StaticBody3D"]
+shape = SubResource("BoxShape3D_fbp86")
+
+[node name="Closet_000" parent="." instance=ExtResource("10_l50ta")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.07341, 0, -4.67941)
+
+[node name="Table_000" parent="." instance=ExtResource("11_6swgg")]
+transform = Transform3D(0.949874, 0, -0.312633, 0, 1, 0, 0.312633, 0, 0.949874, 2.70441, 0, -0.756271)
+
+[node name="Table_001" parent="." instance=ExtResource("11_6swgg")]
+transform = Transform3D(0.949874, 0, -0.312633, 0, 1, 0, 0.312633, 0, 0.949874, 0.914423, 0, -1.34541)
+
+[node name="Chair_000" parent="." instance=ExtResource("12_nm8ho")]
+transform = Transform3D(0.949874, 0, -0.312633, 0, 1, 0, 0.312633, 0, 0.949874, 1.13861, 0, -2.12769)
+
+[node name="Chair_003" parent="." instance=ExtResource("12_nm8ho")]
+transform = Transform3D(0.949874, 0, -0.312633, 0, 1, 0, 0.312633, 0, 0.949874, 2.98633, 0, -1.51954)
+
+[node name="Paper_000" parent="." instance=ExtResource("13_vlbxv")]
+transform = Transform3D(0.892342, 0, -0.45136, 0, 1, 0, 0.45136, 0, 0.892342, 0.681988, 0.689834, -1.39969)
+
+[node name="PenBox_000" parent="." instance=ExtResource("14_oe1sp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16656, 0.691984, -1.19749)
+
+[node name="Bin_000" parent="." instance=ExtResource("15_st20j")]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.248, -6.56286, 0.0097072, 7.6627)
+
+[node name="Light_001" parent="." instance=ExtResource("16_fbp86")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.62021, 3.38894, 4.06538)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59938, 3.28183, 4.04606)
+
+[node name="Light_002" parent="." instance=ExtResource("16_fbp86")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.37979, 3.38894, 4.06538)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38982, 3.28183, 4.04606)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82715, 0.518832, -1.00322)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(3.55079, 0, 0.0194726, 0, 0.577277, 0, 1.16744, 0, -0.0592263, -0.0258937, -0.155911, -0.0483375)
+shape = SubResource("BoxShape3D_hffrp")
+
+[node name="Light_003" parent="." instance=ExtResource("16_fbp86")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.62021, 3.38894, -2.0729)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59938, 3.28183, -2.09223)
+
+[node name="Light_004" parent="." instance=ExtResource("16_fbp86")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.37979, 3.38894, -2.0729)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38982, 3.28183, -2.09223)
+
+[node name="Character_021" parent="." instance=ExtResource("17_6vjq8")]
+transform = Transform3D(-1, 0, -0.000122111, 0, 1, 0, 0.000122111, 0, -1, -4.83492, 0.148953, -1.02883)
+
+[node name="Skeleton3D" parent="Character_021/Armature" index="0"]
+bones/0/position = Vector3(2.66454e-15, 0.336239, 0.0228143)
+bones/1/rotation = Quaternion(-0.142509, -3.14621e-08, -1.69884e-08, 0.989794)
+bones/2/rotation = Quaternion(0.119664, -8.91929e-15, 1.04613e-08, 0.992814)
+bones/3/rotation = Quaternion(-0.0637977, -1.19077e-07, 4.56625e-10, 0.997963)
+bones/4/position = Vector3(0.0681361, 0.125419, -0.00748639)
+bones/5/rotation = Quaternion(-0.0595924, -0.144844, -0.556299, 0.816088)
+bones/6/rotation = Quaternion(0.480916, 0.016219, -0.0370179, 0.875835)
+bones/8/position = Vector3(-0.068136, 0.125419, -0.00748641)
+bones/9/rotation = Quaternion(-0.0028939, 0.0658585, 0.54637, 0.834946)
+bones/10/rotation = Quaternion(0.492287, 0.0407524, 0.0373628, 0.868675)
+bones/12/position = Vector3(0.113058, 0.0204563, -0.00726694)
+bones/12/rotation = Quaternion(-0.00226595, 0.800076, 0.599884, -0.0034483)
+bones/13/rotation = Quaternion(-0.775695, -1.90039e-06, -0.00027645, 0.631108)
+bones/14/rotation = Quaternion(0.751352, -0.0214716, 0.0136726, 0.659411)
+bones/15/position = Vector3(-0.113058, 0.0204563, -0.00726696)
+bones/15/rotation = Quaternion(-9.08298e-06, 0.800096, 0.599873, 1.89064e-05)
+bones/16/rotation = Quaternion(-0.775722, 1.91355e-07, 3.45837e-05, 0.631075)
+bones/17/rotation = Quaternion(0.751436, 0.0189601, -0.0166586, 0.659324)
+bones/18/position = Vector3(-0.113058, 0.381456, -0.208108)
+bones/19/position = Vector3(-0.11579, 0.0437502, -0.227982)
+bones/19/rotation = Quaternion(0.0180525, 0.706876, 0.706876, -0.0180525)
+bones/20/position = Vector3(0.113058, 0.381456, -0.208108)
+bones/21/position = Vector3(0.113058, 0.0437502, -0.227969)
+bones/21/rotation = Quaternion(-0.0178433, 0.706882, 0.706882, 0.0178433)
+
+[node name="Chair_001" parent="." instance=ExtResource("18_nwfw0")]
+transform = Transform3D(0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, 0.999762, -4.84339, 0.125226, -1.04725)
+
+[node name="Chair_002" parent="." instance=ExtResource("18_nwfw0")]
+transform = Transform3D(0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, 0.999762, -4.05031, 0.125226, -1.1278)
+
+[node name="Character_030" parent="." instance=ExtResource("18_ms73l")]
+transform = Transform3D(-0.99688, 0, 0.0789288, 0, 1, 0, -0.0789288, 0, -0.99688, -4.04223, 0.166505, -1.08745)
+
+[node name="Table_002" parent="." instance=ExtResource("20_qdo87")]
+transform = Transform3D(0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, 0.999762, -4.35734, 0.125226, -0.421957)
+
+[node name="Character_022" parent="." instance=ExtResource("17_6vjq8")]
+transform = Transform3D(-1, 0, -0.000122111, 0, 1, 0, 0.000122111, 0, -1, -4.83492, 0.148953, -3.20493)
+
+[node name="Skeleton3D" parent="Character_022/Armature" index="0"]
+bones/0/position = Vector3(2.66454e-15, 0.336239, 0.0228143)
+bones/1/rotation = Quaternion(-0.142509, -3.14621e-08, -1.69884e-08, 0.989794)
+bones/2/rotation = Quaternion(0.119664, -8.91929e-15, 1.04613e-08, 0.992814)
+bones/3/rotation = Quaternion(-0.0701115, -1.18913e-07, 2.27535e-09, 0.997539)
+bones/4/position = Vector3(0.068136, 0.121779, -0.00688587)
+bones/5/rotation = Quaternion(-0.0595924, -0.144844, -0.556299, 0.816088)
+bones/6/rotation = Quaternion(0.480916, 0.016219, -0.0370179, 0.875835)
+bones/8/position = Vector3(-0.0681361, 0.121779, -0.00688589)
+bones/9/rotation = Quaternion(-0.0028939, 0.0658585, 0.54637, 0.834946)
+bones/10/rotation = Quaternion(0.492287, 0.0407524, 0.0373628, 0.868675)
+bones/12/position = Vector3(0.113058, 0.0204563, -0.00726694)
+bones/12/rotation = Quaternion(-0.00226595, 0.800076, 0.599884, -0.0034483)
+bones/13/rotation = Quaternion(-0.775695, -1.90039e-06, -0.00027645, 0.631108)
+bones/14/rotation = Quaternion(0.751352, -0.0214716, 0.0136726, 0.659411)
+bones/15/position = Vector3(-0.113058, 0.0204563, -0.00726696)
+bones/15/rotation = Quaternion(-9.08298e-06, 0.800096, 0.599873, 1.89064e-05)
+bones/16/rotation = Quaternion(-0.775722, 1.91355e-07, 3.45837e-05, 0.631075)
+bones/17/rotation = Quaternion(0.751436, 0.0189601, -0.0166586, 0.659324)
+bones/18/position = Vector3(-0.113058, 0.381456, -0.208108)
+bones/19/position = Vector3(-0.11579, 0.0437502, -0.227982)
+bones/19/rotation = Quaternion(0.0180525, 0.706876, 0.706876, -0.0180525)
+bones/20/position = Vector3(0.113058, 0.381456, -0.208108)
+bones/21/position = Vector3(0.113058, 0.0437502, -0.227969)
+bones/21/rotation = Quaternion(-0.0178433, 0.706882, 0.706882, 0.0178433)
+
+[node name="Body" parent="Character_022/Armature/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_st20j")
+
+[node name="Chair_004" parent="." instance=ExtResource("18_nwfw0")]
+transform = Transform3D(0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, 0.999762, -4.84339, 0.125226, -3.22335)
+
+[node name="Chair_005" parent="." instance=ExtResource("18_nwfw0")]
+transform = Transform3D(0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, 0.999762, -4.05031, 0.125226, -3.30389)
+
+[node name="Character_031" parent="." instance=ExtResource("18_ms73l")]
+transform = Transform3D(-0.99688, 0, 0.0789288, 0, 1, 0, -0.0789288, 0, -0.99688, -4.04223, 0.166505, -3.26355)
+
+[node name="Body" parent="Character_031/Armature/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_7w52m")
+
+[node name="Table_003" parent="." instance=ExtResource("20_qdo87")]
+transform = Transform3D(0.999762, 0, -0.0218149, 0, 1, 0, 0.0218149, 0, 0.999762, -4.35734, 0.125226, -2.59805)
+
+[node name="windows" type="Node3D" parent="."]
+
+[node name="Window_000" parent="windows" instance=ExtResource("21_ok0ex")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572, 1.2, 6.05991)
+
+[node name="Window_001" parent="windows" instance=ExtResource("21_ok0ex")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572, 1.2, 4.05991)
+
+[node name="Window_002" parent="windows" instance=ExtResource("21_ok0ex")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572, 1.2, 2.05991)
+
+[node name="Window_003" parent="windows" instance=ExtResource("21_ok0ex")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572, 1.2, 0.0599113)
+
+[node name="Window_004" parent="windows" instance=ExtResource("21_ok0ex")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.6572, 1.2, -1.94009)
+
+[connection signal="focused" from="Door_000/Interactable" to="Door_000" method="_on_interactable_focused"]
+[connection signal="interacted" from="Door_000/Interactable" to="Door_000" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Door_000/Interactable" to="Door_000" method="_on_interactable_unfocused"]
+
+[editable path="teacher"]
+[editable path="teacher/Teacher/Character_001"]
+[editable path="teacher/Interactable"]
+[editable path="button1"]
+[editable path="button1/Button/Buzzer_000"]
+[editable path="button1/Interactable"]
+[editable path="button2"]
+[editable path="button2/Button/Buzzer_000"]
+[editable path="button2/Interactable"]
+[editable path="UI"]
+[editable path="button3"]
+[editable path="button3/Button/Buzzer_000"]
+[editable path="button3/Interactable"]
+[editable path="button4"]
+[editable path="button4/Button/Buzzer_000"]
+[editable path="button4/Interactable"]
+[editable path="Door_000"]
+[editable path="Door_000/Interactable"]
+[editable path="Character_021"]
+[editable path="Character_022"]
+[editable path="Character_031"]
