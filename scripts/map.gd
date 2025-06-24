@@ -108,3 +108,8 @@ func _on_interactable_unfocused(interactor: Interactor) -> void:
 
 func _on_interactable_interacted_ControlRoom(interactor: Interactor) -> void:
 	get_tree().change_scene_to_file("res://scenes/controlroom/ControlRoom.tscn")
+
+
+func _on_interactable_interacted_car(interactor: Interactor) -> void:
+	print("pop")
+	get_tree().change_scene_to_file("res://lfs/scenes/race_map.tscn")

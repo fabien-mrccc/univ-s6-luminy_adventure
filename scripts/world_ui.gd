@@ -41,6 +41,10 @@ func _update_qui_veut_reussir_son_annee():
 		_checkBox_qui_veut_reussir_son_annee.button_pressed = true
 		
 func _update_luminy_for_speed():
+	if Global.lfs:
+		_player.save._valid_luminy_for_speed()
+		_player._save()
+	
 	if _player.save.luminy_for_speed:
 		_checkBox_luminy_for_speed.button_pressed = true
 		

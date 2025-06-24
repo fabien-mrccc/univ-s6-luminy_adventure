@@ -13,6 +13,8 @@ var current_question: int = 0
 var qui_veut_reussir_son_annee_finished:bool = false
 var manga_kill_finished:bool = false
 
+var lfs:bool = false
+
 ## Array of correct answers, indexed by question number.
 ## Example: answers[0] corresponds to the correct answer for the first question.
 var answers = [

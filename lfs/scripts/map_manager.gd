@@ -42,6 +42,8 @@ func _on_finish_line_entered(body):
 	if body == player_car and race_started:
 		race_started = false
 		chrono_label.text = "Temps final : %.2f s" % race_time
+		Global.lfs = true
+		get_tree().change_scene_to_file("res://scenes/world.tscn")
 		
 func _on_offroad_zone_exited(body):
 	if body == player_car:
