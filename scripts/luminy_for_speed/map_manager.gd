@@ -50,7 +50,15 @@ func _on_finish_line_entered(body: Node) -> void:
 	if body == player_car and race_started:
 		race_started = false
 		chrono_label.text = "Temps final : %.2f s" % race_time
-		Global.lfs = true  
+		Global.lfs = true
+
+		var timer := Timer.new()
+		timer.wait_time = 10.0
+		timer.one_shot = true
+		add_child(timer)
+		timer.start()
+		
+		await timer.timeout
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 ## Called when the car exits the off-road area (not active currently)
