@@ -20,6 +20,9 @@ var prompt: bool = false
 ## Indicates if the question has been shown already.
 var question_shown: bool = false
 
+func _ready():
+	Global.current_question = 0
+
 ## Shows a prompt message when the player focuses on the NPC if not already shown.
 ## @param interactor: Interactor - The player interacting.
 func _on_interactable_focused(interactor: Interactor) -> void:

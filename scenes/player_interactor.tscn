@@ -8,3 +8,4 @@ script = ExtResource("2_p53pr")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322052, -0.293945, -2.77795)
+debug_color = Color(0, 0.6, 0.701961, 1)

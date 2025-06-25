@@ -70,7 +70,7 @@ fov = 62.6903
 [node name="PlayerInteractor" parent="Head/Camera3D" instance=ExtResource("3_tuyoq")]
 
 [node name="CollisionShape3D" parent="Head/Camera3D/PlayerInteractor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.488645, -2.66279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000603821, -0.0028832, -1.82714)
 
 [node name="Character_020" parent="Head" instance=ExtResource("3_dqkch")]
 
