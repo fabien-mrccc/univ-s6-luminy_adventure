@@ -2,7 +2,7 @@ extends GutTest
 
 # Preloaded NPC scene for instantiating in tests.
 # Reference to the NPC node in the instantiated scene.
-var npc_scene = preload("res://scenes/tests/game_batiste_test.tscn")
+var npc_scene = preload("res://scenes/tests/test_qui_veut_reussir_son_annee.tscn")
 var _50_50_node
 var interactor_node
 var student_node

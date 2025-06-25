@@ -61,9 +61,6 @@ func spawn_student() -> void:
 			player._save()
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 		else:
-			print("❌ Mistakes made: %d" % error_count)
-			player.save._valid_control_room()
-			player._save()
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 		return
 

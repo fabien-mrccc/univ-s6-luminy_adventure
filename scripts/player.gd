@@ -2,7 +2,7 @@
 extends CharacterBody3D
 
 var save_file_path = "user://save/"
-var save_file_name = "Save_test.tres"
+var save_file_name = "Save.tres"
 var save = Save.new()
 
 ## Movement speed in walk mode.
@@ -92,10 +92,6 @@ func _update():
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * sensitivity / SENSITIVITY_OFFSET)
-		camera.rotate_x(-event.relative.y * sensitivity / SENSITIVITY_OFFSET)
-
 	if can_look and event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitivity / SENSITIVITY_OFFSET)
 		camera.rotate_x(-event.relative.y * sensitivity / SENSITIVITY_OFFSET)

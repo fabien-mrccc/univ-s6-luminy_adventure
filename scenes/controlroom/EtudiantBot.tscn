@@ -38,4 +38,4 @@ func go_backwards():
 script = SubResource("GDScript_nbrhh")
 
 [node name="Character_020" parent="." instance=ExtResource("2_dgu0b")]
-transform = Transform3D(-0.814309, 0, -0.13543, 0, 0.790473, 0, 0.0484075, 0, -2.2782, 0.120095, -0.483162, 0.983665)
+transform = Transform3D(-0.998238, 0, -0.0593413, 0, 1, 0, 0.0593413, 0, -0.998238, 0, 0, 0)

@@ -194,7 +194,7 @@ shadow_enabled = true
 environment = SubResource("Environment_d5x1h")
 
 [node name="Player" parent="." instance=ExtResource("1_k1x1q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39475, 0.00732224, -2.89374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39475, 0.00732224, -3.10724)
 
 [node name="BotPath" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.0445)
@@ -233,7 +233,7 @@ offset_right = -608.2
 offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.997354, 0.840436, 0.491819, 1)
+color = Color(0.996078, 0.839216, 0.490196, 0)
 
 [node name="Accept" type="Button" parent="CanvasLayer/Control/BackgroundButton"]
 modulate = Color(0, 0.872664, 0, 1)
@@ -256,9 +256,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -408.0
-offset_top = -678.0
+offset_top = -1008.0
 offset_right = 409.0
-offset_bottom = -476.0
+offset_bottom = -806.0
 grow_horizontal = 2
 scale = Vector2(0.895341, 0.963524)
 theme = SubResource("Theme_ooir8")
