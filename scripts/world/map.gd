@@ -55,13 +55,13 @@ func _on_ciste_11_ciste_found(): _on_ciste_found()
 ## Displays interaction prompt if not already shown.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not _prompt_shown:
-		_dialogue_ui.display_line("", "appuyer sur E pour interagir")
+		_dialogue_ui.display_line("", "Appuyer sur E pour interagir.")
 		_prompt_shown = true
 
 ## Called when the interactable is interacted with.
 ## Changes scene to Batiste's game.
 func _on_interactable_interacted(interactor: Interactor) -> void:
-	get_tree().change_scene_to_file("res://scenes/qui_veut_reussir_son_annee/game_batiste.tscn")
+	get_tree().change_scene_to_file("res://scenes/qui_veut_reussir_son_annee/qui_veut_reussir_son_annee.tscn")
 
 ## Called when the interactable loses focus.
 ## Closes the interaction prompt if shown.
@@ -72,7 +72,7 @@ func _on_interactable_unfocused(interactor: Interactor) -> void:
 
 ## Changes scene to control room.
 func _on_interactable_interacted_control_room(interactor: Interactor) -> void:
-	get_tree().change_scene_to_file("res://scenes/controlroom/ControlRoom.tscn")
+	get_tree().change_scene_to_file("res://scenes/controlroom/controlroom.tscn")
 
 ## Changes scene to Luminy For Speed racing world.
 func _on_interactable_interacted_car(interactor: Interactor) -> void:

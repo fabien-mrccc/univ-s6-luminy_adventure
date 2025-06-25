@@ -14,21 +14,17 @@ var countdown_started: bool = false
 var race_time: float = 0.0
 
 func _ready() -> void:
-	## Connect relevant signals
 	finish_line.body_entered.connect(_on_finish_line_entered)
 	off_road_zones.body_exited.connect(_on_offroad_zone_exited)
 	
-	## Initialize UI
 	chrono_label.text = ""
 	countdown_label.text = ""
 
 func _physics_process(delta: float) -> void:
-	## Start countdown when player presses forward for the first time
 	if not countdown_started and Input.is_action_just_pressed("move_forward"):
 		countdown_started = true
 		start_countdown()
 
-	## Update race timer if race has started
 	if race_started:
 		race_time += delta
 		chrono_label.text = "Temps : %.2f s" % race_time
@@ -38,7 +34,7 @@ func start_countdown() -> void:
 	var countdown := ["3", "2", "1", "GO!"]
 	for step in countdown:
 		countdown_label.text = step
-		player_car.sleeping = true  ## Freeze the car during countdown
+		player_car.sleeping = true  
 		await get_tree().create_timer(1.0).timeout
 	player_car.sleeping = false
 	countdown_label.text = ""
@@ -54,7 +50,7 @@ func _on_finish_line_entered(body: Node) -> void:
 	if body == player_car and race_started:
 		race_started = false
 		chrono_label.text = "Temps final : %.2f s" % race_time
-		Global.lfs = true  ## You may want to use an autoload or singleton
+		Global.lfs = true  
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 ## Called when the car exits the off-road area (not active currently)

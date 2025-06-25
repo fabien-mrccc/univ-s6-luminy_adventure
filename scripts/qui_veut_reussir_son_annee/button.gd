@@ -17,7 +17,7 @@ var prompt: bool = false
 ## @param interactor: Interactor - The interactor (player) approaching.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not prompt:
-		_dialogue.display_line("", "appuyer sur E pour interagir")
+		_dialogue.display_line("", "Appuyer sur E pour interagir.")
 		prompt = true
 
 ## Handles behavior when interacting with the button.
@@ -27,7 +27,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 	_anim.play("Pressed")
 
 	if Global.current_question >= Global.answers.size():
-		_dialogue.display_line("bouton", "Le quiz est fini")
+		_dialogue.display_line("bouton", "Le quiz est fini.")
 
 	elif Global.current_question < Global.answers.size():
 		if not Global.answer:
@@ -35,7 +35,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 			if Global.answers[Global.current_question] == _button.get_meta("id"):
 				Global.good_answer = true
 		else:
-			_dialogue.display_line("bouton", "vous avez déjà donné une réponse")
+			_dialogue.display_line("bouton", "Vous avez déjà donné une réponse.")
 
 ## Closes the interaction prompt when the player moves away from the button.
 ## @param interactor: Interactor - The interactor (player) moving away.

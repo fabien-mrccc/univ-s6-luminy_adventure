@@ -21,18 +21,18 @@ extends Node3D
 
 ## List of student scene paths to be instantiated sequentially.
 var student_scenes: Array = [
-	"res://scenes/characters/character_ControlRoom/1.tscn",
-	"res://scenes/characters/character_ControlRoom/2.tscn",
-	"res://scenes/characters/character_ControlRoom/3.tscn",
-	"res://scenes/characters/character_ControlRoom/4.tscn"
+	"res://scenes/characters/controlroom/1.tscn",
+	"res://scenes/characters/controlroom/2.tscn",
+	"res://scenes/characters/controlroom/3.tscn",
+	"res://scenes/characters/controlroom/4.tscn"
 ]
 
 ## List of associated document scene paths for each student.
 var document_scenes: Array = [
-	"res://scenes/controlroom/DocumentEtudiants/Doc1.tscn",
-	"res://scenes/controlroom/DocumentEtudiants/Doc2.tscn",
-	"res://scenes/controlroom/DocumentEtudiants/Doc3.tscn",
-	"res://scenes/controlroom/DocumentEtudiants/Doc4.tscn"
+	"res://scenes/controlroom/doc_per_student/1.tscn",
+	"res://scenes/controlroom/doc_per_student/2.tscn",
+	"res://scenes/controlroom/doc_per_student/3.tscn",
+	"res://scenes/controlroom/doc_per_student/4.tscn"
 ]
 
 ## Index of the currently active student/document pair.

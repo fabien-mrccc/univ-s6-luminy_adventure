@@ -23,7 +23,7 @@ var _question_used: int = -1
 ## @param interactor: Interactor - The player interacting.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not _prompt:
-		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_dialogue.display_line("", "Appuyer sur E pour interagir.")
 		_prompt = true
 
 ## Handles interaction with the NPC, providing help if conditions are met.
@@ -32,7 +32,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 	_dialogue.close()
 	
 	if _player.save.qui_veut_reussir_son_annee:
-		_dialogue.display_line("étudiant", "Le jeu est finis")
+		_dialogue.display_line("étudiant", "Le jeu est fini.")
 		
 	elif _talking and _player.save.qui_veut_reussir_son_annee:
 		_dialogue.close()
@@ -45,21 +45,21 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 			_talking = false
 		
 		elif not _talking and not _friend_used and not _explanation:
-			_dialogue.display_line("étudiant", "reparle moi si tu veut de l'aide mais je ne t'aiderai qu'une seule fois")
+			_dialogue.display_line("étudiant", "Reparle-moi si tu veux de l'aide mais je ne t'aiderai qu'une seule fois.")
 			_explanation = true
 			_talking = true
 		
 		elif not _talking and not _friend_used and _explanation and Global.current_question < 5:
-			_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]))
+			_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]) + ".")
 			_talking = true
 			_friend_used = true
 			_question_used = Global.current_question
 
 		elif _friend_used and Global.current_question == _question_used:
-			_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]))
+			_dialogue.display_line("étudiant", "Il me semble que la réponse est " + str(Global.answers[Global.current_question]) + ".")
 
 		elif _friend_used and Global.current_question != _question_used:
-			_dialogue.display_line("étudiant", "je t'ai déjà aidé")
+			_dialogue.display_line("étudiant", "Je t'ai déjà aidé.")
 			_talking = true
 
 ## Closes the prompt when the player stops focusing on the NPC.

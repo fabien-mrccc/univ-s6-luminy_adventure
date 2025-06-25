@@ -10,7 +10,7 @@ var prompt: bool = false
 ## Displays the interaction prompt if not already shown.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not prompt:
-		_dialogue.display_line("", "appuyer sur E pour intéragir")
+		_dialogue.display_line("", "Appuyer sur E pour interagir.")
 		prompt = true
 
 ## Called when the interactable is interacted with.

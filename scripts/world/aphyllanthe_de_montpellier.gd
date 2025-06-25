@@ -12,7 +12,7 @@ signal aphyllanthe_found
 ## Displays the interaction prompt if not already shown.
 func _on_interactable_focused(interactor: Interactor) -> void:
 	if not _prompt:
-		_dialogue.display_line("", "appuyer sur E pour interagir")
+		_dialogue.display_line("", "Appuyer sur E pour interagir.")
 		_prompt = true
 		
 ## Called when an interactable object loses focus.
