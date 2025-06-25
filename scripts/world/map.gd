@@ -72,7 +72,7 @@ func _on_interactable_unfocused(interactor: Interactor) -> void:
 
 ## Changes scene to control room.
 func _on_interactable_interacted_control_room(interactor: Interactor) -> void:
-	get_tree().change_scene_to_file("res://scenes/controlroom/controlroom.tscn")
+	get_tree().change_scene_to_file("res://scenes/control_room/control_room.tscn")
 
 ## Changes scene to Luminy For Speed racing world.
 func _on_interactable_interacted_car(interactor: Interactor) -> void:
