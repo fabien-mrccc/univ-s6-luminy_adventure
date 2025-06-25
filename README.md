@@ -25,9 +25,20 @@ Luminy Adventure est un jeu vidéo immersif solo qui permet d’explorer libreme
 | Interagir          | E (quand affiché) |
 | Clic bouton        | Clic gauche       |
 
-### Lancer le jeu
+### Créer l'exécutable et lancer le jeu
 
-Téléchargez l’exécutable correspondant à votre plateforme (Windows/macOS), puis double-cliquez pour démarrer.
+Étapes pour exporter sous Windows :
+1. Ouvrez le projet dans Godot.  
+2. Allez dans **Project > Export**.  
+3. Si vous n’avez pas encore installé les export templates, cliquez sur **Download Export Templates** et suivez les instructions.  
+4. Cliquez sur **Add…** et choisissez **Windows Desktop**.  
+5. Dans l’onglet **Options**, renseignez :  
+   - **Name** = `LuminyAdventure`  
+   - **Export Path** = `luminy_adventure.exe`  
+6. Cliquez sur **Export Project** pour générer l’exécutable.  
+7. Le fichier `.exe` sera créé à l’emplacement choisi. Vous pouvez le distribuer avec le fichier `data.pck`.
+
+Vous pouvez double-cliquer sur le `.exe` pour démarrer le jeu.
 
 ### Progression
 
@@ -105,9 +116,20 @@ Luminy Adventure is a single-player immersive video game that lets you freely ex
 | Interact     | E (when shown) |
 | UI click     | Left click     |
 
-### Launch the Game
+### Export and launch the Game
 
-Download the executable for your platform (Windows/macOS) and double-click to start.
+Steps to export for Windows:
+1. Open the project in Godot.  
+2. Go to **Project > Export**.  
+3. If you haven’t installed export templates yet, click **Download Export Templates** and follow the instructions.  
+4. Click **Add…** and choose **Windows Desktop**.  
+5. In the **Options** tab, set:  
+   - **Name** = `LuminyAdventure`  
+   - **Export Path** = `luminy_adventure.exe`  
+6. Click **Export Project** to generate the executable.  
+7. The `.exe` file will be created at the chosen location. You can distribute it along with the `data.pck` file.
+
+You can double-click the `.exe` to launch the game.
 
 ### Progression
 
