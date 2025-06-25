@@ -26,11 +26,13 @@ func _on_choice(index: int) -> void:
 			Global.manga_kill_finished = true
 			await _show_end_dialogue("Mika : (calme) Tu as compris. Ce monde n’est plus à moi. Ferme-le.\nTu es libre.")
 
+## Displays the final dialogue with a quit option.
 func _show_end_dialogue(text: String) -> void:
 	dialogue_box.show_dialogue(text, ["Quitter"])
 	await get_tree().process_frame
 	dialogue_box.choice_selected.connect(_exit)
-	
+
+## Handles quit choice, clears dialogue and changes scene.
 func _exit(index: int) -> void:
 	dialogue_box.choice_selected.disconnect(_exit)
 	dialogue_box.show_dialogue("")

@@ -26,7 +26,10 @@ var is_returning: bool = false
 var is_continuing: bool = false
 var has_emitted_arrival: bool = false
 
+## PathFollow3D parent used to animate the student's position.
 @onready var path_follow: PathFollow3D = get_parent()
+
+## AnimationPlayer used to play student animations.
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 ## Dialogue line shown when the student arrives.
@@ -51,9 +54,12 @@ func start_walk() -> void:
 	reset_state()
 	anim_player.play("Walk")
 
+## Called when the node enters the scene tree.
 func _ready() -> void:
 	anim_player.play("Walk")
 
+## Main movement logic called every frame.
+## @param delta: float - Frame time step.
 func _process(delta: float) -> void:
 	if is_returning:
 		path_follow.progress -= return_speed * delta

@@ -10,7 +10,8 @@ var good_answer: bool = false
 ## Number of the current question being displayed.
 var current_question: int = 0
 
-#var qui_veut_reussir_son_annee_finished:bool = false
+# var qui_veut_reussir_son_annee_finished:bool = false
+
 var manga_kill_finished:bool = false
 
 var wrong_answer:bool = false
@@ -23,15 +24,19 @@ var answers = [
 	3, 3, 1, 2, 4
 ]
 
+## Plants to count
 var cistes = []
 var aphyllanthes = []
 var narcisses = []
 
+## Total and current
 var total_ciste = 10
 var current_ciste = 0
 
+## Total and current
 var total_botanic_aphyllanthes = 8
 var current_botanic_aphyllanthes = 0
 
+## Total and current
 var total_botanic_narcisses = 3
 var current_botanic_narcisses = 0

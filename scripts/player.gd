@@ -26,7 +26,7 @@ var _speed: float = WALK_SPEED
 ## Flag indicating whether sprinting is active.
 var is_sprinting := false
 
-## Flags to enable/disable movement and camera control
+## Flags to enable/disable movement and camera control.
 var can_move := true
 var can_look := true
 
@@ -45,7 +45,7 @@ const SENSITIVITY_OFFSET := 10000
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var animation_player: AnimationPlayer = $Head/Character_020/AnimationPlayer
 @onready var shader_material: ShaderMaterial = $MotionLinesLayer/MotionLines.material
-@onready var _worldUi = $"../WorldUi"
+@onready var world_ui = $"../WorldUi"
 
 ## Called when the node enters the scene tree.
 ## Captures the mouse and initializes the camera FOV and positions.
@@ -56,37 +56,40 @@ func _ready() -> void:
 	camera_target_pos = base_camera_pos
 	_play_animation("Idle")
 	_verify_save_directory(save_file_path)
-	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
-		save = ResourceLoader.load( save_file_path + save_file_name )
+	if ResourceLoader.exists(save_file_path + save_file_name):
+		save = ResourceLoader.load(save_file_path + save_file_name)
 	_update()
-		
+
+## Ensures the save directory exists.
+## @param path: String - Path to the save directory.
 func _verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
-	
+
+## Loads save data from disk.
 func _load_data():
 	save = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
 	print("loaded")
-	
+
+## Saves the current game state to disk.
 func _save():
 	ResourceSaver.save(save, save_file_path + save_file_name)
 	print(save)
 
+## Updates the UI depending on the current scene.
 func _update():
 	if get_tree().current_scene.name == "game_batiste":
-		_worldUi._update_qui_veut_reussir_son_annee()
-	
+		world_ui._update_qui_veut_reussir_son_annee()
 	elif get_tree().current_scene.name == "ControlRoom":
 		pass
-	
 	else:
-		_worldUi._update_qui_veut_reussir_son_annee()
-		_worldUi._update_aphyllanthes()
-		_worldUi._update_ciste()
-		_worldUi._update_narcisse()
-		_worldUi._update_qui_veut_reussir_son_annee()
-		_worldUi._update_luminy_for_speed()
-		_worldUi._update_control_room()
-		_worldUi._update_manga_kill()
+		world_ui._update_qui_veut_reussir_son_annee()
+		world_ui._update_aphyllanthes()
+		world_ui._update_ciste()
+		world_ui._update_narcisse()
+		world_ui._update_qui_veut_reussir_son_annee()
+		world_ui._update_luminy_for_speed()
+		world_ui._update_control_room()
+		world_ui._update_manga_kill()
 
 ## Handles mouse motion for camera and head rotation.
 ## @param event: InputEventMouseMotion - Mouse motion event.
@@ -95,13 +98,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * sensitivity / SENSITIVITY_OFFSET)
 		camera.rotate_x(-event.relative.y * sensitivity / SENSITIVITY_OFFSET)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-		
+
 ## Handles toggling the escape menu and mouse mode.
+## @param _delta: float - Frame time (unused).
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		var esc_menu := $EscMenuLayer
-		var is_menu_visible: bool= esc_menu.visible
-
+		var is_menu_visible: bool = esc_menu.visible
 		esc_menu.visible = not is_menu_visible
 
 		if esc_menu.visible:
@@ -118,7 +121,7 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not can_move:
 		return
-		
+
 	_apply_gravity(delta)
 	_handle_movement_input(delta)
 
@@ -129,7 +132,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var is_moving := input_dir.length_squared() > 0.001
 	var movement_delta: Vector3 = global_position - previous_position
-	movement_delta.y = 0.0 
+	movement_delta.y = 0.0
 
 	if is_moving and is_on_floor() and movement_delta.length_squared() < 0.0001:
 		global_position.y += 0.05

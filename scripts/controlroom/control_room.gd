@@ -1,13 +1,22 @@
 ## Manages the main control room logic including student interactions, document display, and dialogue.
 extends Node3D
 
+## Path follow node for student bot movement.
 @onready var bot_path_follow = $BotPath/BotPathFollow
+
+## UI root buttons and controls.
 @onready var ui = $CanvasLayer/Control/BackgroundButton
 @onready var control_root = $CanvasLayer/Control
 @onready var btn_accept = $CanvasLayer/Control/BackgroundButton/Accept
 @onready var btn_refuse = $CanvasLayer/Control/BackgroundButton/Refuse
+
+## Player node reference.
 @onready var player = $Player
+
+## Animation player for character.
 @onready var animation_player = $Player/Head/Character_020/AnimationPlayer
+
+## Dialogue bubble for displaying text.
 @onready var dialogue_bubble = $CanvasLayer/Control/DialogueBubble
 
 ## List of student scene paths to be instantiated sequentially.
@@ -38,6 +47,8 @@ var current_document: Node = null
 ## Counter for incorrect player choices.
 var error_count: int = 0
 
+## Called when the node enters the scene tree.
+## Initializes UI and spawns the first student.
 func _ready() -> void:
 	dialogue_bubble.visible = false
 	player.can_move = false
@@ -46,9 +57,10 @@ func _ready() -> void:
 	btn_refuse.pressed.connect(_on_refuse_pressed)
 
 	_set_ui_visible(false)
-	spawn_student()
+	_spawn_student()
 
-func spawn_student() -> void:
+## Spawns the next student and their associated document.
+func _spawn_student() -> void:
 	if is_instance_valid(current_student):
 		if current_student.is_connected("interaction_complete", Callable(self, "_on_student_interaction_complete")):
 			current_student.disconnect("interaction_complete", Callable(self, "_on_student_interaction_complete"))
@@ -56,7 +68,6 @@ func spawn_student() -> void:
 
 	if current_index >= student_scenes.size():
 		if error_count == 0:
-			print("🎉 All answers correct.")
 			player.save._valid_control_room()
 			player._save()
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
@@ -90,6 +101,8 @@ func spawn_student() -> void:
 
 	_set_ui_visible(false)
 
+## Called when student arrives at the interaction point.
+## Displays UI and relevant dialogue.
 func _on_student_arrived() -> void:
 	_set_ui_visible(true)
 	player.can_look = false
@@ -99,6 +112,7 @@ func _on_student_arrived() -> void:
 		current_document.visible = true
 		dialogue_bubble.show_dialogue(current_document.dialogue_entrée)
 
+## Handles logic when the "accept" button is pressed.
 func _on_accept_pressed() -> void:
 	if is_instance_valid(current_student):
 		_set_ui_visible(false)
@@ -112,6 +126,7 @@ func _on_accept_pressed() -> void:
 			if current_document.should_be_accepted == false:
 				error_count += 1
 
+## Handles logic when the "refuse" button is pressed.
 func _on_refuse_pressed() -> void:
 	if is_instance_valid(current_student):
 		_set_ui_visible(false)
@@ -125,6 +140,8 @@ func _on_refuse_pressed() -> void:
 			if current_document.should_be_accepted == true:
 				error_count += 1
 
+## Handles completion of the current student interaction.
+## Spawns the next student after a short delay.
 func _on_student_interaction_complete() -> void:
 	if current_student.is_connected("interaction_complete", Callable(self, "_on_student_interaction_complete")):
 		current_student.disconnect("interaction_complete", Callable(self, "_on_student_interaction_complete"))
@@ -135,7 +152,7 @@ func _on_student_interaction_complete() -> void:
 
 	dialogue_bubble.clear_dialogue()
 	await get_tree().create_timer(0.5).timeout
-	spawn_student()
+	_spawn_student()
 
 ## Enables or disables the UI and adjusts input behavior accordingly.
 ## @param value: bool - Whether to show or hide the UI.
