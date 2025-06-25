@@ -40,6 +40,8 @@ func _ready() -> void:
 			screen_mode_option.select(0)
 		_:
 			screen_mode_option.select(1)
+			
+	AudioServer.set_bus_volume_db(0, linear_to_db(sound_slider.value))
 
 func _process(_delta: float) -> void:
 	var current_mode = DisplayServer.window_get_mode()

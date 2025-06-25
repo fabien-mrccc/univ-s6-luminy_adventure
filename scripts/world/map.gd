@@ -111,4 +111,4 @@ func _on_interactable_interacted_ControlRoom(interactor: Interactor) -> void:
 
 
 func _on_interactable_interacted_car(interactor: Interactor) -> void:
-	get_tree().change_scene_to_file("res://scenes/luminy_for_speed/race_map.tscn")
+	get_tree().change_scene_to_file("res://scenes/luminy_for_speed/race_world.tscn")

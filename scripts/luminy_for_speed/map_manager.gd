@@ -1,10 +1,10 @@
 extends Node3D
 
-@onready var chrono_label = $CanvasLayer/ChronoLabel
-@onready var player_car = $PlayerCar/Car_010
+@onready var chrono_label = $TimerUI/ChronoLabel
+@onready var player_car = $"../PlayerCar/Car_LFS"
 @onready var finish_line = $FinishLine
 @onready var off_road_zones = $OffRoadZones
-@onready var countdown_label = $CanvasLayer/CountdownLabel
+@onready var countdown_label = $TimerUI/HBoxContainer/CountdownLabel
 
 var race_started := false
 var race_time := 0.0
@@ -46,13 +46,14 @@ func _on_finish_line_entered(body):
 		get_tree().change_scene_to_file("res://scenes/world.tscn")
 		
 func _on_offroad_zone_exited(body):
-	if body == player_car:
-		var original_transform = body.global_transform
-		var forward = -original_transform.basis.z.normalized()
-		var side_offset = original_transform.basis.x.normalized() * 0.5
-		var respawn_pos = original_transform.origin + side_offset
-		respawn_pos.y = 50.0
-		body.global_transform.origin = respawn_pos
-		body.global_transform.basis = original_transform.basis
-		body.linear_velocity = Vector3.ZERO
-		body.angular_velocity = Vector3.ZERO
+	return
+	# if body == player_car:
+	#	var original_transform = body.global_transform
+	#	var forward = -original_transform.basis.z.normalized()
+	#	var side_offset = original_transform.basis.x.normalized() * 0.5
+	#	var respawn_pos = original_transform.origin + side_offset
+	#	respawn_pos.y = 50.0
+	#	body.global_transform.origin = respawn_pos
+	#	body.global_transform.basis = original_transform.basis
+	#	body.linear_velocity = Vector3.ZERO
+	#	body.angular_velocity = Vector3.ZERO

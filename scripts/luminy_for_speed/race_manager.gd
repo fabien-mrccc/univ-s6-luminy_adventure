@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var player_car = $PlayerCar/Car_010
+@onready var player_car = $PlayerCar/Car_LFS
 @onready var finish_line = $FinishLine
 @onready var off_road_right = $OffRoadRight
 @onready var off_road_left = $OffRoadLeft
