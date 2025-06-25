@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://beb8twk83ch6m"]
-
-[ext_resource type="PackedScene" uid="uid://cts4bow2xc2fv" path="res://assets/models/furniture/Light_000.glb" id="1_dudha"]
-
-[node name="Light_000" instance=ExtResource("1_dudha")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:45058a97b202b63d4cb883ee977117bb223bed847564c1d729dadb582500e22b
+size 241

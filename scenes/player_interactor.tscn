@@ -1,11 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://ogwsnuyi15gb"]
-
-[ext_resource type="PackedScene" uid="uid://b6j3lgdan5457" path="res://scenes/interactor.tscn" id="1_bwecx"]
-[ext_resource type="Script" uid="uid://dkdjhqg4fb1b8" path="res://scripts/player_interactor.gd" id="2_p53pr"]
-
-[node name="PlayerInteractor" instance=ExtResource("1_bwecx")]
-script = ExtResource("2_p53pr")
-
-[node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322052, -0.293945, -2.77795)
-debug_color = Color(0, 0.6, 0.701961, 1)
+version https://git-lfs.github.com/spec/v1
+oid sha256:589da05099e715838e05152f8104ff506e650ae617f1f7a1f2d077f12db19fcd
+size 510

@@ -1,16 +1,3 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt31wcyhjoo6s"]
-
-[ext_resource type="PackedScene" uid="uid://t68dtijt81x7" path="res://assets/models/furniture/Door_000.glb" id="1_sv1fx"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44ch3"]
-albedo_color = Color(0.730401, 0.202288, 0.121183, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jh5fx"]
-albedo_color = Color(0.729412, 0.203922, 0.121569, 1)
-
-[node name="Door_000" instance=ExtResource("1_sv1fx")]
-
-[node name="Door" parent="." index="1"]
-transform = Transform3D(0.870287, 0, 0.492545, 0, 1, 0, -0.492545, 0, 0.870287, 0.610328, 0, -0.00143769)
-surface_material_override/0 = SubResource("StandardMaterial3D_44ch3")
-surface_material_override/2 = SubResource("StandardMaterial3D_jh5fx")
+version https://git-lfs.github.com/spec/v1
+oid sha256:22f0b32e00345fa5c27a892f2c13c9c93a891846cba5c9224f84ee59594974d5
+size 777

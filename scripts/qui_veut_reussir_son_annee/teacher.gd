@@ -41,7 +41,7 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 		question_shown = true
 		
 
-	if not talking and not Global.answer and not Global.qui_veut_reussir_son_annee_finished and not _player.save.qui_veut_reussir_son_annee:
+	if not talking and not Global.answer and not _player.save.qui_veut_reussir_son_annee:
 		_dialogue.display_line("Professeur", "Bonjour, les questions sont au tableau")
 		talking = true
 
@@ -54,26 +54,24 @@ func _on_interactable_interacted(interactor: Interactor) -> void:
 			_dialogue.display_line("Professeur", "Bonne réponse")
 			talking = true
 			Global.current_question += 1
-			if Global.current_question >= Global.answers.size():
-				Global.qui_veut_reussir_son_annee_finished = true
+			if Global.current_question >= Global.answers.size() and not Global.wrong_answer:
+				_player.save._valid_qui_veut_reussir_son_annee()
+				_player._save()
 			else:
 				_next()
 			_reset()
 		else:
 			_dialogue.display_line("Professeur", "Mauvaise réponse")
 			talking = true
+			Global.wrong_answer = true
 			Global.current_question += 1
-			if Global.current_question >= Global.answers.size():
-				Global.qui_veut_reussir_son_annee_finished = true
-			else:
-				_next()
+			_next()
 			_reset()
-	elif Global.qui_veut_reussir_son_annee_finished or _player.save.qui_veut_reussir_son_annee:
+	elif _player.save.qui_veut_reussir_son_annee:
 		_dialogue.display_line("Professeur", "Le quiz est fini")
 		_player.save._valid_qui_veut_reussir_son_annee()
 		_player._save()
 		Global.current_question = Global.answers.size()
-		Global.qui_veut_reussir_son_annee_finished = true
 
 ## Closes the prompt when the player stops focusing on the NPC.
 ## @param interactor: Interactor - The player moving away.

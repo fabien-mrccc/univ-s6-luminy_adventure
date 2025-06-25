@@ -1,11 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcurcb35ibpqd"]
-
-[ext_resource type="PackedScene" uid="uid://emxgbixuevc2" path="res://assets/models/furniture/Chair_000.glb" id="1_1t6vr"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1t6vr"]
-albedo_color = Color(0.650128, 0.650128, 0.650128, 1)
-
-[node name="Chair_000" instance=ExtResource("1_1t6vr")]
-
-[node name="Chair" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_1t6vr")
+version https://git-lfs.github.com/spec/v1
+oid sha256:be69b1c9107fdbc39e25ddb0555d101d204219295590079f351126b5fa3ccebc
+size 478

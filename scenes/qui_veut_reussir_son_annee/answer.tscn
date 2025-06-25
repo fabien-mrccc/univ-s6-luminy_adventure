@@ -1,9 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://buvfgdubs8gou"]
-
-[ext_resource type="Script" uid="uid://d4ahnfi4psw83" path="res://scripts/qui_veut_reussir_son_annee/answer.gd" id="1_rpycv"]
-
-[node name="answer" type="Label3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3393, 0)
-text = "text"
-script = ExtResource("1_rpycv")
-metadata/index = 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8b6fb178a18f355a95ae94bfabeaa73b5268ccea816d9195b9fe3b0d7b201c6
+size 353

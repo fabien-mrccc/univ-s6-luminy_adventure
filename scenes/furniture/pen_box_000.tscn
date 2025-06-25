@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://c57id1135vfip"]
-
-[ext_resource type="PackedScene" uid="uid://dl18rbtfb8xnk" path="res://assets/models/furniture/PenBox_000.glb" id="1_6fnkx"]
-
-[node name="PenBox_000" instance=ExtResource("1_6fnkx")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:d1368d15c4f089cea4764609f5fdf9d448425f8ca66ed5c940a19a39f0a8c2d7
+size 243

@@ -1,12 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7dejqccroeeh"]
-
-[ext_resource type="Script" uid="uid://ddrdqp6niu2hy" path="res://scripts/luminy_for_speed/car.gd" id="1_0ap3m"]
-[ext_resource type="PackedScene" uid="uid://ewdr5r6dg0x0" path="res://scenes/cars/car_luminy_for_speed.tscn" id="1_o81c8"]
-
-[node name="PlayerCar" type="Node3D"]
-script = ExtResource("1_0ap3m")
-
-[node name="Car_LFS" parent="." instance=ExtResource("1_o81c8")]
-
-[node name="Camera3D" type="Camera3D" parent="Car_LFS"]
-transform = Transform3D(1, 0, 0, 0, 0.923859, 0.382732, 0, -0.382732, 0.923859, 3.87303, 3.27139, 0.837587)
+version https://git-lfs.github.com/spec/v1
+oid sha256:db781767d98b60500dbcefe351b94ee12e2348ae2c923ce9b0620316a6efc11c
+size 598

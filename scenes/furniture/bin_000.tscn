@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://d08o20o2la8q8"]
-
-[ext_resource type="PackedScene" uid="uid://dlq7lr8rry1w4" path="res://assets/models/furniture/Bin_000.glb" id="1_vw5bc"]
-
-[node name="Bin_000" instance=ExtResource("1_vw5bc")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:f01600e28c4e8c9c943b984898859c35e49e1facbeb8516587bf1e0300600b0b
+size 237

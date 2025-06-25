@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjxx2lu8pwh35"]
-
-[ext_resource type="PackedScene" uid="uid://yterj3wm2ph8" path="res://assets/models/furniture/Table_000.glb" id="1_0741s"]
-
-[node name="Table_000" instance=ExtResource("1_0741s")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:f7167c5d1029d9abd5008b1c54fa38e3c81a7beb6196bfdd4d261ba9396137be
+size 240

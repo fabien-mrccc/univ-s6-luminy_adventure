@@ -1,6 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://jt6wsefn0x54"]
-
-[ext_resource type="Script" path="res://addons/gut/gut_loader_the_scene.gd" id="1_1j0og"]
-
-[node name="Node" type="Node2D"]
-script = ExtResource("1_1j0og")
+version https://git-lfs.github.com/spec/v1
+oid sha256:b5e1b357f52ca78f51dd08ecc061226aa040f0e3ece53367b3e0adc79d9952f9
+size 215

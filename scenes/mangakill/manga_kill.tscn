@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjvmcc4kcp23i"]
-
-[ext_resource type="PackedScene" uid="uid://djagx8gy27s53" path="res://assets/mangakill/MangaKill.glb" id="1_g2baf"]
-
-[node name="MangaKill" instance=ExtResource("1_g2baf")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:27e3a56d7be6ef3d6d7b7b878f12aacd436609a9bd9962d46c0dd6c68ac86437
+size 234

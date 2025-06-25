@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5aou6ecstskv"]
-
-[ext_resource type="PackedScene" uid="uid://b5y8bt4k8u630" path="res://assets/models/furniture/Paper_000.glb" id="1_6isag"]
-
-[node name="Paper_000" instance=ExtResource("1_6isag")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:3116d3c8e0d5a1ff911caafb2d348ee243789d65b24a9a0cc582783f84e90381
+size 241

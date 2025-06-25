@@ -1,11 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfqk2214mem0n"]
-
-[ext_resource type="PackedScene" uid="uid://dqyfifduecf5a" path="res://assets/models/furniture/Monitor_000.glb" id="1_kweb0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kweb0"]
-albedo_color = Color(0.637843, 0.637843, 0.637843, 1)
-
-[node name="Monitor_000" instance=ExtResource("1_kweb0")]
-
-[node name="Cube" parent="." index="0"]
-surface_material_override/1 = SubResource("StandardMaterial3D_kweb0")
+version https://git-lfs.github.com/spec/v1
+oid sha256:982be0384562ec7c56af3b78e59d9ead03c16596bfe418343e31ce8daf9ae685
+size 482

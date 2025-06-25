@@ -10,8 +10,10 @@ var good_answer: bool = false
 ## Number of the current question being displayed.
 var current_question: int = 0
 
-var qui_veut_reussir_son_annee_finished:bool = false
+#var qui_veut_reussir_son_annee_finished:bool = false
 var manga_kill_finished:bool = false
+
+var wrong_answer:bool = false
 
 var lfs:bool = false
 

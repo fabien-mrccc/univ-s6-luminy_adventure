@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjvsv3cmidgfc"]
-
-[ext_resource type="PackedScene" uid="uid://t68dtijt81x7" path="res://assets/models/furniture/Door_000.glb" id="1_r8xpn"]
-
-[node name="Door_000" instance=ExtResource("1_r8xpn")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:9bbb32f3015452626252d3cba25d092a104bd1a06617559f9a40d5e7cc228684
+size 238

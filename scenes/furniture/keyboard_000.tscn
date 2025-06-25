@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkflfinnevvm7"]
-
-[ext_resource type="PackedScene" uid="uid://c01qwvkkrop2r" path="res://assets/models/furniture/Keyboard_000.glb" id="1_m6q4f"]
-
-[node name="Keyboard_000" instance=ExtResource("1_m6q4f")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:9697dab32d50c5059de960a9dce55e1814264e7346c85156a2dbcfc7ec0aca50
+size 247

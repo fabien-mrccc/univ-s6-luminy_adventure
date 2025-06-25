@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnvclhknul11p"]
-
-[ext_resource type="PackedScene" uid="uid://d1owj3s23q8i6" path="res://assets/models/furniture/Phone_000.glb" id="1_4vymv"]
-
-[node name="Phone_000" instance=ExtResource("1_4vymv")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:56634fbb74fb54a94a410f2acb5d1f73f714212f350c0277dac4be0e22859ad3
+size 241

@@ -1,19 +1,3 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk8q4sgpbqipv"]
-
-[ext_resource type="PackedScene" uid="uid://ovwcyo0a0h8p" path="res://assets/models/cars/Car_010.glb" id="1_u3hus"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5p8u"]
-albedo_color = Color(0.478431, 0.0313726, 0.027451, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u3hus"]
-points = PackedVector3Array(-1.22545, 0.781845, 0.451456, 1.19791, 0.959095, 0.569576, 1.19791, 0.781845, 0.569576, 0.961169, 0.840928, -1.79394, -0.71091, 1.51197, -1.02136, -0.935517, 0.227993, -1.74991, 0.955497, 0.233303, 1.81083, -1.04802, 0.486296, 1.92925, 0.963576, 0.227993, -1.74991, 0.656346, 1.4873, 0.252233, -0.929887, 0.840928, 1.87001, -1.04802, 0.190747, 1.69264, 0.961169, 0.840928, 1.87001, 0.683177, 1.512, -1.02141, -0.929887, 0.840928, -1.79394, -0.683182, 1.48645, 0.251937, -1.22545, 0.959095, 0.569576, -1.04802, 0.486296, -1.85355, 1.07954, 0.368129, -1.67619, -0.990726, 0.2284, -1.69247, -0.927898, 0.233303, 1.81083, -1.22545, 0.959095, 0.451456, 0.72973, 1.44896, 0.258093, 1.19791, 0.959095, 0.451456, 1.07954, 0.486296, -1.67619, 0.729733, 1.44896, -1.06371, -1.22545, 0.781845, 0.569576, 1.07954, 0.368129, -1.5577, 1.19791, 0.781845, 0.451456)
-
-[node name="Car_010" instance=ExtResource("1_u3hus")]
-
-[node name="Car_Body" parent="." index="0"]
-surface_material_override/2 = SubResource("StandardMaterial3D_y5p8u")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Car_Body" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Car_Body/StaticBody3D" index="0"]
-shape = SubResource("ConvexPolygonShape3D_u3hus")
+version https://git-lfs.github.com/spec/v1
+oid sha256:0be12243f558e98418d697f144bdda840a56724feecc1401e883c191577ef45d
+size 1650

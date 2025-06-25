@@ -17,7 +17,7 @@ var answers = [
 func _next_question():
 	if _answer.get_meta("index") == 0:
 		_answer.text = answers[Global.current_question + _answer.get_meta("index")]
-	else:
+	elif Global.current_question + _answer.get_meta("index") < 25:
 		_answer.text = str(_answer.get_meta("index")/5) + ") " + answers[Global.current_question + _answer.get_meta("index")]
 
 ## Makes the label visible on screen.

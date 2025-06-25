@@ -3,6 +3,7 @@ extends Node3D
 
 ## Reference to the UI dialogue system.
 @onready var _dialogue = get_node("../UI/dialogue")
+@onready var _player = $"../Player"
 
 ## Indicates if a dialogue is currently active.
 var _talking: bool = false
@@ -40,20 +41,20 @@ func _on_interactable_focused(interactor: Interactor) -> void:
 func _on_interactable_interacted(interactor: Interactor) -> void:
 	_dialogue.close()
 	
-	if not _talking and Global.qui_veut_reussir_son_annee_finished:
+	if not _talking and _player.save.qui_veut_reussir_son_annee:
 		_dialogue.display_line("étudiant", "Le jeu est fini")
 		
-	elif _talking and Global.qui_veut_reussir_son_annee_finished:
+	elif _talking and _player.save.qui_veut_reussir_son_annee:
 		_dialogue.close()
 		_talking = false
 		
-	elif not Global.qui_veut_reussir_son_annee_finished:
+	elif not _player.save.qui_veut_reussir_son_annee:
 		
 		if _talking:
 			_dialogue.close()
 			_talking = false
 		
-		elif not _talking and not _50_50_used and _explanation and Global.qui_veut_reussir_son_annee_finished != not Global.qui_veut_reussir_son_annee_finished:
+		elif not _talking and not _50_50_used and _explanation and _player.save.qui_veut_reussir_son_annee:
 			_gen_50_50()
 			_dialogue.display_line("étudiant", "la réponse est soit " + str(_hints[0]) + " soit " + str(_hints[1]))
 			_talking = true

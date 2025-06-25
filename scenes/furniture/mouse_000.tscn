@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv4qjiuc86iic"]
-
-[ext_resource type="PackedScene" uid="uid://bm0x6ahwegk0s" path="res://assets/models/furniture/Mouse_000.glb" id="1_n72gd"]
-
-[node name="Mouse_000" instance=ExtResource("1_n72gd")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:68fe6587b48629a587cec0a421acf96e3a3c82504302660ec61c5f1dca5da725
+size 241

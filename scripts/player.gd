@@ -58,7 +58,6 @@ func _ready() -> void:
 	_verify_save_directory(save_file_path)
 	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
 		save = ResourceLoader.load( save_file_path + save_file_name )
-		Global.qui_veut_reussir_son_annee_finished = true
 	_update()
 		
 func _verify_save_directory(path: String):

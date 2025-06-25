@@ -1,5 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg6hd3adp6vop"]
-
-[ext_resource type="PackedScene" uid="uid://2etd34p4ryid" path="res://assets/models/furniture/Closet_000.glb" id="1_sewj4"]
-
-[node name="Closet_000" instance=ExtResource("1_sewj4")]
+version https://git-lfs.github.com/spec/v1
+oid sha256:e357da07855198f96a9efe8eb18e41de7e8e2013c811ab71c7de35dd5e24fd8e
+size 242
