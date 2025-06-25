@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5bukvc5id0g2"]
 
-[ext_resource type="Texture2D" uid="uid://glcskrgn17mq" path="res://assets/AssetsControlRoom/PhotoEtudiant1.png" id="1_0y8pq"]
+[ext_resource type="Texture2D" uid="uid://glcskrgn17mq" path="res://assets/controlroom/PhotoEtudiant1.png" id="1_0y8pq"]
 [ext_resource type="Script" uid="uid://dx66dm0fh1qti" path="res://scripts/controlroom/doc_1.gd" id="1_amej4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptktr"]

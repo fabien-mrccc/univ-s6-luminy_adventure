@@ -1,8 +1,8 @@
 [gd_scene load_steps=58 format=3 uid="uid://xp4manfw6fru"]
 
 [ext_resource type="PackedScene" uid="uid://dqf18m1yyypxw" path="res://scenes/world/map.tscn" id="1_c14h3"]
-[ext_resource type="Script" uid="uid://we6wnljvn0tb" path="res://lfs/scripts/map_manager.gd" id="2_7qi7c"]
-[ext_resource type="PackedScene" uid="uid://b7dejqccroeeh" path="res://lfs/scenes/player_car.tscn" id="2_7ru2w"]
+[ext_resource type="Script" uid="uid://we6wnljvn0tb" path="res://scripts/luminy_for_speed/map_manager.gd" id="2_7qi7c"]
+[ext_resource type="PackedScene" uid="uid://b7dejqccroeeh" path="res://scenes/luminy_for_speed/player_car.tscn" id="2_7ru2w"]
 [ext_resource type="FontFile" uid="uid://cqsg0tklg1kf7" path="res://assets/ui/NotoSans-SemiBold.ttf" id="4_a50g5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c14h3"]

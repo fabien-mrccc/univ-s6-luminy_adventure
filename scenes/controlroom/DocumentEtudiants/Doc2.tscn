@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6f4pt1trn5n4"]
 
 [ext_resource type="Script" uid="uid://bg28b0mox1vtt" path="res://scripts/controlroom/doc_2.gd" id="1_3ulyp"]
-[ext_resource type="Texture2D" uid="uid://cq6yh2e5pcogd" path="res://assets/AssetsControlRoom/PhotoEtudiant2.png" id="2_3ulyp"]
+[ext_resource type="Texture2D" uid="uid://cq6yh2e5pcogd" path="res://assets/controlroom/PhotoEtudiant2.png" id="2_3ulyp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptktr"]
 bg_color = Color(0.768489, 0.146398, 0.082146, 1)

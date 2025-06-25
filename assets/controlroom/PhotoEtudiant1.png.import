@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq6yh2e5pcogd"
-path="res://.godot/imported/PhotoEtudiant2.png-5435e17b6d7129fefaebb7229af6c6b7.ctex"
+uid="uid://glcskrgn17mq"
+path="res://.godot/imported/PhotoEtudiant1.png-462a78c0e2dc17d3c6412e71e0994695.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/AssetsControlRoom/PhotoEtudiant2.png"
-dest_files=["res://.godot/imported/PhotoEtudiant2.png-5435e17b6d7129fefaebb7229af6c6b7.ctex"]
+source_file="res://assets/controlroom/PhotoEtudiant1.png"
+dest_files=["res://.godot/imported/PhotoEtudiant1.png-462a78c0e2dc17d3c6412e71e0994695.ctex"]
 
 [params]
 

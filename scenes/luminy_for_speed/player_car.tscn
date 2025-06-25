@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7dejqccroeeh"]
 
-[ext_resource type="Script" uid="uid://ddrdqp6niu2hy" path="res://lfs/scripts/car.gd" id="1_0ap3m"]
+[ext_resource type="Script" uid="uid://ddrdqp6niu2hy" path="res://scripts/luminy_for_speed/car.gd" id="1_0ap3m"]
 [ext_resource type="PackedScene" uid="uid://ewdr5r6dg0x0" path="res://scenes/cars/car_luminy_for_speed.tscn" id="1_o81c8"]
 
 [node name="PlayerCar" type="Node3D"]
